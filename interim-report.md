@@ -18,7 +18,7 @@
 
 *TODO: Add more information relating to our newest proposed idea: Investigating how similarity between instances of data in each proposed dataset can affect the performance of a CNN.*
 
-*Note: Whilst writing introduction, embed semi-literature review into the introduction and motivation by citing relevant papers. i.e: 
+*Note: Whilst writing introduction, embed semi-literature review into the introduction and motivation by citing relevant papers. i.e: neural network architectures typically need large amounts of data to perform well.*
 
 **2. Research Questions**
 
@@ -80,6 +80,12 @@ To try and find a good method of improving performance on the same task using a 
 
 *prerequisite: experimental results*
 
+*Notes*
+
+* Train basic CNN (using above methodology §4.) on entire dataset(s).
+* Obtain accuracies for baseline results.
+* Subsample original dataset, retrain the same network and obtain new accuracies using the smaller dataset(s).
+
 **5.1. Further Experiments**
 
 **TODO**
@@ -87,6 +93,11 @@ To try and find a good method of improving performance on the same task using a 
 **6. Interim Conclusions**
 
 *prerequisite: experimental results from §5.*
+
+*Notes*
+
+* Compare accuracies from dataset 1 and dataset 2, make some conclusions about the similarities between datasets.
+* Evaluate hypothesis: smaller training datasets provide lower generalisation accuracies on our proposed CNN architecture.
 
 **7. Future Work**
 
