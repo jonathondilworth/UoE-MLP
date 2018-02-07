@@ -19,9 +19,10 @@
 
 **IMPORTANT: State a risk: due to the unbalanced nature of one of our training sets (poses), this could be an issue.**
 
-**Moving Forwards:**
+**Moving Forwards (for Friday and beyond):**
 
 * Jonathon: Document suggested readings posted by Steve.
 * Jonathon, Sebastian: Read suggested reading posted Steve.
 * All: Continue working towards writing interim report.
-* 
+* Sebastian: Finish up working with data, make analysis of number of parameters.
+* Steve: Play around with CNN architectures with data on GitHub.
