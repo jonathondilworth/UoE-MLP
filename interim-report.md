@@ -1,4 +1,4 @@
-### Interim Report
+### Draft Interim Report
 
 **Abstract**
 
@@ -18,9 +18,11 @@
 
 *TODO: Add more information relating to our newest proposed idea: Investigating how similarity between instances of data in each proposed dataset can affect the performance of a CNN.*
 
+*Note: Whilst writing introduction, embed semi-literature review into the introduction and motivation by citing relevant papers. i.e: 
+
 **2. Research Questions**
 
-Within this section two sets of research questions are presented. Firstly, a set of research questions that are addressed within this report is provided (§2.1). Secondly, a set of future research questions to be addressed within the concluding report is offered (§2.2). Thereafter, the aims and objectives of the proposed research questions are probed (§2.3). Finally, a set of hypotheses is given.
+Within this section two sets of research questions are presented. Firstly, a set of research questions that are addressed within this report is provided (§2.1). Secondly, a set of future research questions to be addressed within the concluding report is offered (§2.2). Thereafter, the aims and objectives of the proposed research questions are probed (§2.3). Finally, a set of hypotheses is given (§2.4).
 
 **2.1. Interim Research Questions**
 
@@ -38,6 +40,7 @@ Research question 2 has already been well researched within the literature [INSE
 1. How does applying transfer learning on to deep convolutional neural networks improve the performance of classification tasks?
 2. How does transfer learning perform on convolutional neural networks when the size of the dataset used to tune the network is greatly reduced in size?
 3. How can deep feature extraction be used in order to improve the performance of small datasets on deep neural network architectures?
+4. How does one shot learning perform on small datasets within classification tasks? (if time allows us to research this) *todo: clean up wording of research question*
 
 **2.3. Aims and Objectives**
 
