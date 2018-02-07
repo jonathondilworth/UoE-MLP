@@ -40,10 +40,10 @@ Research question 2 has already been well researched within the literature [INSE
 1. How does applying transfer learning on to deep convolutional neural networks improve the performance of classification tasks?
 2. How does transfer learning perform on convolutional neural networks when the size of the dataset used to tune the network is greatly reduced in size?
 3. How can deep feature extraction be used in order to improve the performance of small datasets on deep neural network architectures?
-4. How does one shot learning perform on small datasets within classification tasks? (if time allows us to research this) *todo: clean up wording of research question*
+4. How does one shot learning (Siamese Network) perform on small datasets within classification tasks? (if time allows us to research this) *todo: clean up wording of research question*
 
 **2.3. Aims and Objectives**
-
+To investigate whether subtle and obvious differences between classes given same no. of dataset would affect performance using convolution neural network.
 To try and find a good method of improving performance on the same task using a smaller version of the same dataset in combination with techniques.
 
 *TODO: expand on this, note: it's important to contextualise your research questions in terms of aims and objectives.*
