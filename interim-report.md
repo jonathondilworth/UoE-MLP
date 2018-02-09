@@ -73,6 +73,7 @@ To try and find a good method of improving performance on the same task using a 
 
 * http://cvit.iiit.ac.in/projects/IMFDB/ (Faces database)
 * https://www.kaggle.com/zalando-research/fashionmnist (Clothes database)
+* https://grail.cs.washington.edu/projects/deepexpr/ferg-db.html (Facial expression database)
 
 *TODO: include details about how we're going to mop / clean the datasets before usage.*
 
@@ -81,6 +82,8 @@ To try and find a good method of improving performance on the same task using a 
 **4. Methodology**
 
 *Notes*
+In the first phrase of our project, we 
+Both of two image databases are subjected to pre-processing before using as inputs in neural network.
 
 * Input Layer (are we going to pre-process the input data, such that the input layer is the same for both datasets? i.e: make the images the same dimensionality?)
 * Three convolutional layers.
