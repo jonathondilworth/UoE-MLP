@@ -4,9 +4,15 @@
 
 *WRITE THIS LAST*
 
+*TODO: State software and hardware used to conduct the experiments.*
+
 **1. Introduction and Motivation**
 
 During the last six years there has been an increase in popularity of connectionist based approaches (specifically, variations on deep neural network architectures) to solving vision based pattern recognition problems [INSERT REFERENCE HERE]. This surge in popularity has been the result of numerous advancements, including an increase in the amount of available training data and compute power [INSERT REFERENCE HERE], as is demonstrated in [INSERT AlexNet, VGGNet, LeNet references here]. Although deep neural networks work well with large amounts of training data [INSERT REFERENCE HERE], the performance of these models typically drops off in situations where only small amounts of training data is available [INSERT REFERENCE TO LEARNING CURVE HERE]. This poses a problem to smaller businesses and organisations who may not have the appropriate amount of data to utilise these emergent technologies. Such a problem motivates the investigation presented within this (and the forthcoming) report that examines the application of fruitful techniques (specifically, transfer learning) to boost the performance of deep neural network architectures using small datasets.
+
+There exists a number of data manipulation (non-machine learning) methods that have been proposed in order to combat this problem already, such as [INSERT REFERENCE TO IMAGE PROCESSING PAPER HERE] and other more naive approaches such as data augmentation [INSERT REFERENCE HERE].
+
+However, addressing this problem using novel techniques within the domain of deep neural networks has only recently started being explored. Within this report we aim to utilise such techniques such as transfer learning [INSERT REFERENCE HERE] and
 
 In order to formalise the aforementioned problem, this paper investigates the effects of dramatically reducing the training set (§x.x) size and observes the effects on this has on the accuracy of the proposed deep neural network architecture (§x.x). In addition, this procedure is applied to two comparable datasets, one with subtle differences between classes and the other with apparent differences between classes. These datasets are compared in order to gauge a fuller understanding of how the data itself can also affect the performance of deep neural networks.
 
@@ -17,6 +23,8 @@ Within the remainder of this paper a set of research questions and associated hy
 *TODO: Maybe add more information relating to our newest proposed idea: Investigating how similarity between instances of data in each proposed dataset can affect the performance of a CNN.*
 
 *TODO: Perhaps include further elaboration on how this project relates to things that have already been done in the literature.*
+
+*TODO: maybe look at generative models as a means of creating new data.*
 
 **2. Research Questions**
 
