@@ -16,6 +16,8 @@ Within the remainder of this paper a set of research questions and associated hy
 
 *TODO: Maybe add more information relating to our newest proposed idea: Investigating how similarity between instances of data in each proposed dataset can affect the performance of a CNN.*
 
+*TODO: Perhaps include further elaboration on how this project relates to things that have already been done in the literature.*
+
 **2. Research Questions**
 
 Within this section two sets of research questions are presented. Firstly, a set of research questions that are addressed within this report is provided (§2.1). Secondly, a set of future research questions to be addressed within the concluding report is offered (§2.2). Thereafter, the aims and objectives of the proposed research questions are probed (§2.3). Finally, a set of hypotheses is given (§2.4).
@@ -45,11 +47,16 @@ Research question 2 has already been well researched within the literature [INSE
 **2.3. Aims and Objectives**
 
 To investigate whether subtle and obvious differences between classes given same no. of dataset would affect performance using convolution neural network.
+
 To try and find a good method of improving performance on the same task using a smaller version of the same dataset in combination with techniques.
 
 *Notes*
 
 *TODO: expand on this, note: it's important to contextualise your research questions in terms of aims and objectives.*
+
+*TODO: Document how the aforementioned research questions differ from those already addressed by the established research?*
+
+*TODO: We could break this section up into the following based on the cw3.pdf document that is up on the MLP website: Core Objectives, Optional Objectives.*
 
 **2.4. Hypotheses**
 
@@ -62,14 +69,16 @@ To try and find a good method of improving performance on the same task using a 
 
 *TODO: Look at potential similarity metrics that could be used as empirical measurements between instances of data within the same dataset, such that we can compare similarity averages between datasets.*
 
+*TODO: Document any preprocessing methods.*
+
 * http://cvit.iiit.ac.in/projects/IMFDB/ (Faces database)
 * https://www.kaggle.com/zalando-research/fashionmnist (Clothes database)
 
 *TODO: include details about how we're going to mop / clean the datasets before usage.*
 
-**4. Methodology**
+*TODO: The Task section: 'Describe how you will evaluate the task - i.e: error metric, accuracy, generalisation, etc.. Use citations where appropriate.*
 
-**TODO**
+**4. Methodology**
 
 *Notes*
 
@@ -93,7 +102,7 @@ To try and find a good method of improving performance on the same task using a 
 
 **5.1. Further Experiments**
 
-**TODO**
+*TODO*
 
 **6. Interim Conclusions**
 

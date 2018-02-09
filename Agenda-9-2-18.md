@@ -6,3 +6,4 @@
 * Transfer all MarkDown notes in our github repo over to the google doc visible by our tutor + S. Renals.
 * See how our interim report renders in LaTeX (as it's currently written in MarkDown) in order to gauge how much more work these is to do to fill ~6 pages.
 * Think about how we're going to move forwards.
+* Discuss the processing methods that have been applied to our datasets, so we can integrate this into the interim report.
