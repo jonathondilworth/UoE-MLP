@@ -1,0 +1,29 @@
+###################################################
+# 2 conv layers on clothes
+###################################################
+
+python baseline.py clothes_cnn2_100 2 -n 30 -s 0 -p 100
+python baseline.py clothes_cnn2_90 2 -n 30 -s 0 -p 90
+python baseline.py clothes_cnn2_80 2 -n 30 -s 0 -p 80
+python baseline.py clothes_cnn2_70 2 -n 30 -s 0 -p 70
+python baseline.py clothes_cnn2_60 2 -n 30 -s 0 -p 60
+python baseline.py clothes_cnn2_50 2 -n 30 -s 0 -p 50
+python baseline.py clothes_cnn2_40 2 -n 30 -s 0 -p 40
+python baseline.py clothes_cnn2_30 2 -n 30 -s 0 -p 30
+python baseline.py clothes_cnn2_20 2 -n 30 -s 0 -p 20
+python baseline.py clothes_cnn2_10 2 -n 30 -s 0 -p 10
+
+###################################################
+# 2 conv layers on faces
+###################################################
+
+python baseline.py faces_cnn2_100 2 -n 30 -s 1 -p 100
+python baseline.py faces_cnn2_90 2 -n 30 -s 1 -p 90
+python baseline.py faces_cnn2_80 2 -n 30 -s 1 -p 80
+python baseline.py faces_cnn2_70 2 -n 30 -s 1 -p 70
+python baseline.py faces_cnn2_60 2 -n 30 -s 1 -p 60
+python baseline.py faces_cnn2_50 2 -n 30 -s 1 -p 50
+python baseline.py faces_cnn2_40 2 -n 30 -s 1 -p 40
+python baseline.py faces_cnn2_30 2 -n 30 -s 1 -p 30
+python baseline.py faces_cnn2_20 2 -n 30 -s 1 -p 20
+python baseline.py faces_cnn2_10 2 -n 30 -s 1 -p 10
