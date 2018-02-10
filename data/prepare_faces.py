@@ -1,8 +1,9 @@
 import numpy as np
 import cv2
 import glob
+from shutil import copyfile
 
-def load_data():
+def prepare():
 
     expressions = ["anger", "disgust", "fear", "joy", "neutral", "sadness", "surprise"]
     max_samples_test = 900
@@ -11,41 +12,36 @@ def load_data():
     data_train = np.zeros(4097)
     data_test = np.zeros(4097)
 
+    records_train = np.array(["-1", "fakepath"]).astype(str)
+    records_test = np.array(["-1", "fakepath"]).astype(str)
+
     for label, exp in enumerate(expressions):
         nsamples_train = 0
         nsamples_test = 0
         
-        for fname in glob.glob("./cleaned/{:s}/*".format(exp)):
-            image = cv2.imread(fname, cv2.IMREAD_GRAYSCALE).ravel()
-            sample = np.hstack(([label], image))
+        for fname in glob.glob("./faces_cleaned/{:s}/*".format(exp)):
 
-            if nsamples_test >= max_samples_test and  nsamples_train >= max_samples_train:
+            if nsamples_test >= max_samples_test and nsamples_train >= max_samples_train:
                 break
 
             elif nsamples_train < max_samples_train:
-                data_train = np.vstack((data_train, sample))
+                new_fname = "./faces/train/{:d}/{:d}.jpg".format(label, nsamples_train)
+                records_train = np.vstack((records_train, [label, new_fname]))
                 nsamples_train = nsamples_train + 1
 
             elif nsamples_test < max_samples_test:
-                data_test = np.vstack((data_test, sample))
+                new_fname = "./faces/test/{:d}/{:d}.jpg".format(label, nsamples_test)
+                records_test = np.vstack((records_test, [label, new_fname]))
                 nsamples_test = nsamples_test + 1
 
-    return data_train[1:,:], data_test[1:,:]
+            copyfile(fname, new_fname)
 
-def split_xy(data):
-    return data[:,1:], data[:,0]
+    records_train = records_train[1:,:]
+    records_test = records_test[1:,:]
 
-def save(x, y, name):
-    file = open(name, "wb")
-    np.savez(file, inputs=x, targets=y)
+    np.savetxt("faces_train.txt", records_train, delimiter=',', fmt='%s')
+    np.savetxt("faces_test.txt", records_test, delimiter=',', fmt='%s')
 
-def prepare():
-    train, test = load_data()
-    xtr, ytr = split_xy(train)
-    xte, yte = split_xy(test)
-
-    save(xtr, ytr, "faces_train.npz")
-    save(xte, yte, "faces_test.npz")
 
 prepare()
 
