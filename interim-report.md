@@ -82,8 +82,15 @@ To try and find a good method of improving performance on the same task using a 
 **4. Methodology**
 
 *Notes*
-In the first phrase of our project, we 
-Both of two image databases are subjected to pre-processing before using as inputs in neural network.
+Draft by Steven:
+In the first phrase of our project, the two research questions are first examined to create a baseline system for further work in transfer learning.
+Both of two image databases are subjected to pre-processing before using as inputs in neural network. In the facial expression dataset,
+original png files with 256x256 pixels are downscaled to 28x28 pixels so as to be comparable with the default pixels in clothes dataset.
+To understand the effect of the subtle and obvious feature differences between classes on performances (prediction accuracy, error) for  distinctive tasks, 30k images from both clothes dataset and facial dataset are evaluated on convolutional netural network respectively by performing multi-class classification task. Firstly, the architecture consists of three convolutional layers with one max-pooling Relu layer in between.The final layer is then flattened to produce one numerical output with catagorical cross-entropy as loss function (maybe add one more softmax layer before flattening to increase stability as suggested by MLP lecture?). For the optimizer, Adam or RMSprop would be used. Weight and bias is also initialized using (gloro-bengio ini. ?, random ?). After inspecting the results from first experiment. Same task is performed on much smaller dataset to investigate the discrepency of size of dataset on classification performance. (1000 dataset maybe?). By implemening the two experiments, baseline systems could be set up to investigate possible strategies to perform prediction/classification task given very small dataset which is the main goal of our project.
+
+In the second phrase of the project, two different transfer learning methods will be studied to examine potential methods to improve performances given very small dataset which is frequent in real-world scenario. Firstly, we transfer a very large pretrained network VGG16 on our aforementioned baseline system with pretrained weights on small dataset. Since VGG16 trains on 200 types of general objects. The generality of the model might be beneficial to train on common objects (clothes dataset). Apart from transferring model to domain-specific dataset (clothes dataset). We also transfer the model to dataset with unrelated and subtle differences between classes in the dataset (facial dataset), to test the effectiveness of pretrained model on task that shares little similarity with the pretrained model. 
+
+Besides transferring pretrained model, we also wish to investigate the effect of one-shot learning on small dataset. To demonstrate a basic version of one-shot learning we will implement Siamese network on either one of the dataset( clothes/facial expression) with the help of existing models and our modification to these models , due to time constrain and taking potential difficulty of implementing one-shot learning architecture from scratch. As a backup plan, we will abandon this experiment and focus more on transferring models methods.
 
 * Input Layer (are we going to pre-process the input data, such that the input layer is the same for both datasets? i.e: make the images the same dimensionality?)
 * Three convolutional layers.
