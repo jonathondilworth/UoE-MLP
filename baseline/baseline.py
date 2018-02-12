@@ -9,8 +9,9 @@ import cv2
 from keras.models import Sequential
 from keras.layers import Dense, Flatten, ELU, Activation, Lambda, Dropout
 from keras.layers.convolutional import Convolution2D
-from keras.layers import MaxPooling2D
+from keras.layers.pooling import MaxPooling2D
 from keras.optimizers import Adam, RMSprop
+from keras.initializers import glorot_uniform
 from random import randrange
 from keras.utils.np_utils import to_categorical
 
@@ -20,22 +21,22 @@ seed=10102016
 
 def get_model_1(learning):
         
-    image_shape = (1, 64, 64)
+    image_shape = (64, 64, 1)
 
     model = Sequential()
     model.add(Lambda(lambda x: x, input_shape=image_shape, output_shape=image_shape))
     
     model.add(Convolution2D(
-        5,
-        12, 
-        12, 
-        init='normal',
+        5, 
+        5, 
+        kernel_initializer='random_uniform',
+        bias_initializer='zeros',
         border_mode="valid"))
     model.add(MaxPooling2D())
     model.add(Activation('relu'))
 
     model.add(Flatten())
-    model.add(Dense(7, init='normal', activation='softmax'))
+    model.add(Dense(7, kernel_initializer=glorot_uniform(seed), activation='softmax'))
 
     optimizer = Adam(lr=learning)
     model.compile(optimizer=optimizer, loss="categorical_crossentropy", metrics=["accuracy"])
@@ -44,31 +45,31 @@ def get_model_1(learning):
 
 def get_model_2(learning):
         
-    image_shape = (1, 64, 64)
+    image_shape = (64, 64, 1)
 
     model = Sequential()
     model.add(Lambda(lambda x: x, input_shape=image_shape, output_shape=image_shape))
     
     model.add(Convolution2D(
-        5,
-        12, 
-        12, 
-        init='normal',
+        5, 
+        5, 
+        kernel_initializer='random_uniform',
+        bias_initializer='zeros',
         border_mode="valid"))
     model.add(MaxPooling2D())
     model.add(Activation('relu'))
 
     model.add(Convolution2D(
         10, 
-        12,
-        12,
-        init='normal',
+        5, 
+        kernel_initializer='random_uniform',
+        bias_initializer='zeros',
         border_mode="valid"))
     model.add(MaxPooling2D())
     model.add(Activation('relu'))
 
     model.add(Flatten())
-    model.add(Dense(7, init='normal', activation='softmax'))
+    model.add(Dense(7, kernel_initializer=glorot_uniform(seed), activation='softmax'))
 
     optimizer = Adam(lr=learning)
     model.compile(optimizer=optimizer, loss="categorical_crossentropy", metrics=["accuracy"])
@@ -203,7 +204,7 @@ def open_image(path):
     image_path = "../data" + path[1:]
     image = cv2.imread(image_path, cv2.IMREAD_GRAYSCALE)
     
-    return image.reshape((1, 64, 64))
+    return image.reshape((64, 64, 1))
            
 # arg dataset is 0 for clothes, 1 for faces
 def train_model(model, hyper_params, log_file_name, dataset=0, dataset_size=1.0):
