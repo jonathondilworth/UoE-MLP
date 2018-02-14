@@ -1,0 +1,4 @@
+learning_rate: 0.01, training_size: 2000, batch_size: 50, num_epochs: 2, loss: 12.8944763687, acc: 0.2
+val_loss,val_acc,loss,acc
+12.81567796,0.20488889,11.92296999,0.26021000
+12.81567796,0.20488889,12.88980333,0.20029000
