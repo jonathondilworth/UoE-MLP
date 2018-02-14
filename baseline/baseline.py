@@ -84,15 +84,15 @@ def load_dataset(file_train, file_test, size=1.0):
     xte, yte = data_test[:,1], data_test[:,0].astype(int)
     
     # use 15% of train data for testing
-    xtr, xva, ytr, yva = train_test_split(xtr, ytr, test_size=0.15, random_state=50)
+    xtr, xva, ytr, yva = train_test_split(xtr, ytr, test_size=0.30)
 
     if size >= 1.0 and size <=0:
         return xtr, ytr, xva, yva, xte, yte
     
     discard_size = 1.0 - size
-    xtr, _, ytr, _ = train_test_split(xtr, ytr, test_size=discard_size, random_state=50)
-    xva, _, yva, _ = train_test_split(xva, yva, test_size=discard_size, random_state=50)
-    xte, _, yte, _ = train_test_split(xte, yte, test_size=discard_size, random_state=50)
+    xtr, _, ytr, _ = train_test_split(xtr, ytr, test_size=discard_size)
+    xva, _, yva, _ = train_test_split(xva, yva, test_size=discard_size)
+    xte, _, yte, _ = train_test_split(xte, yte, test_size=discard_size)
     
     xtr, ytr = reshape_dataset(xtr, ytr.ravel())
     xva, yva = reshape_dataset(xva, yva.ravel())
