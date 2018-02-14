@@ -170,7 +170,7 @@ def save_log_metrics(log_file_name, hyper, history):
 
     log_file.close()
 
-def generator(X, y, batch_size):
+def generator(X, y, batch_size, augment=False):
     total_input = len(X)
     
     while True:
@@ -181,48 +181,132 @@ def generator(X, y, batch_size):
             feats = X[index]
             labels = y[index]
 
-            image = open_image(feats)
+            image = open_image(feats, augment)
                                
             features.append(image)
             targets.append(labels)
             
         yield (np.array(features), np.array(targets))
 
-def getFeaturesTargets(X, y):
+def getFeaturesTargets(X, y, augment=False):
     feats = []
     targets = []
 
     for feat, label in zip(X, y):
-        image = open_image(feat)
+        image = open_image(feat, augment)
            
         feats.append(image)
         targets.append(label)
 
     return np.array(feats), np.array(targets)
 
-def open_image(path):
+def open_image(path, augment=True):
     image_path = "../data" + path[1:]
     image = cv2.imread(image_path, cv2.IMREAD_GRAYSCALE)
+
+    if augment == False:
+        return image.reshape((64, 64, 1))
+
+    # Rotation
+    if randrange(3) == 0:
+        angle = randrange(20, 45)
+        image = rotate(image, angle)
+
+    # Blur
+    if randrange(3) == 0:
+        image = cv2.blur(image, (5,5))
+
+    # Skew
+    if randrange(3) == 0:
+        side = randrange(4)
+        percentage = randrange(5, 15)
+        rev = randrange(1)
+        image = skew(image, side, percentage, rev == 0)
+
+    # Shift
+    if randrange(3) == 0:
+        percentage = randrange(5)
+        image = shift(image, percentage)
     
     return image.reshape((64, 64, 1))
-           
-# arg dataset is 0 for clothes, 1 for faces
-def train_model(model, hyper_params, log_file_name, dataset=0, dataset_size=1.0):
-    learning_rate = hyper_params["learning_rate"]
-    training_size = hyper_params["training_size"]
-    batch_size = hyper_params["batch_size"]
-    num_epochs = hyper_params["num_epochs"]
 
-    rng = np.random.RandomState(seed)
+def rotate(image, angle=45):
+    h, w = image.shape
+    cx = randrange((int)(0.375 * w), (int)(0.625 * w))
+    cy = randrange((int)(0.375 * h), (int)(0.625 * h))
 
-    #train_data, valid_data, test_data = load_data(rng, batch_size=hyper_params["batch_size"])
-    if dataset == 0:
-        xtr, ytr, xva, yva, xte, yte = load_clothes(dataset_size)
+    matrix = cv2.getRotationMatrix2D((cx, cy), angle, 1)
+
+    image = cv2.warpAffine(image, matrix, (w,h))
+
+    return image
+
+def skew(image, side=0, percentage=25, reverse=False):
+    h, w = image.shape
+
+    # side 0, 1, 2, 3
+    # top, bottom, left, right
+    if side == 0 or side == 1:
+        side_length = w
     else:
-        xtr, ytr, xva, yva, xte, yte = load_faces(dataset_size)
+        side_length = h
+    
+    # remove this amount of side in the beggining and the end
+    sd = (int)(side_length * percentage / 100 / 2)
+
+    if side == 0:
+        pts1 = np.float32([[sd,0],[w-1-sd,0],[0,h-1],[w-1,h-1]])
+    elif side == 1:
+        pts1 = np.float32([[0,0],[w-1,0],[sd,h-1],[w-1-sd,h-1]])
+    elif side == 2:
+        pts1 = np.float32([[0,sd],[0,w-1],[0,h-1-sd],[w-1,h-1]])
+    elif side == 3:
+        pts1 = np.float32([[0,0],[w-1,sd],[0,h-1],[w-1,h-1-sd]])
+
+    pts2 = np.float32([[0,0],[w-1, 0],[0, h-1],[w-1, h-1]])
+
+    if reverse:
+        m = cv2.getPerspectiveTransform(pts2, pts1)
+    else:
+        m = cv2.getPerspectiveTransform(pts1, pts2)
+
+    return cv2.warpPerspective(image, m, (w,h))
+
+def shift(image, percentage=20, negative=False):
+    h,w = image.shape
+
+    y = (int)(h*percentage/100)
+    x = (int)(w*percentage/100)
+
+    if negative:
+        x = x*-1
+        y = y*-1
+
+    m = np.float32([[1,0,x],[0,1,y]])
+
+    return cv2.warpAffine(image, m, (w,h))
+
+# arg dataset is 0 for clothes, 1 for faces
+def train_model(model, hyper):
+    learning_rate = hyper["learning_rate"]
+    training_size = hyper["training_size"]
+    batch_size = hyper["batch_size"]
+    num_epochs = hyper["num_epochs"]
+    dataset = hyper["dataset_type"]
+    dataset_size = hyper["dataset_size"]
+    data_augmentation = hyper["data_augmentation"]
+
+    log_file_name = generate_log_file_name(hyper)
+
+    if dataset == 1:
+        xtr, ytr, xva, yva, xte, yte = load_clothes(dataset_size / 100.0)
+    elif dataset_type == 2:
+        xtr, ytr, xva, yva, xte, yte = load_faces(dataset_size / 100.0)
+    else:
+        raise NotImplementedError
 
     history = model.fit_generator(
-        generator(xtr, ytr, batch_size),
+        generator(xtr, ytr, batch_size, data_augmentation),
         samples_per_epoch = training_size,
         validation_data = getFeaturesTargets(xva, yva),
         nb_epoch = num_epochs
@@ -231,20 +315,34 @@ def train_model(model, hyper_params, log_file_name, dataset=0, dataset_size=1.0)
     evalx, evaly = getFeaturesTargets(xte, yte)
     eval_ = model.evaluate(evalx, evaly)
     for val, key in zip(eval_, model.metrics_names):
-        hyper_params[key] = val
+        hyper[key] = val
 
-    save_log_metrics(log_file_name, hyper_params, history)
+    save_log_metrics(log_file_name, hyper, history)
     save_plot_metrics(log_file_name, history)
 
-def train_networks(exp_name, model_type, learning_rate, training_size, batch_size, num_epochs, dataset_size, dataset_type):
+def generate_log_file_name(hyper):
+    exp_name = hyper["exp_name"]
+    model_type = hyper["model_type"]
+    
+    dataset_type = hyper["dataset_type"]
+    if dataset_type == 1:
+        dataset_name = "clothes"
+    elif dataset_type == 2:
+        dataset_name = "faces"
+    else:
+        raise NotImplementedError
+
+    dataset_size = hyper["dataset_size"]
+    return "{:s}_model_{:d}_{:s}_{:d}".format(exp_name, model_type, dataset_name, dataset_size)
+
+def train_networks(exp_name, model_type, learning_rate, training_size, batch_size, num_epochs, dataset_size, dataset_type,
+    data_augmentation):
     model = None
-    log_file_name = None
+
     if model_type == 1:
         model = get_model_1(learning_rate)
-        log_file_name = "{:s}_cnn1_log".format(exp_name)
     elif model_type == 2:
         model = get_model_2(learning_rate)
-        log_file_name = "{:s}_cnn2_log".format(exp_name)
     else:
         raise NotImplementedError
 
@@ -255,10 +353,21 @@ def train_networks(exp_name, model_type, learning_rate, training_size, batch_siz
     hyper["num_epochs"] = num_epochs
     hyper["dataset_type"] = dataset_type
     hyper["dataset_size"] = dataset_size
+    hyper["data_augmentation"] = data_augmentation
+    hyper["model_type"] = model_type
+    hyper["exp_name"] = exp_name
 
-    train_model(model, hyper, log_file_name, dataset_type, dataset_size)
+    train_model(model, hyper)
 
 #########################################################################################
+# from https://stackoverflow.com/a/43357954
+def str2bool(v):
+    if v.lower() in ('yes', 'true', 't', 'y', '1'):
+        return True
+    elif v.lower() in ('no', 'false', 'f', 'n', '0'):
+        return False
+    else:
+        raise argparse.ArgumentTypeError('Boolean value expected.')
 
 parser = argparse.ArgumentParser(description="CNN systems for coursework 3")
 parser.add_argument('exp_name', type=str, help="Name of experiment")
@@ -267,8 +376,9 @@ parser.add_argument('-n', dest='num_epochs', type=int, default=100)
 parser.add_argument('-l', dest='learning_rate', type=float, default=0.001)
 parser.add_argument('-t', dest='training_size', type=int, default=2000)
 parser.add_argument('-b', dest='batch_size', type=int, default=50)
-parser.add_argument('-p', dest='dataset_size', type=int, default=100)
-parser.add_argument('-s', dest='dataset_type', type=int, default=0)
+parser.add_argument('-s', dest='dataset_size', type=int, default=100)
+parser.add_argument('-d', dest='dataset_type', type=int, default=1)
+parser.add_argument('-a', dest='data_augmentation', type=str2bool, default="false")
 
 args = parser.parse_args()
 exp_name = args.exp_name
@@ -277,7 +387,9 @@ num_epochs = args.num_epochs
 learning_rate = args.learning_rate
 training_size = args.training_size
 batch_size = args.batch_size
-dataset_size = args.dataset_size / 100.
+dataset_size = args.dataset_size
 dataset_type = args.dataset_type
+data_augmentation = args.data_augmentation
 
-train_networks(exp_name, model_type, learning_rate, training_size, batch_size, num_epochs, dataset_size, dataset_type)
+train_networks(exp_name, model_type, learning_rate, training_size, batch_size, num_epochs, dataset_size, dataset_type,
+    data_augmentation)
