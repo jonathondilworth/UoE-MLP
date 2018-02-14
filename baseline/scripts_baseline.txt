@@ -2,28 +2,42 @@
 # 2 conv layers on clothes
 ###################################################
 
-python baseline.py clothes_cnn2_100 2 -n 30 -s 0 -p 100
-python baseline.py clothes_cnn2_90 2 -n 30 -s 0 -p 90
-python baseline.py clothes_cnn2_80 2 -n 30 -s 0 -p 80
-python baseline.py clothes_cnn2_70 2 -n 30 -s 0 -p 70
-python baseline.py clothes_cnn2_60 2 -n 30 -s 0 -p 60
-python baseline.py clothes_cnn2_50 2 -n 30 -s 0 -p 50
-python baseline.py clothes_cnn2_40 2 -n 30 -s 0 -p 40
-python baseline.py clothes_cnn2_30 2 -n 30 -s 0 -p 30
-python baseline.py clothes_cnn2_20 2 -n 30 -s 0 -p 20
-python baseline.py clothes_cnn2_10 2 -n 30 -s 0 -p 10
+python baseline.py 0 1 -n 10 -d 1 -s 100
+python baseline.py 0 1 -n 10 -d 1 -s 75
+python baseline.py 0 1 -n 10 -d 1 -s 50
+python baseline.py 0 1 -n 10 -d 1 -s 25
+python baseline.py 0 1 -n 10 -d 1 -s 10
+python baseline.py 0 1 -n 10 -d 1 -s 1
+
+###################################################
+# 2 conv layers on clothes DATA AUGMENTATION
+###################################################
+
+python baseline.py 0 1 -n 10 -d 1 -a y -s 100
+python baseline.py 0 1 -n 10 -d 1 -a y -s 75
+python baseline.py 0 1 -n 10 -d 1 -a y -s 50
+python baseline.py 0 1 -n 10 -d 1 -a y -s 25
+python baseline.py 0 1 -n 10 -d 1 -a y -s 10
+python baseline.py 0 1 -n 10 -d 1 -a y -s 1
 
 ###################################################
 # 2 conv layers on faces
 ###################################################
 
-python baseline.py faces_cnn2_100 2 -n 30 -s 1 -p 100
-python baseline.py faces_cnn2_90 2 -n 30 -s 1 -p 90
-python baseline.py faces_cnn2_80 2 -n 30 -s 1 -p 80
-python baseline.py faces_cnn2_70 2 -n 30 -s 1 -p 70
-python baseline.py faces_cnn2_60 2 -n 30 -s 1 -p 60
-python baseline.py faces_cnn2_50 2 -n 30 -s 1 -p 50
-python baseline.py faces_cnn2_40 2 -n 30 -s 1 -p 40
-python baseline.py faces_cnn2_30 2 -n 30 -s 1 -p 30
-python baseline.py faces_cnn2_20 2 -n 30 -s 1 -p 20
-python baseline.py faces_cnn2_10 2 -n 30 -s 1 -p 10
+python baseline.py 1 1 -n 10 -d 2 -s 100
+python baseline.py 1 1 -n 10 -d 2 -s 75
+python baseline.py 1 1 -n 10 -d 2 -s 50
+python baseline.py 1 1 -n 10 -d 2 -s 25
+python baseline.py 1 1 -n 10 -d 2 -s 10
+python baseline.py 1 1 -n 10 -d 2 -s 1
+
+###################################################
+# 2 conv layers on faces DATA AUGMENTATION
+###################################################
+
+python baseline.py 1 1 -n 10 -d 2 -a y -s 100
+python baseline.py 1 1 -n 10 -d 2 -a y -s 75
+python baseline.py 1 1 -n 10 -d 2 -a y -s 50
+python baseline.py 1 1 -n 10 -d 2 -a y -s 25
+python baseline.py 1 1 -n 10 -d 2 -a y -s 10
+python baseline.py 1 1 -n 10 -d 2 -a y -s 1
