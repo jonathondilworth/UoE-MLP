@@ -1,0 +1,69 @@
+\begin{thebibliography}{9}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[lot()]{lotsDataAndrew}
+Andrew ng: Why ‘deep learning’ is a mandate for humans, not just machines.
+\newblock
+  \url{https://www.wired.com/brandlab/2015/05/andrew-ng-deep-learning-mandate-humans-not-just-machines/}.
+\newblock Accessed: 2015-05-01.
+
+\bibitem[osl()]{oslsiamese}
+One shot learning with siamese networks in pytorch.
+\newblock
+  \url{https://hackernoon.com/one-shot-learning-with-siamese-networks-in-pytorch-8ddaab10340e}.
+\newblock Accessed: 2017-07-15.
+
+\bibitem[Bromley et~al.(1994)Bromley, Guyon, LeCun, S{\"a}ckinger, and
+  Shah]{bromley1994signature}
+Bromley, Jane, Guyon, Isabelle, LeCun, Yann, S{\"a}ckinger, Eduard, and Shah,
+  Roopak.
+\newblock Signature verification using a" siamese" time delay neural network.
+\newblock In \emph{Advances in Neural Information Processing Systems}, pp.\
+  737--744, 1994.
+
+\bibitem[Dinsmore(2014)]{dinsmore2014symbolic}
+Dinsmore, John.
+\newblock \emph{The symbolic and connectionist paradigms: closing the gap}.
+\newblock Psychology Press, 2014.
+
+\bibitem[Hu et~al.(2018)Hu, Peng, Yang, Hospedales, and
+  Verbeek]{hu2018frankenstein}
+Hu, Guosheng, Peng, Xiaojiang, Yang, Yongxin, Hospedales, Timothy~M, and
+  Verbeek, Jakob.
+\newblock Frankenstein: Learning deep face representations using small data.
+\newblock \emph{IEEE Transactions on Image Processing}, 27\penalty0
+  (1):\penalty0 293--303, 2018.
+
+\bibitem[Krizhevsky et~al.(2012)Krizhevsky, Sutskever, and
+  Hinton]{krizhevsky2012imagenet}
+Krizhevsky, Alex, Sutskever, Ilya, and Hinton, Geoffrey~E.
+\newblock Imagenet classification with deep convolutional neural networks.
+\newblock In \emph{Advances in neural information processing systems}, pp.\
+  1097--1105, 2012.
+
+\bibitem[Oquab et~al.(2014)Oquab, Bottou, Laptev, and Sivic]{oquab2014learning}
+Oquab, Maxime, Bottou, Leon, Laptev, Ivan, and Sivic, Josef.
+\newblock Learning and transferring mid-level image representations using
+  convolutional neural networks.
+\newblock In \emph{Computer Vision and Pattern Recognition (CVPR), 2014 IEEE
+  Conference on}, pp.\  1717--1724. IEEE, 2014.
+
+\bibitem[Simonyan \& Zisserman(2014)Simonyan and Zisserman]{simonyan2014very}
+Simonyan, Karen and Zisserman, Andrew.
+\newblock Very deep convolutional networks for large-scale image recognition.
+\newblock \emph{arXiv preprint arXiv:1409.1556}, 2014.
+
+\bibitem[Szegedy et~al.(2015)Szegedy, Liu, Jia, Sermanet, Reed, Anguelov,
+  Erhan, Vanhoucke, and Rabinovich]{Szegedy_2015_CVPR}
+Szegedy, Christian, Liu, Wei, Jia, Yangqing, Sermanet, Pierre, Reed, Scott,
+  Anguelov, Dragomir, Erhan, Dumitru, Vanhoucke, Vincent, and Rabinovich,
+  Andrew.
+\newblock Going deeper with convolutions.
+\newblock In \emph{The IEEE Conference on Computer Vision and Pattern
+  Recognition (CVPR)}, June 2015.
+
+\end{thebibliography}

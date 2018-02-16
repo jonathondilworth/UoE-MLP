@@ -1,0 +1,211 @@
+%% Template for MLP Coursework 1 / 16 October 2017 
+
+%% Based on  LaTeX template for ICML 2017 - example_paper.tex at 
+%%  https://2017.icml.cc/Conferences/2017/StyleAuthorInstructions
+
+\documentclass{article}
+
+\usepackage[T1]{fontenc}
+\usepackage{amssymb,amsmath}
+\usepackage{txfonts}
+\usepackage{microtype}
+\usepackage{enumitem}
+
+% For figures
+\usepackage{graphicx}
+\usepackage{subfigure} 
+
+% For citations
+\usepackage{natbib}
+
+% For algorithms
+\usepackage{algorithm}
+\usepackage{algorithmic}
+
+% the hyperref package is used to produce hyperlinks in the
+% resulting PDF.  If this breaks your system, please commend out the
+% following usepackage line and replace \usepackage{mlp2017} with
+% \usepackage[nohyperref]{mlp2017} below.
+\usepackage{hyperref}
+\usepackage{url}
+\urlstyle{same}
+
+% Packages hyperref and algorithmic misbehave sometimes.  We can fix
+% this with the following command.
+\newcommand{\theHalgorithm}{\arabic{algorithm}}
+
+
+% Set up MLP coursework style (based on ICML style)
+\usepackage{mlp2017}
+\mlptitlerunning{MLP Coursework 1 (\studentNumber)}
+\bibliographystyle{icml2017}
+
+
+\DeclareMathOperator{\softmax}{softmax}
+\DeclareMathOperator{\sigmoid}{sigmoid}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\relu}{relu}
+\DeclareMathOperator{\lrelu}{lrelu}
+\DeclareMathOperator{\elu}{elu}
+\DeclareMathOperator{\selu}{selu}
+\DeclareMathOperator{\maxout}{maxout}
+
+%% You probably do not need to change anything above this comment
+
+%% REPLACE this with your student number
+\def\studentNumber{s1, s2, s3}
+
+\begin{document} 
+
+\twocolumn[
+\mlptitle{MLP Coursework 3: Project Interim Report}
+
+\centerline{\studentNumber}
+
+\vskip 7mm
+]
+
+\begin{abstract} 
+The abstract should be 100--200 words long,  providing a concise summary of the contents of your report. \textbf{still needs to be written.}
+\end{abstract} 
+
+\section{Introduction and Motivation}
+\label{sec:intro}
+
+During the last six years there has been an increase in popularity of connectionist based approaches (specifically, variations on deep neural network architectures) to solving vision based pattern recognition problems \cite{dinsmore2014symbolic}. This surge in popularity has been the result of numerous advancements, including an increase in the amount of available training data and compute power, as is demonstrated in \cite{krizhevsky2012imagenet} \cite{Szegedy_2015_CVPR} \cite{simonyan2014very}. Although deep neural networks work well with large amounts of training data \cite{lotsDataAndrew}, the performance of these models typically drops off in situations where only small amounts of training data is available [INSERT REFERENCE TO LEARNING CURVE HERE]. This poses a problem to smaller businesses and organisations that may not have the appropriate amount of data to utilise these emergent technologies. Such a problem motivates the investigation presented within this (and the forthcoming) report that examines the application of fruitful techniques (specifically, transfer learning) to boost the performance of deep neural network architectures using small datasets.
+
+In order to address this problem, there exists a number of data manipulation (non-machine learning) methods that have been proposed already, such as \cite{hu2018frankenstein} and other more naive approaches such as data augmentation \cite{krizhevsky2012imagenet}. However, addressing this problem using novel techniques within the domain of deep neural networks has only recently been explored. Within this report we aim to utilise such techniques that have already been initially established within the literature, such as transfer learning \footnote{Transfer learning has already been applied to our specific use case, however this particular technique has other use cases that are not necessarily explored within this paper.} \cite{oquab2014learning}.
+
+In order to formalise the problem presented within this report (using small data on deep neural network architectures), an investigation into the effects of dramatically reducing the training set size is presented. The utilised methodology includes performing an observation of the proposed network accuracy as the training sample size is decreased (\ref{sec:methodology}). Furthermore, this procedure is applied to two comparable datasets, one with subtle differences between classes and the other with apparent differences between classes. We hypothesise that classes with subtle differences between them will typically score lower on a shallow network than those with obvious differences between them (\ref{sec:hypotheses}). In short, a comparison of the proposed datasets (\ref{sec:data}) may provide a means of identifying relationships between aspects of the proposed datasets and the employed network architecture.
+
+Within the remainder of this paper a set of research questions and associated hypotheses is initially presented \ref{sec:questions}. After which, an overview of the selected datasets and the task is documented (\ref{sec:data}). Subsequently, the methodology employed to address the aforementioned research questions and hypotheses are outlined (\ref{sec:methodology}) and experimental results are documented (\ref{sec:baseline}). The experimental results are then draw upon to derive a set of initial conclusions (\ref{sec:conclusions}). Finally, details of any associated risks, backup plans and further work are provided (\ref{sec:future}).
+
+\section{Research Questions}
+\label{sec:questions}
+
+Within this section two sets of research questions are presented. Firstly, a set of research questions that are addressed within this report is provided (\ref{sec:irquestions}). Secondly, a set of future research questions to be addressed within the concluding report is offered (\ref{sec:frquestions}). Thereafter, the aims and objectives of the proposed research questions are probed (\ref{sec:objectives}). Finally, a set of hypotheses is given (\ref{sec:hypotheses}).
+
+\subsection{Interim Research Questions}
+\label{sec:irquestions}
+
+Using the methodology outlined within \ref{sec:methodology}, the following research questions are investigated within this interim report:
+
+\begin{enumerate}
+  \item How do differences in similarity between datasets affect the performance (generalisation, accuracy and error) of the proposed convolutional neural network architecture (\ref{sec:arch})?
+  \item How does reducing the size of a training dataset affect the performance of fairly standard convolutional neural network architectures?
+\end{enumerate}
+
+Within the first research question, it is assumed that visual similarity is easily identifiable by humans. Throughout our research, images that only contain variation of facial expression are considered to have maximal similarity. Conversely, images of distinctively different objects are considered to have minimal similarity. Although a similarity metric between instances of data (and datasets) is not proposed within this report, this topic is touched upon within our discussion of potential future work (\ref{sec:future}).
+
+Furthermore, the proposed neural network architecture (\ref{sec:arch}) is assumed to be fairly standard. Therefore we assume a degree of generalisation to similar problem domains in any further research. However, more work may need to be undertaken in order to validate this (\ref{sec:future}).
+
+It is commonly thought that smaller datasets lead to poor generalisation \cite{lotsDataAndrew} \cite{krizhevsky2012imagenet}. However, the second research question links into our future research questions (\ref{sec:frquestions}) associated with using techniques \footnote{Such as transfer learning and one shot learning.} to improve the performance of small datasets on neural network architectures. For this reason, it may be important that an investigation is conducted in order to establish a more conclusive understanding of the proposed datasets (\ref{sec:data}) on our employed architecture (\ref{sec:arch}).
+
+\subsection{Future Research Questions}
+\label{sec:frquestions}
+
+Within the last section, research questions associated with this interim report were presented. The future research questions we intend to address within the concluding report are outlined below.
+
+\begin{enumerate}
+  \item How does the application of transfer learning affect the performance of the proposed neural network architecture? \footnote{This will be tested using the same classification experiments performed during the interim report.}
+  \item How does the application of transfer learning affect the performance of the proposed neural network architecture when the size of the dataset used to tune the network is greatly reduced?
+  \item If time permits, how does one shot learning (the use of siamese network architectures \cite{bromley1994signature}\cite{oslsiamese}) perform on small datasets within classification tasks?
+  \item If time permits, how can deep feature extraction be used in order to improve the performance of small datasets on deep neural network architectures?
+\end{enumerate}
+
+\subsection{Aims and Objectives}
+\label{sec:objectives}
+
+The core objective of the concluding report is to investigate connectionist based methodologies for improving classification performance on vision based tasks using small datasets. Initially, this investigation will be addressed by obtaining a set of baseline classification accuracies using a shallow convolutional neural network architecture. Baseline accuracies will be obtained for training dataset sizes of: 100\%, 75\%, 50\%, 25\%, 10\%, 1\%.
+
+As an optional objective, the interim report (in conjunction with the concluding report) aims to investigate how subtlety between different classes (given the same sized dataset) affects the performance of the proposed network architecture (\ref{sec:arch}).
+
+\subsection{Hypotheses}
+\label{sec:hypotheses}
+
+To conclude this section regarding the intended research questions, a set of hypotheses is provided:
+
+\begin{enumerate}[label=\textbf{H.\arabic*}]
+  \item \label{h:1} Datasets with subtle differences between classes will perform worse on classification tasks than datasets with obvious differences between classes using the proposed convolution neural network architecture (\ref{sec:arch}).
+  \item \label{h:2} Reducing the size of the training dataset will result in worse generalisation using the proposed network architecture (\ref{sec:arch}).
+  \item \label{h:3} Reducing the size of the training dataset will result in an overfitting of the network architecture to the subsampled dataset.
+  \item \label{h:4} The application of transfer learning using a pre-trained model (any ImageNet variant) will result in improved model performance.
+\end{enumerate}
+
+\section{Data Set and Task}
+\label{sec:data}
+
+Within the experiments presented within this report, two datasets were utilised. As explained within the introduction (\ref{sec:intro}), the first dataset (the fashionmnist dataset) contains obvious differences between images in the dataset. Whereas the second dataset (facial expressionn database) contains subtle differences between instances of data.
+
+\begin{itemize}
+  \item Clothes database (fashionmnist), URL: \url{https://www.kaggle.com/zalando-research/fashionmnist}. 
+  \item Facial expression database: URL: \url{https://grail.cs.washington.edu/projects/deepexpr/ferg-db.html}.
+\end{itemize}
+
+Our research samples five classes with 6000 examples in each from the clothes database. This is 30k examples in total. Within the facial expression database 30k examples were  subsample the dataset, remove a lot of data and sample 30000 examples using a balanced set of classes (6000 examples in each).
+
+\subsection{Preprocessing}
+\label{sec:preprocessing}
+
+For the aforementioned datasets, each image is scaled up or scaled down to the same dimensionality. This scaling allows for the input vector to be the same size regardless of employed dataset. Images from the faces dataset were scaled down from 512x512 to 64x64 (x8 down) in order to match the dimensionality of the clothes database. Furthermore, the proposed network architecture was trained using the original examples in addition to examples where data augmentation had been applied to each instance.
+
+\subsection{Evaluation}
+\label{sec:evaluation}
+
+Each experiment was evaluated by measuring the loss function (the model error), but primarily the evaluation was done through measuring the accuracy whilst employing cross-validation. This cross-validation was implemented within the SKLearn library as a function called: train_test_split.
+
+\section{Methodology}
+\label{sec:methodology}
+
+In the first phrase of our project, the interim research questions (\ref{sec:irquestions}) are first examined to create a baseline system for further work in transfer learning. Both of the two image databases (\ref{sec:data}) are subjected to pre-processing (\ref{sec:preprocessing}) before using the result as inputs into the proposed neural network architecture \ref{INSERT REFERENCE TO ARCHITECTURE SECTION HERE}. In the facial expression dataset, original png files with 256x256 pixels are downscaled to 28x28 pixels so as to be comparable with the default pixels in clothes dataset. To understand the effect of the subtle and obvious feature differences between classes on performances (prediction accuracy, error) for distinctive tasks, 30k images from both the clothes dataset and the facial dataset are evaluated on convolutional neural network respectively by performing multi-class classification tasks.
+
+\textbf{Is this part of our methodology? Or does this belong to the data side of things?}
+
+\subsection{Proposed Neural Network Architecture}
+\label{sec:arch}
+
+The proposed architecture consists of three convolutional layers with one max-pooling ReLU layer in between. The final layer is then flattened to produce one numerical output with categorical cross-entropy as a loss function (maybe add one more softmax layer before flattening to increase stability as suggested by MLP lecture?). For the optimiser, Adam or RMSprop would be used. Weight and bias is also initialised using (gloro-bengio ini. ?, random ?). 
+
+After inspecting the results from first experiment. Same task is performed on much smaller dataset to investigate the discrepancy of size of dataset on classification performance. (1000 dataset maybe?). By implementing the two experiments, baseline systems could be set up to investigate possible strategies to perform prediction/classification task given very small dataset which is the main goal of our project.
+
+In the second phrase of the project, two different transfer learning methods will be studied to examine potential methods to improve performances given very small dataset which is frequent in real-world scenario. Firstly, we transfer a very large pre-trained network VGG16 on our aforementioned baseline system with pre-trained weights on small dataset. Since VGG16 trains on 200 types of general objects. The generality of the model might be beneficial to train on common objects (clothes dataset). Apart from transferring model to domain-specific dataset (clothes dataset). We also transfer the model to dataset with unrelated and subtle differences between classes in the dataset (facial dataset), to test the effectiveness of pre-trained model on task that shares little similarity with the pre-trained model. 
+
+Besides transferring pre-trained model, we also wish to investigate the effect of one-shot learning on small dataset. To demonstrate a basic version of one-shot learning we will implement Siamese network on either one of the dataset( clothes/facial expression) with the help of existing models and our modification to these models , due to time constrain and taking potential difficulty of implementing one-shot learning architecture from scratch. As a backup plan, we will abandon this experiment and focus more on transferring models methods.
+
+\begin{itemize}
+  \item Input Layer (are we going to pre-process the input data, such that the input layer is the same for both datasets? i.e: make the images the same dimensionality?)
+  \item Three convolutional layers.
+  \item Do we want to use batch norm, drop out, etc?
+  \item Softmax output layer for multi-class classification.
+  \item Probably a good idea to include a diagram of the architecture.
+\end{itemize}
+
+\section{Baseline Experiments}
+\label{sec:baseline}
+
+TODO
+
+\subsection{Further Experiments}
+\label{sec:further}
+
+TODO
+
+\section{Interim Conclusions}
+\label{sec:conclusions}
+
+TODO
+
+\section{Future Work}
+\label{sec:future}
+
+TODO
+
+\subsection{Backup Plans}
+\label{sec:plans}
+
+TODO
+
+\bibliographystyle{abbrv}
+\bibliography{biblo.bib}
+
+\end{document}

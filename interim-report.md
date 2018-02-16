@@ -140,6 +140,8 @@ Besides transferring pre-trained model, we also wish to investigate the effect o
 * Apply techniques such as deep feature extraction and transfer learning (we could try transferring from ImageNet, perhaps?)
 * Produce an academic report documenting our findings.
 
+* having used data augmentation, we've seen an increase in accuracy. This facilitates our next step in research -> using alternative methods to improve the accuracy of the faces dataset.
+
 *TODO: Look at potential similarity metrics that could be used as empirical measurements between instances of data within the same dataset, such that we can compare similarity averages between datasets.*
 
 **7.1. Backup Plans**
