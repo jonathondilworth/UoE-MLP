@@ -4,6 +4,8 @@
 
 *WRITE THIS LAST*
 
+*TODO: Review what Jonathon has written*
+
 **1. Introduction and Motivation**
 
 During the last six years there has been an increase in popularity of connectionist based approaches (specifically, variations on deep neural network architectures) to solving vision based pattern recognition problems [INSERT REFERENCE HERE]. This surge in popularity has been the result of numerous advancements, including an increase in the amount of available training data and compute power [INSERT REFERENCE HERE], as is demonstrated in [INSERT AlexNet, VGGNet, LeNet references here]. Although deep neural networks work well with large amounts of training data [INSERT REFERENCE HERE], the performance of these models typically drops off in situations where only small amounts of training data is available [INSERT REFERENCE TO LEARNING CURVE HERE]. This poses a problem to smaller businesses and organisations that may not have the appropriate amount of data to utilise these emergent technologies. Such a problem motivates the investigation presented within this (and the forthcoming) report that examines the application of fruitful techniques (specifically, transfer learning) to boost the performance of deep neural network architectures using small datasets.
@@ -68,19 +70,27 @@ To conclude this section regarding the intended research questions, a set of hyp
 
 **3. Data Set and Task**
 
-*TODO: Look at potential similarity metrics that could be used as empirical measurements between instances of data within the same dataset, such that we can compare similarity averages between datasets.*
+*TODO: Add a chaining paragraph that links §2 to §3.*
 
-*TODO: Document any preprocessing methods.*
+* Initial experiments: http://cvit.iiit.ac.in/projects/IMFDB/ (Faces database): achieved lower accuracy than anticipated, also unbalanced - 30000 examples in total though.
+* https://www.kaggle.com/zalando-research/fashionmnist (Clothes database): took five classes with 6000 examples in each - 30000 examples in total.
+* https://grail.cs.washington.edu/projects/deepexpr/ferg-db.html (Facial expression database): had to subsample the dataset, remove a lot of data and sample 30000 examples using a balanced set of classes (6000 examples in each).
 
-* http://cvit.iiit.ac.in/projects/IMFDB/ (Faces database)
-* https://www.kaggle.com/zalando-research/fashionmnist (Clothes database)
-* https://grail.cs.washington.edu/projects/deepexpr/ferg-db.html (Facial expression database)
+*Notes:*
 
-*TODO: include details about how we're going to mop / clean the datasets before usage.*
+Scaled images from Facial Expression database down x8. Scaled images from clothes dataset up by x2.
 
-*TODO: The Task section: 'Describe how you will evaluate the task - i.e: error metric, accuracy, generalisation, etc.. Use citations where appropriate.*
+**3.1. Preprocessing**
+
+For the aforementioned datasets, each image was scaled up or scaled down to be the same size. This scaling allows for the input vector to be the same size regardless of employed dataset. Images from the faces dataset were scaled down from 512x512 to 64x64 (x8 down) and images from the clothes database were scaled up from 32x32 to 64x64 (x2 up). Furthermore, the proposed network architecture was trained using the original examples in addition to examples where data augmentation had been applied to each instance.
+
+**3.2. Evaluation**
+
+Each experiment was evaluated by measuring the loss function (the model error), but primarily the evaluation was done through measuring the accuracy whilst employing cross-validation. This cross-validation was implemented within the SKLearn library as a function called: train_test_split.
 
 **4. Methodology**
+
+*TODO: review what Steven has written*
 
 In the first phrase of our project, the two research questions are first examined to create a baseline system for further work in transfer learning.
 Both of two image databases are subjected to pre-processing before using as inputs in neural network. In the facial expression dataset,
@@ -129,6 +139,8 @@ Besides transferring pre-trained model, we also wish to investigate the effect o
 * Take subsamples of the datasets proposed in §3.x.
 * Apply techniques such as deep feature extraction and transfer learning (we could try transferring from ImageNet, perhaps?)
 * Produce an academic report documenting our findings.
+
+*TODO: Look at potential similarity metrics that could be used as empirical measurements between instances of data within the same dataset, such that we can compare similarity averages between datasets.*
 
 **7.1. Backup Plans**
 
