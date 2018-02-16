@@ -77,21 +77,22 @@ def get_model_2(learning):
     return model
 
 def load_dataset(file_train, file_test, size=1.0):
-    data_train = np.loadtxt(file_train, dtype='str', delimiter=',')
-    data_test = np.loadtxt(file_test, dtype='str', delimiter=',')
-    
+    data_train = np.genfromtxt(file_train, dtype='str', delimiter=',')
+    data_val = np.genfromtxt(file_test, dtype='str', delimiter=',')
+
     xtr, ytr = data_train[:,1], data_train[:,0].astype(int)
-    xte, yte = data_test[:,1], data_test[:,0].astype(int)
-    
+    xva, yva = data_val[:,1], data_val[:,0].astype(int)
+
     # use 15% of train data for testing
-    xtr, xva, ytr, yva = train_test_split(xtr, ytr, test_size=0.30)
+    xtr, xte, ytr, yte = train_test_split(xtr, ytr, test_size=0.30)
 
     if size >= 1.0 and size <=0:
         return xtr, ytr, xva, yva, xte, yte
     
     discard_size = 1.0 - size
     xtr, _, ytr, _ = train_test_split(xtr, ytr, test_size=discard_size)
-    xva, _, yva, _ = train_test_split(xva, yva, test_size=discard_size)
+    # Keep the size of the validation constant
+    # xva, _, yva, _ = train_test_split(xva, yva, test_size=discard_size) 
     xte, _, yte, _ = train_test_split(xte, yte, test_size=discard_size)
     
     xtr, ytr = reshape_dataset(xtr, ytr.ravel())
@@ -193,39 +194,54 @@ def getFeaturesTargets(X, y, augment=False):
     targets = []
 
     for feat, label in zip(X, y):
-        image = open_image(feat, augment)
+        image = open_image(feat, augment, False)
            
         feats.append(image)
         targets.append(label)
 
     return np.array(feats), np.array(targets)
 
-def open_image(path, augment=True):
+def open_image(path, augment=True, soft=True):
     image_path = "../data" + path[1:]
     image = cv2.imread(image_path, cv2.IMREAD_GRAYSCALE)
 
-    if augment == False:
+    if augment == False or randrange(20) == 0:
         return image.reshape((64, 64, 1))
 
     # Rotation
     if randrange(3) == 0:
-        angle = randrange(20, 45)
+        if soft:
+            angle = randrange(15, 35)
+        else:
+            angle = randrange(30, 50)
         image = rotate(image, angle)
 
     # Blur
-    if randrange(3) == 0:
-        image = cv2.blur(image, (5,5))
+    if randrange(4) == 0:
+        if soft:
+            kernel = (5,5)
+        else:
+            kernel = (7,7)
+        image = cv2.blur(image, kernel)
 
     # Skew
-    if randrange(3) == 0:
+    if randrange(2) == 0:
         side = randrange(4)
-        percentage = randrange(5, 15)
-        rev = randrange(1)
+        rev = randrange(2)
+        if soft:
+            percentage = randrange(10, 30)
+        else:
+            percentage = randrange(25, 45)
+
         image = skew(image, side, percentage, rev == 0)
 
     # Shift
     if randrange(3) == 0:
-        percentage = randrange(5)
+        if soft:
+            percentage = randrange(0, 15)
+        else:
+            percentage = randrange(10, 20)
+
         image = shift(image, percentage)
     
     return image.reshape((64, 64, 1))
@@ -259,7 +275,7 @@ def skew(image, side=0, percentage=25, reverse=False):
     elif side == 1:
         pts1 = np.float32([[0,0],[w-1,0],[sd,h-1],[w-1-sd,h-1]])
     elif side == 2:
-        pts1 = np.float32([[0,sd],[0,w-1],[0,h-1-sd],[w-1,h-1]])
+        pts1 = np.float32([[0,sd],[w-1,0],[0,h-1-sd],[w-1,h-1]])
     elif side == 3:
         pts1 = np.float32([[0,0],[w-1,sd],[0,h-1],[w-1,h-1-sd]])
 
@@ -308,14 +324,17 @@ def train_model(model, hyper):
     history = model.fit_generator(
         generator(xtr, ytr, batch_size, data_augmentation),
         samples_per_epoch = training_size,
-        validation_data = getFeaturesTargets(xva, yva),
+        validation_data = getFeaturesTargets(xva, yva, False), # No Augmentation in Validation, already done previously
         nb_epoch = num_epochs
         )
 
-    evalx, evaly = getFeaturesTargets(xte, yte)
-    eval_ = model.evaluate(evalx, evaly)
-    for val, key in zip(eval_, model.metrics_names):
-        hyper[key] = val
+    evalx, evaly = getFeaturesTargets(xte, yte, data_augmentation)
+    try:
+        eval_ = model.evaluate(evalx, evaly)
+        for val, key in zip(eval_, model.metrics_names):
+            hyper[key] = val
+    except:
+        print("No test evaluation")
 
     save_log_metrics(log_file_name, hyper, history)
     save_plot_metrics(log_file_name, history)
