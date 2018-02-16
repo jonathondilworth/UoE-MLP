@@ -6,17 +6,15 @@
 
 **1. Introduction and Motivation**
 
-During the last six years there has been an increase in popularity of connectionist based approaches (specifically, variations on deep neural network architectures) to solving vision based pattern recognition problems [INSERT REFERENCE HERE]. This surge in popularity has been the result of numerous advancements, including an increase in the amount of available training data and compute power [INSERT REFERENCE HERE], as is demonstrated in [INSERT AlexNet, VGGNet, LeNet references here]. Although deep neural networks work well with large amounts of training data [INSERT REFERENCE HERE], the performance of these models typically drops off in situations where only small amounts of training data is available [INSERT REFERENCE TO LEARNING CURVE HERE]. This poses a problem to smaller businesses and organisations who may not have the appropriate amount of data to utilise these emergent technologies. Such a problem motivates the investigation presented within this (and the forthcoming) report that examines the application of fruitful techniques (specifically, transfer learning) to boost the performance of deep neural network architectures using small datasets.
+During the last six years there has been an increase in popularity of connectionist based approaches (specifically, variations on deep neural network architectures) to solving vision based pattern recognition problems [INSERT REFERENCE HERE]. This surge in popularity has been the result of numerous advancements, including an increase in the amount of available training data and compute power [INSERT REFERENCE HERE], as is demonstrated in [INSERT AlexNet, VGGNet, LeNet references here]. Although deep neural networks work well with large amounts of training data [INSERT REFERENCE HERE], the performance of these models typically drops off in situations where only small amounts of training data is available [INSERT REFERENCE TO LEARNING CURVE HERE]. This poses a problem to smaller businesses and organisations that may not have the appropriate amount of data to utilise these emergent technologies. Such a problem motivates the investigation presented within this (and the forthcoming) report that examines the application of fruitful techniques (specifically, transfer learning) to boost the performance of deep neural network architectures using small datasets.
 
-In order to formalise the aforementioned problem, this paper investigates the effects of dramatically reducing the training set (§x.x) size and observes the effects on this has on the accuracy of the proposed deep neural network architecture (§x.x). In addition, this procedure is applied to two comparable datasets, one with subtle differences between classes and the other with apparent differences between classes. These datasets are compared in order to gauge a fuller understanding of how the data itself can also affect the performance of deep neural networks.
+In order to address this problem, there exists a number of data manipulation (non-machine learning) methods that have been proposed already, such as [INSERT REFERENCE TO IMAGE PROCESSING PAPER HERE] and other more naive approaches such as data augmentation [INSERT REFERENCE HERE]. However, addressing this problem using novel techniques within the domain of deep neural networks has only recently been explored. Within this report we aim to utilise such techniques that have already been initially established within the literature, such as transfer learning [INSERT REFERENCE HERE].
+
+*footnote:* Transfer learning has already been applied to our specific use case [INSERT REFERENCE HERE], however this particular technique has other use cases that are not necessarily explored within this paper.
+
+In order to formalise the problem presented within this report (using small data on deep neural network architectures), an investigation into the effects of dramatically reducing the training set size is presented (§x.x). The utilised methodology includes performing an observation of the proposed network accuracy as the training sample size is decreased (§x.x). Furthermore, this procedure is applied to two comparable datasets, one with subtle differences between classes and the other with apparent differences between classes. We hypothesise that classes with subtle differences between them will typically score lower on a shallow network than those with obvious differences between them (§2.4). In short, a comparison of the proposed datasets (§3) may provide a means of identifying relationships between aspects of the proposed datasets and the employed network architecture.
 
 Within the remainder of this paper a set of research questions and associated hypotheses is initially presented (§2). After which, an overview of the selected datasets and the task is documented (§3). Subsequently, the methodology employed to address the aforementioned research questions and hypotheses are outlined (§4) and experimental results are documented (§5). The experimental results are then draw upon to derive a set of initial conclusions (§6). Finally, details of any associated risks, backup plans and further work are provided (§7).
-
-*Notes*
-
-*TODO: Maybe add more information relating to our newest proposed idea: Investigating how similarity between instances of data in each proposed dataset can affect the performance of a CNN.*
-
-*TODO: Perhaps include further elaboration on how this project relates to things that have already been done in the literature.*
 
 **2. Research Questions**
 
@@ -24,46 +22,49 @@ Within this section two sets of research questions are presented. Firstly, a set
 
 **2.1. Interim Research Questions**
 
-Using the methodology outlined within §4.x. the following research questions are investigated within this report:
+Using the methodology outlined within §4.x. the following research questions are investigated within this interim report:
 
-1. How do differences in similarity **(NOTE: IT MAY BE BE GOOD TO LINK TO A SECTION THAT DOCUMENTS SOME KIND OF SIMILARITY METRIC BETWEEN DATA INSTANCES WITHIN EACH DATASET .. we can include this within our future work section and state an assumption for now, that is to say that the faces dataset will underperform as compared to the clothes dataset)** between datasets affect the performance (generalisation, accuracy and error) of fairly simple convolutional neural network architectures (as outlined in §4.x)?
-2. How does reducing the size of a training dataset affect the performance of fairly simple convolutional neural network architectures?
+1. How do differences in similarity between datasets affect the performance (generalisation, accuracy and error) of the proposed convolutional neural network architecture (§4.x)?
+2. How does reducing the size of a training dataset affect the performance of fairly standard convolutional neural network architectures?
 
-Research question 2 has already been well researched within the literature [INSERT CITATIONS HERE]. However, the question links into our future research questions (§2.2) associated with using techniques {footnote: such as transfer learning and deep feature extraction} to improve the performance of small datasets on neural network architectures. For this reason, it is important that an investigation is conducted in order to establish a more conclusive understanding of the proposed datasets (§3) on our employed architecture, outlined in §4.x..
+Within the first research question, it is assumed that visual similarity is easily identifiable by humans. Throughout our research, images that only contain variation of facial expression (§x.x) are considered to have maximal similarity. Conversely, images of distinctively different objects are considered to have minimal similarity. Although a similarity metric between instances of data (and datasets) is not proposed within this report, this topic is touched upon within our discussion of potential future work (§7.x).
 
-*Notes*
+Furthermore, the proposed neural network architecture (§4.x) is assumed to be fairly standard. Therefore we assume a degree of generalisation to similar problem domains in any presented research. However, more work may need to be undertaken in order to validate this (§7.x).
 
-*We need to clearly identify what our underlying assumption is as stated above and then abstract out the possibility of some kind of similarity metric to the further work section, essentially for someone else to build upon.*
+The second research question has already been thoroughly investigated within the literature [INSERT CITATIONS HERE]. However, the question links into our future research questions (§2.2) associated with using techniques {footnote: such as transfer learning and one shot learning} to improve the performance of small datasets on neural network architectures. For this reason, it may be important that an investigation is conducted in order to establish a more conclusive understanding of the proposed datasets (§3) on our employed architecture (§4.x).
 
 **2.2. Future Research Questions**
 
-*TODO: write a chaining paragraph to connect 2.1. to 2.2. and introduce the following research questions:*
+Within the last section, research questions associated with this interim report were presented. The future research questions we intend to address within the concluding report are outlined below.
 
-1. How does applying transfer learning on to deep convolutional neural networks improve the performance of classification tasks?
-2. How does transfer learning perform on convolutional neural networks when the size of the dataset used to tune the network is greatly reduced in size?
-3. How can deep feature extraction be used in order to improve the performance of small datasets on deep neural network architectures?
-4. How does one shot learning (Siamese Network) perform on small datasets within classification tasks? (if time allows us to research this) *todo: clean up wording of research question*
+1. How does the application of transfer learning affect the performance of the proposed neural network architecture (§x.x)? {footnote: this will be tested using the same classification experiments performed during the interim report.}
+2. How does the application of transfer learning affect the performance of the proposed neural network architecture when the size of the dataset used to tune the network is greatly reduced?
+3. If time permits, how does one shot learning (the use of siamese network architectures [INSERT REFERENCE HERE]) perform on small datasets within classification tasks?
+4. If time permits, how can deep feature extraction be used in order to improve the performance of small datasets on deep neural network architectures?
 
-**2.3. Aims and Objectives**
+**2.3. Aims and Objectives** 
 
-To investigate whether subtle and obvious differences between classes given same no. of dataset would affect performance using convolution neural network.
+The core objective of the concluding report is to investigate connectionist based methodologies for improving classification performance on vision based tasks using small datasets. Initially, this investigation will be addressed by obtaining a set of baseline classification accuracies using a shallow convolutional neural network architecture. Baseline accuracies will be obtained for training dataset sizes of:
 
-To try and find a good method of improving performance on the same task using a smaller version of the same dataset in combination with techniques.
+* 100%
+* 75%
+* 50%
+* 25%
+* 10%
+* 1%
 
-*Notes*
-
-*TODO: expand on this, note: it's important to contextualise your research questions in terms of aims and objectives.*
-
-*TODO: Document how the aforementioned research questions differ from those already addressed by the established research?*
-
-*TODO: We could break this section up into the following based on the cw3.pdf document that is up on the MLP website: Core Objectives, Optional Objectives.*
+As an optional objective, the interim report (in conjunction with the concluding report) aims to investigate how subtlety between different classes (given the same sized dataset) affects the performance of the proposed network architecture (§x.x).
 
 **2.4. Hypotheses**
 
+To conclude this section regarding the intended research questions, a set of hypotheses is provided:
+
 * Datasets with subtle differences between classes will perform worse on classification tasks than datasets with obvious differences between classes using the proposed convolution neural network architecture (§4.x.).
 * Reducing the size of the training dataset will result in worse generalisation using the proposed network architecture (§4.x.).
-* Reducing the size of the training dataset will result in an overfitting of the network architecture to the subsampled dataset. **TODO: NOTE: THIS MAY NEED ADDITIONAL CLARIFICATION.**
-* *TODO: ADD FURTHER HYPOTHESES*
+* Reducing the size of the training dataset will result in an overfitting of the network architecture to the subsampled dataset.
+* The application of transfer learning using a pre-trained model (any ImageNet variant [INSERT REFERENCES HERE]) will result in improved model performance.
+
+**Note: (Add more hypotheses if we want to use one shot learning, etc..)**
 
 **3. Data Set and Task**
 
@@ -81,16 +82,14 @@ To try and find a good method of improving performance on the same task using a 
 
 **4. Methodology**
 
-*Notes*
-Draft by Steven:
 In the first phrase of our project, the two research questions are first examined to create a baseline system for further work in transfer learning.
 Both of two image databases are subjected to pre-processing before using as inputs in neural network. In the facial expression dataset,
 original png files with 256x256 pixels are downscaled to 28x28 pixels so as to be comparable with the default pixels in clothes dataset.
-To understand the effect of the subtle and obvious feature differences between classes on performances (prediction accuracy, error) for  distinctive tasks, 30k images from both clothes dataset and facial dataset are evaluated on convolutional netural network respectively by performing multi-class classification task. Firstly, the architecture consists of three convolutional layers with one max-pooling Relu layer in between.The final layer is then flattened to produce one numerical output with catagorical cross-entropy as loss function (maybe add one more softmax layer before flattening to increase stability as suggested by MLP lecture?). For the optimizer, Adam or RMSprop would be used. Weight and bias is also initialized using (gloro-bengio ini. ?, random ?). After inspecting the results from first experiment. Same task is performed on much smaller dataset to investigate the discrepency of size of dataset on classification performance. (1000 dataset maybe?). By implemening the two experiments, baseline systems could be set up to investigate possible strategies to perform prediction/classification task given very small dataset which is the main goal of our project.
+To understand the effect of the subtle and obvious feature differences between classes on performances (prediction accuracy, error) for  distinctive tasks, 30k images from both clothes dataset and facial dataset are evaluated on convolutional neural network respectively by performing multi-class classification task. Firstly, the architecture consists of three convolutional layers with one max-pooling ReLU layer in between.The final layer is then flattened to produce one numerical output with categorical cross-entropy as loss function (maybe add one more softmax layer before flattening to increase stability as suggested by MLP lecture?). For the optimiser, Adam or RMSprop would be used. Weight and bias is also initialised using (gloro-bengio ini. ?, random ?). After inspecting the results from first experiment. Same task is performed on much smaller dataset to investigate the discrepancy of size of dataset on classification performance. (1000 dataset maybe?). By implementing the two experiments, baseline systems could be set up to investigate possible strategies to perform prediction/classification task given very small dataset which is the main goal of our project.
 
-In the second phrase of the project, two different transfer learning methods will be studied to examine potential methods to improve performances given very small dataset which is frequent in real-world scenario. Firstly, we transfer a very large pretrained network VGG16 on our aforementioned baseline system with pretrained weights on small dataset. Since VGG16 trains on 200 types of general objects. The generality of the model might be beneficial to train on common objects (clothes dataset). Apart from transferring model to domain-specific dataset (clothes dataset). We also transfer the model to dataset with unrelated and subtle differences between classes in the dataset (facial dataset), to test the effectiveness of pretrained model on task that shares little similarity with the pretrained model. 
+In the second phrase of the project, two different transfer learning methods will be studied to examine potential methods to improve performances given very small dataset which is frequent in real-world scenario. Firstly, we transfer a very large pre-trained network VGG16 on our aforementioned baseline system with pre-trained weights on small dataset. Since VGG16 trains on 200 types of general objects. The generality of the model might be beneficial to train on common objects (clothes dataset). Apart from transferring model to domain-specific dataset (clothes dataset). We also transfer the model to dataset with unrelated and subtle differences between classes in the dataset (facial dataset), to test the effectiveness of pre-trained model on task that shares little similarity with the pre-trained model. 
 
-Besides transferring pretrained model, we also wish to investigate the effect of one-shot learning on small dataset. To demonstrate a basic version of one-shot learning we will implement Siamese network on either one of the dataset( clothes/facial expression) with the help of existing models and our modification to these models , due to time constrain and taking potential difficulty of implementing one-shot learning architecture from scratch. As a backup plan, we will abandon this experiment and focus more on transferring models methods.
+Besides transferring pre-trained model, we also wish to investigate the effect of one-shot learning on small dataset. To demonstrate a basic version of one-shot learning we will implement Siamese network on either one of the dataset( clothes/facial expression) with the help of existing models and our modification to these models , due to time constrain and taking potential difficulty of implementing one-shot learning architecture from scratch. As a backup plan, we will abandon this experiment and focus more on transferring models methods.
 
 * Input Layer (are we going to pre-process the input data, such that the input layer is the same for both datasets? i.e: make the images the same dimensionality?)
 * Three convolutional layers.
