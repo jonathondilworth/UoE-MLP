@@ -1,2 +1,12 @@
-/data/
-./data/*
+*/.ipynb_checkpoints/*
+data/clothes.zip
+data/clothe*/*/*
+data/faces.zip
+data/face*/*/*
+data/faces_test.npz
+data/faces_train.npz
+data/clothes_test.npz
+data/clothes_train.npz
+data/IMFDB_final/
+data/fashion_mnist/
+baseline/prev
