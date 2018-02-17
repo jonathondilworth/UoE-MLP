@@ -1,5 +1,5 @@
-This is BibTeX, Version 0.99d (TeX Live 2017)
-Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+This is BibTeX, Version 0.99d (TeX Live 2015/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: mlp-cw1-template.aux
 The style file: icml2017.bst
 Illegal, another \bibstyle command---line 45 of file mlp-cw1-template.aux
@@ -8,48 +8,46 @@ Illegal, another \bibstyle command---line 45 of file mlp-cw1-template.aux
 I'm skipping whatever remains of this command
 Database file #1: biblo.bib.bib
 Warning--to sort, need author or key in lotsDataAndrew
-Warning--to sort, need author or key in oslsiamese
 Warning--empty year in lotsDataAndrew
-Warning--empty year in oslsiamese
-You've used 9 entries,
+You've used 11 entries,
             2773 wiz_defined-function locations,
-            642 strings with 6759 characters,
-and the built_in function-call counts, 4637 in all, are:
-= -- 406
-> -- 280
-< -- 5
-+ -- 96
-- -- 87
-* -- 363
-:= -- 659
-add.period$ -- 28
-call.type$ -- 9
-change.case$ -- 55
-chr.to.int$ -- 9
-cite$ -- 24
-duplicate$ -- 217
-empty$ -- 383
-format.name$ -- 96
-if$ -- 1005
+            660 strings with 7332 characters,
+and the built_in function-call counts, 6146 in all, are:
+= -- 544
+> -- 397
+< -- 6
++ -- 134
+- -- 123
+* -- 502
+:= -- 904
+add.period$ -- 37
+call.type$ -- 11
+change.case$ -- 73
+chr.to.int$ -- 11
+cite$ -- 25
+duplicate$ -- 276
+empty$ -- 476
+format.name$ -- 135
+if$ -- 1318
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 8
-newline$ -- 53
-num.names$ -- 28
-pop$ -- 148
+missing$ -- 11
+newline$ -- 64
+num.names$ -- 40
+pop$ -- 171
 preamble$ -- 1
-purify$ -- 47
+purify$ -- 63
 quote$ -- 0
-skip$ -- 175
+skip$ -- 224
 stack$ -- 0
-substring$ -- 157
-swap$ -- 45
-text.length$ -- 3
+substring$ -- 223
+swap$ -- 57
+text.length$ -- 4
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 94
-warning$ -- 4
-while$ -- 32
+type$ -- 116
+warning$ -- 2
+while$ -- 46
 width$ -- 0
-write$ -- 118
+write$ -- 150
 (There was 1 error message)
