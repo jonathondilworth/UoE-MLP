@@ -272,14 +272,14 @@ In the second phase of the project, two different transfer learning methods will
 
 Firstly, a large pre-trained network (VGG16) \cite{DBLP:journals/corr/SimonyanZ14a} is transferred on our aforementioned baseline system (REF). The baseline system has pre-trained weights from a small dataset. The generality of this proposed model may be beneficial to train on images contained within the clothes dataset, since VGG16 trains on 200 types of common objects. In addition to transferring model parameters to domain-specific datasets, an investigation into transferring model parameters to datasets with unrelated and subtle differences between classes is presented. This is proposed in order to test the effectiveness of transfer learning on tasks that share little similarity with the tasks that the pre-trained (transferred) model was trained on.
 
-Secondly, an investigation into the effectiveness of one-shot learning on small datasets is intended to be performed. To demonstrate a basic version of one-shot learning, an implementation of a Siamese network \cite{bromley1994signature} on either one of the two datasets will be executed. This will be accomplished using existing models and additional modifications to these models, due to time constrains and the consideration of potential difficulty when implementing a one-shot learning architecture from scratch.
+Secondly, an investigation into the effectiveness of one-shot learning on small datasets is intended to be performed. To demonstrate a basic version of one-shot learning, an implementation of a Siamese network \cite{bromley1994signature} on either one of the two datasets will be executed. The principle of Siamese network is first to train a neural network to learn similarity measures by discriminating between a sets of same/different pairs of image \cite{Koch}. The trained neural network is then implemented on one test image and all possible classes of images in pairwise manner , in an unseen dataset, and classification is done by finding the class with highest probability.   Our version of siamese network will be accomplished using existing models and additional modifications to these models, due to time constrains and the consideration of potential difficulty when implementing a one-shot learning architecture from scratch.
 
 Finally, the proposed investigations would also aim to increase the accuracy of datasets with subtle difference between classes (such as the faces dataset). This would be conducted in an attempt to bring the classification accuracy of both proposed datasets into alignment.
 
 \subsection{Backup Plans}
 \label{sec:plans}
 
-In instances where it is no longer possible to explore all proposed research avenues, a viable backup plan we intend to fall back to would be to solely concentrate on transfer learning. 
+In instances where it is no longer possible to explore all proposed research avenues, a viable backup plan we intend to fall back to would be to solely concentrate on transfer learning(transferring pre-trained model or deep-feature extraction) but instead of the Siamese network for one-shot learning. 
 
 \bibliographystyle{abbrv}
 \bibliography{biblo.bib}
