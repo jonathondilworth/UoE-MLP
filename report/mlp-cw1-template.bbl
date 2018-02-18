@@ -1,4 +1,4 @@
-\begin{thebibliography}{14}
+\begin{thebibliography}{15}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -18,6 +18,12 @@ Aneja, Deepali, Colburn, Alex, Faigin, Gary, Shapiro, Linda, and Mones,
 \newblock Modeling stylized character expressions via deep learning.
 \newblock In \emph{Asian Conference on Computer Vision}, pp.\  136--153.
   Springer, 2016.
+
+\bibitem[Blum \& Langley(1997)Blum and Langley]{blum1997selection}
+Blum, Avrim~L and Langley, Pat.
+\newblock Selection of relevant features and examples in machine learning.
+\newblock \emph{Artificial intelligence}, 97\penalty0 (1-2):\penalty0 245--271,
+  1997.
 
 \bibitem[Bromley et~al.(1994)Bromley, Guyon, LeCun, S{\"a}ckinger, and
   Shah]{bromley1994signature}
