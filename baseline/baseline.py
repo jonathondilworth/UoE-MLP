@@ -24,11 +24,12 @@ def get_model_1(learning):
     image_shape = (64, 64, 1)
 
     model = Sequential()
-    model.add(Lambda(lambda x: x, input_shape=image_shape, output_shape=image_shape))
+    model.add(Lambda(lambda x: x/127.5 - 1, input_shape=image_shape, output_shape=image_shape))
     
     model.add(Convolution2D(
         5, 
-        5, 
+        5,
+        name="convolution", 
         kernel_initializer='random_uniform',
         bias_initializer='zeros',
         border_mode="valid"))
@@ -36,7 +37,7 @@ def get_model_1(learning):
     model.add(Activation('relu'))
 
     model.add(Flatten())
-    model.add(Dense(7, kernel_initializer=glorot_uniform(seed), activation='softmax'))
+    model.add(Dense(7, kernel_initializer=glorot_uniform(seed), activation='softmax', name="dense"))
 
     optimizer = Adam(lr=learning)
     model.compile(optimizer=optimizer, loss="categorical_crossentropy", metrics=["accuracy"])
@@ -338,6 +339,7 @@ def train_model(model, hyper):
 
     save_log_metrics(log_file_name, hyper, history)
     save_plot_metrics(log_file_name, history)
+    model.save_weights(log_file_name + ".hdf")
 
 def generate_log_file_name(hyper):
     exp_name = hyper["exp_name"]
@@ -393,7 +395,7 @@ parser.add_argument('exp_name', type=str, help="Name of experiment")
 parser.add_argument('model_type', type=int, help="Type of classifier")
 parser.add_argument('-n', dest='num_epochs', type=int, default=100)
 parser.add_argument('-l', dest='learning_rate', type=float, default=0.001)
-parser.add_argument('-t', dest='training_size', type=int, default=2000)
+parser.add_argument('-t', dest='training_size', type=int, default=500)
 parser.add_argument('-b', dest='batch_size', type=int, default=50)
 parser.add_argument('-s', dest='dataset_size', type=int, default=100)
 parser.add_argument('-d', dest='dataset_type', type=int, default=1)
