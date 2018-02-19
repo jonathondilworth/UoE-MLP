@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.10.26)  19 FEB 2018 15:29
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.10.26)  19 FEB 2018 15:40
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -578,28 +578,32 @@ LaTeX Info: Redefining \nameref on input line 58.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\\' on input line 68.
+(hyperref)                removing `\\' on input line 69.
 
-LaTeX Font Info:    Try loading font information for OT1+txr on input line 83.
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\\' on input line 69.
+
+LaTeX Font Info:    Try loading font information for OT1+txr on input line 84.
 (/usr/share/texlive/texmf-dist/tex/latex/txfonts/ot1txr.fd
 File: ot1txr.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    Try loading font information for U+txsya on input line 83.
+LaTeX Font Info:    Try loading font information for U+txsya on input line 84.
 
 (/usr/share/texlive/texmf-dist/tex/latex/txfonts/utxsya.fd
 File: utxsya.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    Try loading font information for U+txsyb on input line 83.
+LaTeX Font Info:    Try loading font information for U+txsyb on input line 84.
 
 (/usr/share/texlive/texmf-dist/tex/latex/txfonts/utxsyb.fd
 File: utxsyb.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    Try loading font information for U+txmia on input line 83.
+LaTeX Font Info:    Try loading font information for U+txmia on input line 84.
 
 (/usr/share/texlive/texmf-dist/tex/latex/txfonts/utxmia.fd
 File: utxmia.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    Try loading font information for U+txsyc on input line 83.
+LaTeX Font Info:    Try loading font information for U+txsyc on input line 84.
 
 (/usr/share/texlive/texmf-dist/tex/latex/txfonts/utxsyc.fd
 File: utxsyc.fd 2000/12/15 v3.1
@@ -611,41 +615,41 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 ]
-LaTeX Font Info:    Try loading font information for OMS+txr on input line 152.
+LaTeX Font Info:    Try loading font information for OMS+txr on input line 153.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/txfonts/omstxr.fd
 File: omstxr.fd 2000/12/15 v3.1
 )
 LaTeX Font Info:    Font shape `OMS/txr/m/n' in size <10> not available
-(Font)              Font shape `OMS/txsy/m/n' tried instead on input line 152.
+(Font)              Font shape `OMS/txsy/m/n' tried instead on input line 153.
  [2]
 <original_clothes.png, id=99, 851.8224pt x 126.2316pt>
 File: original_clothes.png Graphic file (type png)
 
 <use original_clothes.png>
-Package pdftex.def Info: original_clothes.png used on input line 165.
+Package pdftex.def Info: original_clothes.png used on input line 166.
 (pdftex.def)             Requested size: 483.69814pt x 71.13414pt.
 
 <original_expressions.png, id=101, 857.604pt x 126.2316pt>
 File: original_expressions.png Graphic file (type png)
 
 <use original_expressions.png>
-Package pdftex.def Info: original_expressions.png used on input line 175.
+Package pdftex.def Info: original_expressions.png used on input line 176.
 (pdftex.def)             Requested size: 483.69658pt x 71.13414pt.
 
 <augmented_clothes.png, id=105, 709.2096pt x 161.8848pt>
 File: augmented_clothes.png Graphic file (type png)
 
 <use augmented_clothes.png>
-Package pdftex.def Info: augmented_clothes.png used on input line 196.
+Package pdftex.def Info: augmented_clothes.png used on input line 197.
 (pdftex.def)             Requested size: 311.62032pt x 71.13188pt.
 
 <augmented_expressions.png, id=106, 709.2096pt x 161.8848pt>
 File: augmented_expressions.png Graphic file (type png)
 
 <use augmented_expressions.png>
-Package pdftex.def Info: augmented_expressions.png used on input line 206.
+Package pdftex.def Info: augmented_expressions.png used on input line 207.
 (pdftex.def)             Requested size: 311.62032pt x 71.13188pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -706,17 +710,17 @@ Underfull \hbox (badness 5607) in paragraph at lines 56--61
  []
 
 )
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 313.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 314.
  [6
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 313.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 314.
  (./mlp-cw1-template.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 313.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 313.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 314.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 314.
 Package rerunfilecheck Info: File `mlp-cw1-template.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 313.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 314.
  ) 
 Here is how much of TeX's memory you used:
  9928 strings out of 494910
@@ -732,7 +736,7 @@ e/texmf-dist/fonts/type1/public/txfonts/rtxr.pfb></usr/share/texlive/texmf-dist
 /urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr
 8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/sh
 are/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on mlp-cw1-template.pdf (6 pages, 217230 bytes).
+Output written on mlp-cw1-template.pdf (6 pages, 217423 bytes).
 PDF statistics:
  200 PDF objects out of 1000 (max. 8388607)
  176 compressed objects within 2 object streams
