@@ -1,0 +1,53 @@
+This is BibTeX, Version 0.99d (TeX Live 2015/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: mlp-cw1-template.aux
+The style file: icml2017.bst
+Illegal, another \bibstyle command---line 59 of file mlp-cw1-template.aux
+ : \bibstyle
+ :          {abbrv}
+I'm skipping whatever remains of this command
+Database file #1: biblo.bib.bib
+Warning--to sort, need author or key in lotsDataAndrew
+Warning--empty year in lotsDataAndrew
+You've used 16 entries,
+            2773 wiz_defined-function locations,
+            688 strings with 8245 characters,
+and the built_in function-call counts, 8615 in all, are:
+= -- 760
+> -- 556
+< -- 10
++ -- 188
+- -- 171
+* -- 700
+:= -- 1278
+add.period$ -- 53
+call.type$ -- 16
+change.case$ -- 104
+chr.to.int$ -- 15
+cite$ -- 35
+duplicate$ -- 391
+empty$ -- 671
+format.name$ -- 194
+if$ -- 1841
+int.to.chr$ -- 2
+int.to.str$ -- 1
+missing$ -- 16
+newline$ -- 90
+num.names$ -- 60
+pop$ -- 232
+preamble$ -- 1
+purify$ -- 89
+quote$ -- 0
+skip$ -- 317
+stack$ -- 0
+substring$ -- 290
+swap$ -- 75
+text.length$ -- 5
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 171
+warning$ -- 2
+while$ -- 66
+width$ -- 0
+write$ -- 215
+(There was 1 error message)
