@@ -3,7 +3,7 @@ from keras.preprocessing import image
 from keras.applications.vgg16 import preprocess_input
 import numpy as np
 import glob
-
+import time
 
 def load_dataset(file_train, file_test, size=1.0):
 	# loadtxt gives results with that b' char
@@ -19,7 +19,7 @@ def load_dataset(file_train, file_test, size=1.0):
     return xtr, ytr, xte, yte
 
 def extract_features(model, img_path):
-	img = image.load_img(img_path, target_size=(224, 224))
+	img = image.load_img(img_path, target_size=(64, 64))
 	x = image.img_to_array(img)
 	x = np.expand_dims(x, axis=0)
 	x = preprocess_input(x)
@@ -27,12 +27,11 @@ def extract_features(model, img_path):
 	features = model.predict(x)
 
 	# Get only the max values of every 7x7 kernel
-	features = features.squeeze().reshape((49,512))
-	features = np.max(features, axis=0)
+	features = features.ravel()
 	return features
 
 def get_features_from_dataset(model, paths, labels, records_file):
-	new_feats = np.zeros(512)
+	new_feats = np.zeros(2048)
 
 	with open(records_file, "a") as myfile:
 		for path, label in zip(paths, labels):
@@ -41,10 +40,11 @@ def get_features_from_dataset(model, paths, labels, records_file):
 			c_feats = extract_features(model, image_path)
 			xy = np.hstack((label, c_feats))
 
+
 			# from https://stackoverflow.com/a/13861407
 			#generate an array with strings
-			xy_arrstr = np.char.mod('%f', xy)
-			#combine to a string
+			xy_arrstr = np.char.mod('%.2f', xy)
+			# #combine to a string
 			xy_str = ",".join(xy_arrstr)
 			myfile.write(xy_str + "\n")
 
@@ -66,15 +66,18 @@ def process_dataset(dataset_name):
 	except Exception as e:
 		raise e
 
-	path_feats_to_test = "../data/{:s}_512_test.txt".format(dataset_name)
-	path_feats_to_train = "../data/{:s}_512_train.txt".format(dataset_name)
+	path_feats_to_test = "../data/{:s}_2048_test.txt".format(dataset_name)
+	path_feats_to_train = "../data/{:s}_2048_train.txt".format(dataset_name)
 
 	# xtr_feats = get_features_from_dataset(model, xtr, ytr, path_feats_to_train)
 	# xte_feats = get_features_from_dataset(model, xte, yte, path_feats_to_test)
 	
+	s = time.time()
 	get_features_from_dataset(model, xtr, ytr, path_feats_to_train)
 	get_features_from_dataset(model, xte, yte, path_feats_to_test)
+	e = time.time()
 
+	print("total time: {:.2f}".format(e-s))
 	# xy_tr = np.hstack((ytr, xtr_feats))
 	# xy_te = np.hstack((yte, xte_feats))
 
