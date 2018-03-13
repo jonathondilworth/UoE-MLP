@@ -15,14 +15,14 @@ from random import randrange
 
 seed=10102016
 
-def get_model_1(learning_rate, num_feats=512):
+def get_model_1(learning_rate, activ="relu", num_feats=2048):
     model = Sequential()
     model.add(Activation('relu', batch_input_shape=(None, num_feats)))
     
     model.add(
         Dense(
             100, 
-            activation='relu',
+            activation=activ,
             init='uniform',
             kernel_regularizer=regularizers.l2(0.01)
         )
@@ -41,14 +41,14 @@ def get_model_1(learning_rate, num_feats=512):
 
     return model
 
-def get_model_2(learning_rate, num_feats=512):
+def get_model_2(learning_rate, activ="relu", num_feats=2048):
     model = Sequential()
     model.add(Activation('relu', batch_input_shape=(None, num_feats)))
     
     model.add(
         Dense(
             100, 
-            activation='relu',
+            activation=activ,
             init='uniform',
             kernel_regularizer=regularizers.l2(0.01)
         )
@@ -57,7 +57,7 @@ def get_model_2(learning_rate, num_feats=512):
     model.add(
         Dense(
             50, 
-            activation='relu',
+            activation=activ,
             init='uniform'
         )
     )
@@ -75,14 +75,14 @@ def get_model_2(learning_rate, num_feats=512):
 
     return model
 
-def get_model_3(learning_rate, num_feats=512):
+def get_model_3(learning_rate, activ="relu", num_feats=2048):
     model = Sequential()
     model.add(Activation('relu', batch_input_shape=(None, num_feats)))
     
     model.add(
         Dense(
             100, 
-            activation='relu',
+            activation=activ,
             init='uniform',
             kernel_regularizer=regularizers.l2(0.01)
         )
@@ -91,7 +91,7 @@ def get_model_3(learning_rate, num_feats=512):
     model.add(
         Dense(
             50, 
-            activation='relu',
+            activation=activ,
             init='uniform'
         )
     )
@@ -99,7 +99,7 @@ def get_model_3(learning_rate, num_feats=512):
     model.add(
         Dense(
             25, 
-            activation='relu',
+            activation=activ,
             init='uniform'
         )
     )
@@ -155,10 +155,10 @@ def reshape_dataset(x, y):
     return x, y
 
 def load_clothes(size=1.0):
-    return load_dataset("../data/deep_features/clothes_512_train.npz", "../data/deep_features/clothes_512_test.npz", size)
+    return load_dataset("../data/deep_features/clothes_2048_train.npz", "../data/deep_features/clothes_2048_test.npz", size)
     
 def load_faces(size=1.0):
-    return load_dataset("../data/deep_features/faces_512_train.npz", "../data/deep_features/faces_512_test.npz", size)
+    return load_dataset("../data/deep_features/faces_2048_train.npz", "../data/deep_features/faces_2048_test.npz", size)
 
 def save_plot_metrics(log_file_name, history):
     keys = history.history.keys()
@@ -259,17 +259,22 @@ def generate_log_file_name(hyper):
         raise NotImplementedError
 
     dataset_size = hyper["dataset_size"]
-    return "{:s}_model_{:d}_{:s}_{:d}".format(exp_name, model_type, dataset_name, dataset_size)
+    activation = hyper["activation"]
+    learning_rate = hyper["learning_rate"]
+    learning_rate = str(learning_rate).replace(".", "") #convert to string to avoid decimal point in the filename
 
-def train_networks(exp_name, model_type, learning_rate, training_size, batch_size, num_epochs, dataset_size, dataset_type):
+    return "./baseline_experiments/{:s}_M_{:d}_A_{:s}_L_{:s}_D_{:s}".format(exp_name, model_type, activation, learning_rate, dataset_name)
+
+def train_networks(exp_name, model_type, learning_rate, training_size, 
+    batch_size, num_epochs, dataset_size, dataset_type, activation):
     model = None
 
     if model_type == 1:
-        model = get_model_1(learning_rate)
+        model = get_model_1(learning_rate, activation)
     elif model_type == 2:
-        model = get_model_2(learning_rate)
+        model = get_model_2(learning_rate, activation)
     elif model_type == 3:
-        model = get_model_3(learning_rate)
+        model = get_model_3(learning_rate, activation)
     else:
         raise NotImplementedError
 
@@ -282,6 +287,7 @@ def train_networks(exp_name, model_type, learning_rate, training_size, batch_siz
     hyper["dataset_size"] = dataset_size
     hyper["model_type"] = model_type
     hyper["exp_name"] = exp_name
+    hyper["activation"] = activation
 
     train_model(model, hyper)
 
@@ -296,6 +302,7 @@ parser.add_argument('-t', dest='training_size', type=int, default=2000)
 parser.add_argument('-b', dest='batch_size', type=int, default=50)
 parser.add_argument('-s', dest='dataset_size', type=int, default=100)
 parser.add_argument('-d', dest='dataset_type', type=int, default=1)
+parser.add_argument('-a', dest='activation', type=str, default="relu")
 
 args = parser.parse_args()
 exp_name = args.exp_name
@@ -306,5 +313,6 @@ training_size = args.training_size
 batch_size = args.batch_size
 dataset_size = args.dataset_size
 dataset_type = args.dataset_type
+activation = args.activation
 
-train_networks(exp_name, model_type, learning_rate, training_size, batch_size, num_epochs, dataset_size, dataset_type)
+train_networks(exp_name, model_type, learning_rate, training_size, batch_size, num_epochs, dataset_size, dataset_type, activation)
