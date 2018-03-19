@@ -238,9 +238,14 @@ def train_model(model, hyper):
         epochs=num_epochs
     )
 
-    eval_ = model.evaluate(xte, yte)
-    for val, key in zip(eval_, model.metrics_names):
-        hyper[key] = val
+    # DO NOT eval due to problems when splitting data
+    # No samples from all classes when dataset size is to small
+    try:
+        eval_ = model.evaluate(xte, yte)
+        for val, key in zip(eval_, model.metrics_names):
+            hyper[key] = val
+    except:
+        print("Not samples from all classes for evaluation")
 
     save_log_metrics(log_file_name, hyper, history)
     save_plot_metrics(log_file_name, history)
@@ -259,11 +264,12 @@ def generate_log_file_name(hyper):
         raise NotImplementedError
 
     dataset_size = hyper["dataset_size"]
+    dataset_size = str(dataset_size).replace(".", "")
     activation = hyper["activation"]
     learning_rate = hyper["learning_rate"]
     learning_rate = str(learning_rate).replace(".", "") #convert to string to avoid decimal point in the filename
 
-    return "./baseline_experiments/{:s}_M_{:d}_A_{:s}_L_{:s}_D_{:s}".format(exp_name, model_type, activation, learning_rate, dataset_name)
+    return "./baseline_experiments/{:s}_M_{:d}_A_{:s}_L_{:s}_D_{:s}_S_{:s}".format(exp_name, model_type, activation, learning_rate, dataset_name, dataset_size)
 
 def train_networks(exp_name, model_type, learning_rate, training_size, 
     batch_size, num_epochs, dataset_size, dataset_type, activation):
@@ -300,7 +306,7 @@ parser.add_argument('-n', dest='num_epochs', type=int, default=100)
 parser.add_argument('-l', dest='learning_rate', type=float, default=0.001)
 parser.add_argument('-t', dest='training_size', type=int, default=2000)
 parser.add_argument('-b', dest='batch_size', type=int, default=50)
-parser.add_argument('-s', dest='dataset_size', type=int, default=100)
+parser.add_argument('-s', dest='dataset_size', type=float, default=100)
 parser.add_argument('-d', dest='dataset_type', type=int, default=1)
 parser.add_argument('-a', dest='activation', type=str, default="relu")
 

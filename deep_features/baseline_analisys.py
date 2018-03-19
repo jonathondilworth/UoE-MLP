@@ -7,22 +7,28 @@ from collections import OrderedDict
 def load_results(log_name):
     
     # dataset, size, model, val acc, val err
-    results= np.array(["Learning rate", "Dataset", "Model", "Activation", "Accuracy", "Error"])
+    results= np.array(["Learning rate", "Dataset", "Dataset size", "Model", "Activation", "Accuracy", "Error"])
 
     for dataset in ["faces", "clothes"]:
         for model in [1, 2, 3]:
             for activation in ["relu", "elu", "sigmoid"]:
                 for learning_rate in [0.1, 0.01, 0.001, 0.0001]:
-                    lr = str(learning_rate).replace(".", "")
-                    file_name = "./baseline_experiments/baseline_M_{:d}_A_{:s}_L_{:s}_D_{:s}.txt".format(model, activation, lr, dataset)
-                    hyper = get_hyper(file_name)
-                    row = np.array([])
-                    for key in hyper:
-                        if key not in ["dataset_type", "model_type", "activation", "learning_rate", "vAcc", "vErr"]:
-                            continue
+                    for dataset_size in [100.0, 75.0, 50.0, 25.0, 10.0, 1.0, 0.1]:
+                        try:
+                            lr = str(learning_rate).replace(".", "")
+                            ds_size = str(dataset_size).replace(".", "")
+                            file_name = "./baseline_experiments/baseline_M_{:d}_A_{:s}_L_{:s}_D_{:s}_S_{:s}.txt".format(model, activation, lr, dataset, ds_size)
+                            hyper = get_hyper(file_name)
+                            row = np.array([])
+                            for key in hyper:
+                                if key not in ["dataset_size", "dataset_type", "model_type", "activation", "learning_rate", "vAcc", "vErr"]:
+                                    continue
 
-                        row = np.hstack((row, (str)(hyper[key])))
-                    results = np.vstack((results, row))
+                                row = np.hstack((row, (str)(hyper[key])))
+                            results = np.vstack((results, row))
+                        except:
+                            print("Undefined experiment")
+
 
     print(results)
     np.savetxt(log_name, results,  fmt='%s', delimiter=',')
@@ -42,6 +48,7 @@ def get_hyper(file_name):
             val = (float)(key_val[1])
         except:
             val = (str)(key_val[1])
+            val = val.replace('\n', '')
         
         hyper[key] = val
     
