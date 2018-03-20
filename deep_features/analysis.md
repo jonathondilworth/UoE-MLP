@@ -41,4 +41,15 @@ After running the previous experiments, we analyse the results based on the vali
 
 ## Results
 
-We analyse the first part of the experiments based on the validation accuracy. Overall, there is still an evident reduction of the performance of the architecture relate to the size of the datasets. However, there are several things to highlight:
+We analyse the first round of experiments based on the validation accuracy. Overall, there is still an evident reduction of the performance of the architecture relate to the size of the datasets. However, there are several things to highlight:
+
+- For each dataset, the configuration that provides the highest accuracy for the smallest dataset size are quite different as seen in table 1. It is specially important to note the activation functions. It is expected that the Sigmoid activation function gives better results since the uniform initialization strategy is meant to benefit this activation function. However, in the case of expressions dataset, the best result is obtained with ELU. But the best accuracy using Sigmoid activations is not that far 0.30.
+
+| Dataset | Accuracy | Fully connected layers | Activation | Learning rate |
+| - | - | - | - | - |
+| Clothes | 0.64 |2 | Sigmoid | 0.01 |
+| Expressions | 0.31 |3 | Elu | 0.001 |
+
+Table 1: Configuration that allows the highest accuracy for size of 0.1% for clothes and expressions datasets
+
+- The proposed approach has provided more benefits to the clothes dataset than to the expressions one, as seen in figures accuracy_reduction_00.png and accuracy_reduction_01.png This gives us some clues about the domain of the images in every dataset. Based on these results, we can say that the "distance" between the clothes domain and ImageNet is smaller than the "distance" between the expressions domain and ImageNet.
