@@ -8,7 +8,7 @@ models='1 2 3'
 activations='elu sigmoid'
 learning_rates='0.01 0.001 0.0001'
 datasets='1 2'
-sizes='10 1 0.1'
+sizes='100 10 1 0.1'
 
 for  dataset in $datasets
 do

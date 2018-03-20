@@ -11,9 +11,9 @@ def load_results(log_name):
 
     for dataset in ["faces", "clothes"]:
         for model in [1, 2, 3]:
-            for activation in ["relu", "elu", "sigmoid"]:
-                for learning_rate in [0.1, 0.01, 0.001, 0.0001]:
-                    for dataset_size in [100.0, 75.0, 50.0, 25.0, 10.0, 1.0, 0.1]:
+            for activation in ["elu", "sigmoid"]:
+                for learning_rate in [0.01, 0.001, 0.0001]:
+                    for dataset_size in [100.0, 10.0, 1.0, 0.1]:
                         try:
                             lr = str(learning_rate).replace(".", "")
                             ds_size = str(dataset_size).replace(".", "")
@@ -28,6 +28,8 @@ def load_results(log_name):
                             results = np.vstack((results, row))
                         except:
                             print("Undefined experiment")
+                            print("dataset: {:s}, model {:d}, activation {:s}, learning rate {:.4f}, size {:.1f}". format(
+                                dataset, model, activation, learning_rate, dataset_size))
 
 
     print(results)
@@ -63,7 +65,7 @@ def get_hyper(file_name):
         hyper["dataset_type"] = "clothes"
         
     if hyper["dataset_type"] == 2:
-        hyper["dataset_type"] = "faces"
+        hyper["dataset_type"] = "expressions"
         
     return hyper
 
