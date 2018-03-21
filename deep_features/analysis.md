@@ -41,4 +41,26 @@ After running the previous experiments, we analyse the results based on the vali
 
 ## Results
 
-We analyse the first part of the experiments based on the validation accuracy. Overall, there is still an evident reduction of the performance of the architecture relate to the size of the datasets. However, there are several things to highlight:
+We analyse the first round of experiments based on the validation accuracy. Overall, there is still an evident reduction of the performance of the architecture relate to the size of the datasets. However, there are several things to highlight:
+
+- For each dataset, the configuration that provides the highest accuracy for the smallest dataset size are quite different as seen in table 1. It is specially important to note the activation functions. It is expected that the Sigmoid activation function gives better results since the uniform initialization strategy is meant to benefit this activation function. However, in the case of expressions dataset, the best result is obtained with ELU. But the best accuracy using Sigmoid activations is not that far 0.30.
+
+| Dataset | Validation accuracy | Fully connected layers | Activation | Learning rate |
+| - | - | - | - | - |
+| Clothes | 0.64 |2 | Sigmoid | 0.01 |
+| Expressions | 0.31 |3 | Elu | 0.001 |
+
+Table 1: Configuration that allows the highest accuracy for size of 0.1% for clothes and expressions datasets
+
+- The proposed approach has provided more benefits to the clothes dataset than to the expressions one, as seen in figures accuracy_reduction_00.png and accuracy_reduction_01.png This gives us some clues about the domain of the images in every dataset. Based on these results, we can say that the "distance" between the clothes domain and ImageNet domain is smaller than the "distance" between the expressions domain and ImageNet domain.
+
+- In comparison with the baseline system, it is clearly evident that the performance of the proposed system is better. For the clothes dataset reaches a performance similar to the one obtained using data augmentation. However, for the expressions dataset, the performance surpasses the one obtained with data augmentation. This might indicate that the conversion from the original feature space (pixel intensity) to the VGG16 feature space is more beneficial for the expressions than for the clothes.
+
+| Dataset | Baseline  | Data Augmentation | Transfer learning |
+| - | - | - | - |
+| Clothes | 0.50 | 0.76 | 0.75 |
+| Expressions | 0.32 | 0.44 | 0.50 |
+
+Table 2: Validation accuracy comparison between baseline system and approaches using data augmentation and transfer learning for size of 1% for clothes and expressions datasets
+
+Observing the behaviour of the fully connected layers for the smallest sizes of both datasets, it is evident that the system is more stable for the clothes than for the expressions as seen in figure behaviour.png In the case of the clothes, for 1% and 0.1% of the original size, the system reaches a point where it starts to overfit. However, it is noticeable how the configuration of the system is robust enough to try to minimize this situation. The history is different for the expressions. Here, the beahiour is completely different not just compared to the clothes, but between the sizes of the dataset. In the case of the 1% of the size, the configuration of the system is not robust enough to minimize the effect of overfitting. Once the overfittig starts, the system can not make too much about it. However, for the case of 0.1%, the configuration of the system is robust, not just to minimize the effects of overfitting, but to recover from it. This is not something inmediat and it takes some time.
