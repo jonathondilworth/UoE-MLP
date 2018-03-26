@@ -78,7 +78,7 @@ Large-scale neural networks have become increasingly prevalent in artificial int
 
 Data driven techniques exist, such as data augmentation [INSERT REFERENCE HERE], which help solve this problem [footnote: see our previous paper for a further explanation]. However, to draw from our previous research [INSERT REFERENCE HERE] we investigate alternative, machine learning based approaches, specifically transfer learning [INSERT REFERENCE HERE] as a method to improve the performance of neural network architectures that utilise small amounts of data. These techniques allow us to use the knowledge that a given (pre-trained) network already has and adapt the architecture to suit our requirements [INSERT REFERENCE HERE].
 
-The objective of transfer learning is to use the knowledge acquired by an existing network that was built to solve a similar task. The main idea is to try to adapt that previous knowledge to the new problem to be solved. One of the advantages of this technique is that the solution for the new problem does not have to start from scratch. Prior work can be re-utilised which is important when the resources are limited. This situation is specially true for convolutional neural networks which, depending on the size of the architecture, can require an important amount of computational power.
+The objective of transfer learning is to use the knowledge acquired by an existing network that was built to solve a similar task and improve the generalization. The main idea is to try to adapt that previous knowledge to the new problem to be solved. One of the advantages of this technique is that the solution for the new problem does not have to start from scratch. Prior work can be re-utilised which is important when the resources are limited. This situation is specially true for convolutional neural networks which, depending on the size of the architecture, can require an important amount of computational power.
 
 There exist a number of pre-trained neural networks to solve classification tasks in the field of computer vision. One of them is the Visual Geometry Group network (VGG net)[INSERT REFERENCE HERE]. This network implements a simple yet deep architecture with several convolutional layers. There are several configurations that vary the number of convolutional layers among 11, 13, 16, and 19. In every configuration the architecture includes maximum pooling layers of dimensions 2x2 and stride 1. The convolutions are performed using 3x3 filters with stride and pad of 1. Finally, ReLU activations after each convolution are utilised.
 
@@ -87,30 +87,33 @@ VGG net was firs used in the ImageNet Challenge 2014[INSERT REFERENCE HERE], whi
 ImageNet is a large-scale hierarchical image database [INSERT REFERENCE HERE]. The structure of this dataset contains 12 main groups or sub-trees. Each sub-tree contains a variable number of categories. The total number of categories is 5247, each one containing on average 600 images; thus, the total number of images in the dataset is 3.2 million. As described, ImageNet is a large and diverse dataset. However, the original version of VGG net was trained on a subset of Imagenet that contains only 1000 categories using 1.3 million images for training, 50K images for validation and 100K images for testing.
 
 
-\subsection{Objectives}
-\label{sec:objectives}
-
-The research presented within this report pertains to two fundamental objectives. The first of which concerns itself with improving the performance of image classification tasks using transfer learning and deep feature extraction with limited amounts of data. The second investigates the generalisability of the methods as mentioned above to two distinctly different datasets [REF: APPENDIX: PARAGRAPH ON DATASETS]. Furthermore, we intend to propose and utilise a framework for measuring the visual similarity between datasets using a modified siamese neural network [INSERT REFERENCE HERE] architecture.
 
 \subsection{Interim Report Findings}
 \label{sec:findings}
 
 The research questions offered within this report have been drawn from our initial findings, as documented in the interim report [INSERT REFERENCE HERE]. To aid in orientating the reader, we provide a summary of these findings here.
 
-It was possible to demonstrate that a correlation exists between the amount of available data used to train, test and validate a simple convolutional neural network and the generalised accuracy of the model. This correlation shows that as the amount of data reduces, so does the validation accuracy.
+It was possible to demonstrate how the amount of available data impacts the performance of a convolutional neural network. Such impact was observed in the validation stage by analysing the accuracy and error of the network. In the first case, it was evident the reduction of the accuracy as the size of the dataset was reduced. In the second case, the size of the dataset directly affected the error; the smaller the dataset, the bigger the error. In both cases, the ultimate effect of such behaviour was the difficulty of the network to generalize when the amount of data is small.
 
-Furthermore, we were able to prove that shallower networks have a higher versatility when the perceived visual similarity between classes within a dataset is high [footnote: to clarify, shallow networks perform better on data where classes are distinctly different from one another. We compare our clothes dataset to our expressions dataset in order to draw this conclusion, as expressions are inherently more difficult to identify - a reference to psychological literature goes here]. We suggest that this is because shallow networks do not have the opportunity to extract the necessary features in order to distinctly identify subtle differences between classes, as a larger depth provides a higher number of learnable abstractions in representation.
+Futhermore, the usage of two different but comparable databases provided some extra insights about the behaviour of the neural network. In this case the observed accuracies in the validation stage were different for each dataset in every size used to train the network. Under these circumstances, it was clear that the dataset that allowed a higher accuracy (clothes) was less challenging for the network. This means, that the features extracted by the network were more useful and relevant for one of the datasets. In the other hand, the features learned by the network did not provide enough information to reach better results for the second dataset (expressions).
 
-Finally, we demonstrated that data augmentation effectively improves the performance of a simple convolutional neural network, but it appears there is a threshold where the benefits plateau. This provides further motivation for our investigation.
+Finally, we demonstrated that a simple data driven technique like data augmentation effectively improves the performance of a simple convolutional neural network. However, the benefits of this method have a limit above which no further improvement can be done. All of these findings provided the foundations and motivation for our investigation.
 
-\section{Research Questions}
+\section{Objectives and Research Questions}
+\label{sec:obj_questions}
+
+\subsection{Objectives}
+\label{sec:objectives}
+
+The research presented within this report pertains to two fundamental objectives. The first one concerns with improving the performance of image classification tasks using transfer learning with limited amounts of data. The second objective investigates the generalisability of the methods as mentioned above to two distinctly different datasets [REF: APPENDIX: PARAGRAPH ON DATASETS]. Furthermore, we intend to propose and utilise a framework for measuring the similarity between datasets using a modified siamese neural network [INSERT REFERENCE HERE] architecture.
+
+\subsection{Research Questions}
 \label{sec:questions}
-
 Following from the conclusions drawn from our interim report, our research questions are listed below.
 
 \begin{enumerate}
-  \item How can transfer learning be applied to a convolutional neural network in order to improve the accuracy of the model?
-  \item How does the application of transfer learning affect two distinctly different datasets? [footnote: the first dataset (clothes) will have low visual similarity between classes, whereas the second dataset (expressions) will have high visual similarity between classes.]
+  \item How much the performance for a given classification task can be improved by using transfer learning?  
+  \item How much the application of transfer learning affect two distinct but comparable datasets?
 \end{enumerate}
 
 [INSERT RESEARCH QUESTIONS ABOUT ONE SHOT LEARNING]
@@ -118,9 +121,8 @@ Following from the conclusions drawn from our interim report, our research quest
 \subsection{Hypotheses}
 \label{sec:hypotheses}
 \begin{enumerate}[label=\textbf{H.\arabic*}]
-  \item \label{h:1} Transfer learning will provide a performance benefit with respect to the generalisability (measured through validation accuracy) of a simple convolutional neural network architecture.
+  \item \label{h:1} Transfer learning will provide a performance benefit with respect to the generalisability (measured through validation accuracy) for a given classification with small data.
   \item \label{h:2} Transfer learning will provide a larger performance boost when the size of the dataset used to initially train the model is small rather than large.
-  \item \label{h:3} Classification tasks where perceived visual similarity between classes is high will outperform their proposed counterpart tasks where perceived visual similarity is low.
  \end{enumerate}
 
 Within the remainder of this report a section that outlines the methodologies utilised to conduct our research [INSERT SECTION REFERENCE] is initially given. Thereafter, all experimental results are presented [INSERT SECTION REFERENCE] and a review of related work is provided [INSERT SECTION REFERENCE]. Finally, a set of conclusions are drawn [INSERT SECTION REFERENCE].
@@ -133,9 +135,11 @@ A discussion of the methodologies used to conduct our experiments is provided he
 \subsection{Transfer Learning}
 \label{sec:transferlearninng}
 
-\subsubsection{\textbf{Chosen Transfer Model (VGG16)}}
+\subsubsection{\textbf{Chosen Transfer Model}}
 
-We decided to select the VGG16 network [INSERT REFERENCE HERE] to transfer from in order to conduct our experiments. This was primarily due to the similarity between our and their datasets and tasks. To elaborate, we required a pre-trained network that had been trained on image data in order to solve a classification task, VGG16 met these requirements. In addition, there are two main flavours of VGG16, the first uses the ImageNet dataset [INSERT REFERENCE HERE - get from VGG16 paper] and the second utilises CIFAR-100 [INSERT REFERENCE HERE] for training. We decided to use the ImageNet flavour of VGG16 because it has a higher number of classes than CIFAR-100. It follows that we may assume it embodies more knowledge and can provide better results for our particular datasets. Finally, it should be noted that VGG16 has 19 layers (16 convolutional layers and 3 fully connected ones).
+We decided to select the VGG net configuration with 16 convolutional layers (hereinafter referred as VGG16) to transfer its knowledge into the clothes and expressions datasets. As previously mentioned this network is quite simple and deep, thus, the expectation is that the knowledge contained in this network will be good enough to increase the generalisability of the classification tasks using both datasets.
+
+Since VGG16 has been trained in different datasets, we decided to use the knowledge obtained from ImageNet rather than other options like CIFAR-100. The main reason for this is the number of classes from the subset of ImageNet to train the network (1000) which is much bigger than the number of classes from CIFAR-100. The expectation is that the knowledge from ImageNet is wider, therefore it can provide better results when when transferring that knowledge into new datasets. 
 
 \subsubsection{\textbf{Data Structure and Learning Algorithm}}
 
