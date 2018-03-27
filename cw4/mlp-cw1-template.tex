@@ -151,11 +151,18 @@ Secondly, an adaption to the fully connected layers is required, we define three
 
 For the first fully connected layer we use the L2 regularisation strategy [INSERT REFERENCE HERE]. The main objective here is to avoid overfitting, which is especially important for small data. Each layer uses a uniform parameter initialisation strategy. [[This kind of initialisation allows to have the activation done in the linear part of a sigmoid function.]] For the output layer, a softmax activation with a categorical cross entropy error loss [INSERT REFERENCE HERE] is implemented. The implemented learning rule is Adam [INSERT REFERENCE HERE].
 
-\subsection{One Shot Learning}
+\subsection{one shot learning/transfer learning by learning similarity}
 \label{sec:oneshot}
 
 \subsubsection{\textbf{Siamese Neural Network}}
+In the previous section, transfer learning is achieved by utilizing and fine tunning weights in pre-trained large scale model which aims 
+at solving machine learning task when insufficient/few data are acquired.Inspired by Koch et.al 2015 idea in using Siamese network to perform one-shot learning tasks and classify unseen images which classes of test images are only seen at test time. We are interested in using alternative transfer learning method to solve the problem of insufficient target data for training, by learning to distinguish similarity between images , from related training dataset but different from the target data. This is in essence differed from the method in previous section as training data are different from (but related to) the target data to be classified. 
 
+In the original paper, Koch et.al first trained on a subset of Omniglot dataset(character dataset similar to MNIST) and during test time, classify rest of the subset of Omniglot datashot. Siamese network first consists of blocks of convolutional layer, Relu and max pooling layers followed by full connected layers and L1 distance layer which allows the neural network to learn generic features of images and similarity between image pairs respectively. 
+
+In this project, we proposed an augmented version of Siamese network as suggested in original paper. Since training convolutional layers could allow the neural network to learn generic features of images, replacing the convolutional layers with VGG16, which is pre-trained in Imagenet encapsulates generic and detailed features of large amount of images. This may reinforce the Moreover, since the weights of VGG16 has been trained, we hypothesized that the no. of training data needed could be reduced. As opposed to original Siamese network which still has to be trained on large amount of related training set(30k,90k and 150k pairs of training image respectively), incorporating large scale pre-trained convolutional layers as supplement would be potent.
+
+Our model consists of first 19 layers in VGG16 followed by flatten layer which converts all features matrix from the previous layers to a equivalent n-dimensional matrix (n,) in python. These vectors are then passed to full connected layer with sigmoid activation which outputs 4096 vectors.Next, we pass these vectors to our defined L1 distance layer which calculates the l1 distance between pairs of image input as a number. Finally, we output the probability of each pair images being in the same class based on a last fully connected layer also with sigmoid activation. Binary cross-entropy is then used as loss function. To avoid overfitting, l2 regularization with $\lambda=0.0001$. 
 [[PLACEHOLDER]]
 
 \subsubsection{\textbf{Algorithm}}
