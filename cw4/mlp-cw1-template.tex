@@ -130,26 +130,32 @@ Within the remainder of this report a section that outlines the methodologies ut
 \section{Methodology}
 \label{sec:methodology}
 
-A discussion of the methodologies used to conduct our experiments is provided herein. These methodologies include all selected data structures and algorithms.
-
-\subsection{Transfer Learning}
+\subsection{Simple Transfer Learning}
 \label{sec:transferlearninng}
 
-\subsubsection{\textbf{Chosen Transfer Model}}
+\subsubsection{\textbf{Chosen Model}}
 
-We decided to select the VGG net configuration with 16 convolutional layers (hereinafter referred as VGG16) to transfer its knowledge into the clothes and expressions datasets. As previously mentioned this network is quite simple and deep, thus, the expectation is that the knowledge contained in this network will be good enough to increase the generalisability of the classification tasks using both datasets.
+We decided to select the VGG net configuration with 16 convolutional layers (hereinafter referred as VGG16) to transfer its knowledge into the clothes and expressions datasets. As previously mentioned, this network is quite simple and deep, thus, the expectation is that the knowledge contained in this network will be sufficient to increase the generalisability of the classification tasks using both datasets.
 
-Since VGG16 has been trained in different datasets, we decided to use the knowledge obtained from ImageNet rather than other options like CIFAR-100. The main reason for this is the number of classes from the subset of ImageNet to train the network (1000) which is much bigger than the number of classes from CIFAR-100. The expectation is that the knowledge from ImageNet is wider, therefore it can provide better results when when transferring that knowledge into new datasets. 
+Since the available versions of VGG16 have been trained with different datasets, we decided to use the knowledge obtained from ImageNet rather than other options like CIFAR-100. The main reason for this decision is the number of classes from the subset of ImageNet to train the network (1000) which is much bigger than the number of classes from CIFAR-100 (100). The expectation is that the knowledge from ImageNet is wider, therefore, it can provide better results when transferring that knowledge into new datasets.
 
-\subsubsection{\textbf{Data Structure and Learning Algorithm}}
 
-To conduct our experiments, a modification of the fully connected layers is made to adapt the model to our needs. This pipeline has a bottleneck between the convolutional layers and the fully connected ones. To reduce the impact of this bottleneck, we divide the process into two components.
+\subsubsection{\textbf{Configuration}}
+The configuration to adapt the knowledge from VGG16 into the current task is made of two stages. The first one consists of extracting part of the knowledge from VGG16. One of the main interests is to extract a sufficient number of relevant features to increase the generalization for the classification task. This situation can be accomplished by using the knowledge from the convolutional layers. The second part consists in the adaptation of the extracted knowledge. This goal is accomplished by discarding the original fully connected layers of VGG16. Then, a new set of fully connected layers adapted for the current task are implemented. Thus, the configuration is made of the convolutional layers from VGG16 connected to custom fully connected layers adapted for the current classification task.
 
-Firstly, the fully connected layers are used to convert the raw images from the dataset to another representation. This representation is the output of the last convolutional layer. In some sense, this can be seen as an encoding process, where the network transitions from images that provide information about intensity, to images that provide other kinds of information. Simply put, we are converting the features from the raw images (pixels) to another feature space. The aforementioned process is time consuming, however, one of the benefits it provides is the dimensionality reduction. Input images are converted from 64x64 (4096) dimensional pixel vectors (representative of features) to a 2048 dimensional feature space that cannot be obviously identified or described. Once we have finished this process, we use the output to feed the fully connected layers.
+The described configuration has a bottleneck between the convolutional layers and the fully connected ones. This bottleneck is caused by the number of convolutions that has to be done in every layer which requires a considerable amount of computational power. To reduce the impact of the described bottleneck, the transfer learning is divide into two phases.
 
-Secondly, an adaption to the fully connected layers is required, we define three alternatives. The main difference each alternative is the number of fully connected layers utilised within the architecture. In the first option, we use one fully connected layer, which provides 205,607 parameters. The second alternative is to add another fully connected layer, leaving 210,307 parameters. The final alternative uses three fully connected layers, providing 211,407 parameters.
+In the first phase, only the convolutional layers are utilised. The knowledge obtained from these layers is not modified. That means that their parameters from those layers are not updated while using the clothes and expressions datasets. Under these circumstances, the images from the datasets are passed through the convolutional layers, and the output from the last one is stored for the second phase.
 
-For the first fully connected layer we use the L2 regularisation strategy [INSERT REFERENCE HERE]. The main objective here is to avoid overfitting, which is especially important for small data. Each layer uses a uniform parameter initialisation strategy. [[This kind of initialisation allows to have the activation done in the linear part of a sigmoid function.]] For the output layer, a softmax activation with a categorical cross entropy error loss [INSERT REFERENCE HERE] is implemented. The implemented learning rule is Adam [INSERT REFERENCE HERE].
+This process can be seen as a feature extraction stage. The raw images are converted from their original representation to a new one. The original representation of the images provides information about the pixel intensity. After passing the images through the convolutional layers, the pixel intensity information is converted to other of type of information based on the local spatial correlation of the pixels which is obtained with the convolutions.
+
+The process of converting the images from their original representation to another using convolutional layers is computational expensive. However, one of the benefits it provides is the dimensionality reduction of the representation of the images. Each input image is converted from a representation of 4096 (64x64) pixel intensities to a representation of 2048 new features. This means a reduction in the dimensionality of the images of 50\%.
+
+After the images have been converted to a new representation through the convolutions, they are used to feed the second part of the configuration which corresponds to the fully connected layers. There are no limitations about the options that can be used in this stage. Therefore, three alternatives have been defined. The main difference among them is the number of fully connected layers.
+
+In the first option, only one fully connected layer is defined. This option provides 205,607 trainable parameters. The second alternative adds another fully connected layer on top of the one from the first option. The total number of parameters for this alternative 210,307 parameters. For the final alternative a new fully connected layer is added on top of the previous ones. The final number of parameters for this option is 211,407.
+
+In every set of fully connected layers, a L2 regularisation strategy is used. The main objective of this strategy is to reduce the chances of overfitting, which is especially important for small data. Each layer uses a uniform parameter initialisation strategy. This kind of initialisation allows to have the activation done in the plateau region of a sigmoid function. Non linear activation functions are added following the convolutional layers. For the output layer, a softmax activation with a categorical cross entropy error loss is implemented. The implemented learning rule is Adam.
 
 \subsection{one shot learning/transfer learning by learning similarity}
 \label{sec:oneshot}
@@ -172,41 +178,29 @@ Our model consists of first 19 layers in VGG16 followed by flatten layer which c
 \section{Experiments}
 \label{sec:experiments}
 
-\subsection{Transfer Learning}
+\subsection{Simple Transfer Learning}
 
 \subsubsection{\textbf{Motivation}}
 
-[[TODO: Add additional objective]]
-
-Within our set of experiments associated with transfer learning using the proposed methodology [INSERT SECTION REFERENCE HERE], we intend to measure the performance benefit that transfer learning provides. As it has already been established in our previous research that there is a reduction in model performance when the size of the dataset is reduced, our main focus is to measure the variability of benefit that transfer learning provides when using small data. Furthermore, we intend to conduct a manual sensitivity analysis in order to extract the optimal hyper-parameters from a pool of proposed values.
-
-The aim of these experiments is to aid in providing a practical method of performing image classification tasks when there is limited available data to train, test and validate a model similar to our own.
+Transfer learning is a technique that takes advantage of previous work. The objective is to adapt that prior work to the specific circumstances of a similar new problem. As demonstrated in the previous research, the size of the dataset has a direct impact in the performance of a neural network. Therefore, the experiments of this new research are aimed to evaluate the benefits of transfer learning under the conditions of small data.
 
 \subsubsection{\textbf{Description}}
 
-[[TODO: Tidy This Up]]
+Based on the prior findings of the existence of a correlation between the available data and the performance of a neural network, the experiments are mainly focused in the behaviour of the proposed approach for different sizes of the datasets. Even though the main focus is over small sizes of datasets, the evaluation of the proposed approach is also done over other sizes in order to get more insights about the performance of the solution. Therefore, each experiment that was conducted used the following dataset sample sizes: 100\%, 10\%, 1\%, 0.1\%.
 
-[[TODO: Mention The Seed Used and add a footnote to use the attached codebase to reproduce results.]]
-
-[[TODO: Mention the fact that we're using two bloody datasets.]]
-
-Following from our previous research, we concluded that a reduction in available data correlated to a reduction in model performance. As a result, we are concentrating on experiments using small data. Therefore, each experiment that was conducted used the following dataset sample sizes: 100\%, 10\%, 1\%, 0.1\%.
-
-In order to search for a practical set of system parameters, we decided to also vary the activation function within the fully connected layers. Each experiment was initially performed using a standard sigmoid function [INSERT REFERENCE HERE] due to our initialisation strategy. However, we also ran each experiment using exponential linear units (ELU) [INSERT REFERENCE HERE] because this activation function enables non-linearities between layers. Moreover, ELU has a gradient that is similar to the natural gradient (smooth).
+In order to search for a practical set of system parameters, we decided to also vary the activation functions after every fully connected layers. Each experiment was initially performed using a standard sigmoid function [INSERT REFERENCE HERE]. This function was selected in order to get the benefits of a uniform initialisation strategy. However, we also ran each experiment using exponential linear units (ELU) [INSERT REFERENCE HERE]. This activation function enables another kind of non-linearities. The main advantage of ELU is its gradient which is similar to the natural gradient (smooth).
 
 Finally, we also performed a manual sensitivity analysis by varying the learning rate values from the follow pool: 0.01, 0.001, 0.0001.
 
-Based on the description of the components in the methodology for the transfer learning approach, we configured the experiment using three fully connected layers, two different types of activation function, four dataset subsamples and a pool of three different learning rates.
+Based on the description of the components in the methodology for the transfer learning approach, we configured the experiment using three sets of fully connected layers, two different types of activation functions, four dataset subsamples and a pool of three different learning rates.
 
-Combinations of the above result in 72 different experiments. Due to the amount of experiments and the limited computational resources, we set a fixed number of epochs for every experiment (20), and a fixed size for the mini-batches used for the stochastic gradient descent calculation (50).
+Combinations of the above result in 72 different experiments for each dataset. Due to the amount of experiments and the limited computational resources, we set a fixed number of epochs for every experiment (20), and a fixed size for the mini-batches used for the stochastic gradient descent calculation (50).
 
-After running the aforementioned experiments, we analysed the results based on the validation accuracy. Then, we selected the configurations that get the highest values for validation accuracy for dataset sizes of 1\% and 0.1\%. For further investigation we then perform new experiments with higher number of epochs to analyse the behaviour of the fully connected part of the architecture.
+After running the aforementioned experiments, we analysed the results based on the validation accuracy. Then, we selected the configurations that get the highest values for validation accuracy for dataset sizes of 1\% and 0.1\%. For further investigation we then performed new experiments with higher number of epochs (200) to analyse the behaviour of the fully connected part of the architecture under conditions of small data.
 
 \subsubsection{\textbf{Results}}
 
-[[TODO: Tidy This Up]]
-
-In order to compare our results to baselines obtained in the previous report, we base our analysis of the transfer learning experiments on the validation accuracy.Overall, there is still an evident reduction of the performance of the architecture relate to the size of the datasets, as is shown in [figure X].
+In order to compare the results of the current experiments to the baselines obtained in the previous report, we base our analysis of the transfer learning experiments on the validation accuracy. Overall, there is still an evident reduction of the performance of the architecture related to the size of the datasets, as is shown in Figure \ref{fig:tf_clot} and Figure \ref{fig:tf_exp}.
 
 [INSERT FIGURE X HERE]
 
@@ -214,8 +208,8 @@ In order to compare our results to baselines obtained in the previous report, we
     \vskip 5mm
         \begin{center}
             \includegraphics[scale=0.5]{accuracy_reduction_00.png}
-            \caption{[[INSERT CAPTION HERE]]}
-            \label{fig:2}
+            \caption{Validation accuracy comparison for the clothes dataset. The configuration with two fully connected layers and Sigmoid activations allows the highest accuracy for the smallest size of the dataset.}
+            \label{fig:tf_clot}
         \end{center}
     \vskip -5mm
 \end{figure*}
@@ -224,13 +218,13 @@ In order to compare our results to baselines obtained in the previous report, we
     \vskip 5mm
         \begin{center}
             \includegraphics[scale=0.5]{accuracy_reduction_01.png}
-            \caption{[[INSERT CAPTION HERE]]}
-            \label{fig:3}
+            \caption{Validation accuracy comparison for the expression dataset. The configuration with three fully connected layers and ELU activations allows the highest accuracy for the smallest size of the dataset.}
+            \label{fig:tf_exp}
         \end{center}
     \vskip -5mm
 \end{figure*}
 
-For each dataset, the configuration that provides the highest accuracy for the smallest dataset size are quite different, as seen in \ref{tab:1}. It is specially important to note the activation functions. It is expected that the Sigmoid activation function gives better results since the uniform initialisation strategy is meant to benefit this activation function. However, in the case of expressions dataset, the best result is obtained with ELU, but the best accuracy using Sigmoid activations is not that far 0.30.
+For each dataset, the configuration that provides the highest accuracy for the smallest dataset size are quite different, as seen in \ref{tab:tf_1}. It is specially important to note the activation functions. It is expected that the Sigmoid activation function gives better results since the uniform initialisation strategy is meant to benefit this activation function. However, in the case of expressions dataset, the best result is obtained with ELU, but the best accuracy using Sigmoid activations is not that far (0.30).
 
 \begin{table*}[!htb]
   \centering
@@ -241,12 +235,12 @@ For each dataset, the configuration that provides the highest accuracy for the s
     Expressions & 0.31  & 3 & ELU & 0.001 \\ \hline
   \end{tabular}
   \caption{Configuration that allows the highest accuracy for size of 0.1\% for clothes and expressions datasets}
-  \label{tab:1}
+  \label{tab:tf_1}
 \end{table*}
 
-The proposed approach has provided more benefits to the clothes dataset than to the expressions one, as seen in \ref{fig:2} and \ref{fig:3}. This gives us some clues about the domain of the images in every dataset. Based on these results, we can say that the "distance" between the clothes domain and ImageNet domain is smaller than the "distance" between the expressions domain and ImageNet domain.
+The proposed approach has provided more benefits to the clothes dataset than to the expressions one, as seen in Figure \ref{fig:tf_clot} and Figure \ref{fig:tf_exp}. This gives us some clues about the complexity of the images in every dataset. Based on these results, it is possible to the expressions dataset was more challenging than the clothes dataset. 
 
-In comparison with the baseline system, it is clearly evident that the performance of the proposed system is better. For the clothes dataset reaches a performance similar to the one obtained using data augmentation. However, for the expressions dataset, the performance surpasses the one obtained with data augmentation. This might indicate that the conversion from the original feature space (pixel intensity) to the VGG16 feature space is more beneficial for the expressions than for the clothes.
+In comparison with the baseline system, it is clearly evident that the performance of the proposed system is better. For the clothes dataset reaches a performance similar to the one obtained using data augmentation. However, for the expressions dataset, the performance surpasses the one obtained with data augmentation. This might indicate that the conversion from the original feature space (pixel intensity) to the feature space provided by VGG16 is more beneficial for the expressions than for the clothes.
 
 \begin{table*}[!htb]
   \centering
@@ -257,7 +251,7 @@ In comparison with the baseline system, it is clearly evident that the performan
     Expressions & 0.32  & 0.44 & 0.50 \\ \hline
   \end{tabular}
   \caption{Validation accuracy comparison between baseline system and approaches using data augmentation and transfer learning for size of 1\% for clothes and expressions datasets}
-  \label{tab:2}
+  \label{tab:tf_2}
 \end{table*}
 
 \subsubsection{\textbf{Interpretation and Discussion}}
