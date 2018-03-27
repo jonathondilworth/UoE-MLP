@@ -156,13 +156,24 @@ For the first fully connected layer we use the L2 regularisation strategy [INSER
 
 \subsubsection{\textbf{Siamese Neural Network}}
 In the previous section, transfer learning is achieved by utilizing and fine tunning weights in pre-trained large scale model which aims 
-at solving machine learning task when insufficient/few data are acquired.Inspired by Koch et.al 2015 idea in using Siamese network to perform one-shot learning tasks and classify unseen images which classes of test images are only seen at test time. We are interested in using alternative transfer learning method to solve the problem of insufficient target data for training, by learning to distinguish similarity between images , from related training dataset but different from the target data. This is in essence differed from the method in previous section as training data are different from (but related to) the target data to be classified. 
+at solving machine learning task when insufficient/few data are acquired.Inspired by Koch et.al 2015 idea in using Siamese network to 
+perform one-shot learning tasks and classify unseen images which classes of test images are only seen at test time. We are interested in
+using alternative transfer learning method to solve the problem of insufficient target data for training, by learning to distinguish 
+similarity between images , from related training dataset but different from the target data. This is in essence differed from the 
+method in previous section as training data are different from (but related to) the target data to be classified. 
 
-In the original paper, Koch et.al first trained on a subset of Omniglot dataset(character dataset similar to MNIST) and during test time, classify rest of the subset of Omniglot datashot. Siamese network first consists of blocks of convolutional layer, Relu and max pooling layers followed by full connected layers and L1 distance layer which allows the neural network to learn generic features of images and similarity between image pairs respectively. 
+In the original paper, Koch et.al first trained on a subset of Omniglot dataset(character dataset similar to MNIST) and during test 
+time, classify rest of the subset of Omniglot datashot. Siamese network first consists of blocks of convolutional layer, Relu and max 
+pooling layers followed by full connected layers and L1 distance layer which allows the neural network to learn generic features of 
+images and similarity between image pairs respectively. 
 
-In this project, we proposed an augmented version of Siamese network as suggested in original paper. Since training convolutional layers could allow the neural network to learn generic features of images, replacing the convolutional layers with VGG16, which is pre-trained in Imagenet encapsulates generic and detailed features of large amount of images. This may reinforce the Moreover, since the weights of VGG16 has been trained, we hypothesized that the no. of training data needed could be reduced. As opposed to original Siamese network which still has to be trained on large amount of related training set(30k,90k and 150k pairs of training image respectively), incorporating large scale pre-trained convolutional layers as supplement would be potent.
+In this project, we proposed an augmented version of Siamese network as suggested in original paper. Since training convolutional layers
+could allow the neural network to learn generic features of images, replacing the convolutional layers with VGG16, which is pre-trained
+in ImageNet encapsulates generic and detailed features of large amount of images. This may allow similarity metric to be learnt at a better manner as we already have informations/features of many general images in ImageNet .Moreover, since the weights of
+VGG16 has been trained, we hypothesized that the no. of training data needed could be reduced. As opposed to original Siamese network 
+which still has to be trained on large amount of related training set(30k,90k and 150k pairs of training image respectively),
+incorporating large scale pre-trained convolutional layers as supplement would be potent.
 
-Our model consists of first 19 layers in VGG16 followed by flatten layer which converts all features matrix from the previous layers to a equivalent n-dimensional matrix (n,) in python. These vectors are then passed to full connected layer with sigmoid activation which outputs 4096 vectors.Next, we pass these vectors to our defined L1 distance layer which calculates the l1 distance between pairs of image input as a number. Finally, we output the probability of each pair images being in the same class based on a last fully connected layer also with sigmoid activation. Binary cross-entropy is then used as loss function. To avoid overfitting, l2 regularization with $\lambda=0.0001$. 
 [[PLACEHOLDER]]
 
 \subsubsection{\textbf{Algorithm}}
@@ -268,12 +279,41 @@ Observing the behaviour of the fully connected layers for the smallest sizes of 
 
 \subsection{Siamese Neural Network}
 
-\subsubsection{\textbf{Motivation}}
 
-[[PLACEHOLDER]]
+\subsubsection{\textbf{Description and motivation}}
+Our model consists of first 19 layers in VGG16 followed by flatten layer which converts all features from the previous layers to
+an equivalent n-dimensional matrix (n,) in python. These vectors are then passed to full connected layer with sigmoid activation which 
+outputs 4096 vectors.Next, we pass these vectors to our defined L1 distance layer which calculates the l1 distance between pairs of
+image input as a number. Finally, we output the probability of each pair images being in the same class based on a last fully connected
+layer also with sigmoid activation. Binary cross-entropy is therefore used as loss function. To avoid overfitting, l2 regularization with
+$\lambda=0.0001$.Since the original paper used different and decaying learning rate in each layers, adopting such approach on VGG16
+would be difficult. We therefore simplified to use Adam with learning rate 0.001 as we have observed that choices of learning rate
+doesn't seem to affect much on prediction accuracy. 
 
-\subsubsection{\textbf{Description}}
-
+Experimental setup: The goal is to train our VGG16-augmented Siamese Network to classify unseen classes of images by learning to
+distinguish similarity between images. The input is in terms of N pairs of image each having (64,64,3) matrix encoded as pixels.
+As in the original paper, each of the two twin images in every pairs of images are passed to the model separately with weight sharing.
+This is to ensure symmetric invariance in model, that is to ensure that L1 distance layer output the same distance when the order of the
+two twins image inputted is changed. This is done by defining the L1 distance layer $|x[first_twin] - x[second_twin]|$ where $x$ is the
+flattened output from VGG16 and input of the entire network takes the form $pairs=[first_twin,second_twin]$. First twin and second twin 
+has input shape (batch_size,64,64,3). The batch size determines no. of pairs to be trained during each epoch. As suggested in the 
+original paper, we also ensure 50$\%$ of same and different class are used in pairs and randomly sampled among $k$ available images in 
+each classes. For the training data, we used first three catagories of animated facial expression dataset(42k images in 7 classes) and 
+japanese female facial expression dataset (203 in 7 classes) in two separate runs. Both of the dataset also contains 7 classes of 
+expression. 
+In the first approach, both training and test data are animated facial expression 
+dataset. However, we only included the first three catagories during training and the 4 unseen class during test time. This is to
+test the effectiveness of the proposed model on predicting unseen images but with a softer restriction. The model is allowed to learn 
+representation on subset of classes of the target dataset but tested on other unseen classes of the same dataset. Note that this 
+approach is still distinct from standard machine learning procedure as training is not directly on same kind of target dataset.
+Among the three catagories, we randomly sampled 36 pairs of images randomly sampled from 900x3 available images from 3 classes in 
+each epoch training. It is also ensured that 50$\%$ same and different classes are drawn.
+In the second approach, restriction is increased and allow only related but entirely different dataset (Japanese female dataset) for 
+training. There are in total 29x7 images in 7 catagories. Apparently, the size of dataset is so few comparing to dataset in first
+approach. The reason of using this dataset is due to limited availability of grayscale facial expression dataset from internet and this
+is the only dataset that shares most geometric similarity with the target set(animated facial expression), as location ,classes and
+placement angles are most similar comparing to other datasets such as extended cohn-kanade facial dataset.
+(insert picture)
 [[PLACEHOLDER]]
 
 \subsubsection{\textbf{Results}}
