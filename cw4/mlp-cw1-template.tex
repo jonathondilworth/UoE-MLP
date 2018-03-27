@@ -312,25 +312,42 @@ In the second approach, restriction is increased and allow only related but enti
 training. There are in total 29x7 images in 7 catagories. Apparently, the size of dataset is so few comparing to dataset in first
 approach. The reason of using this dataset is due to limited availability of grayscale facial expression dataset from internet and this
 is the only dataset that shares most geometric similarity with the target set(animated facial expression), as location ,classes and
-placement angles are most similar comparing to other datasets such as extended cohn-kanade facial dataset.
+placement angles are most similar comparing to other datasets such as extended cohn-kanade facial dataset. In each epoch,
 (insert picture)
 [[PLACEHOLDER]]
 
 \subsubsection{\textbf{Results}}
-
+In the first approach, training accuracy increases for first 50 epoch training ranging from $49-68\%$ which proves that the model
+is in fact learning. During test time, 320 one shot learning tasks is performed after epochs of training. In each
+one shot learning task,6 different and 1 same class pairs of image is randomly drawn from 6000x4 images. If the model successfully predicts the pair, we add one to accuracy, the overall accuracy is then calculated in terms of $100.0*n_correct / 320$. At 1st epoch,
+accuracy is around $28\%$ which is close to random guessing. At 20th epoch, accuracy reaches $40-49\%$ and doesnt improve further for more epochs. In second approach, we used 96 and 198 batch_size in training to allows more learning and test if overfitting would occur.
+Moreover,similar 320 one shot learning tasks are performed to classify 7 unseen catagories from pairs randomly drawn from 6000x7 images.
+For 96 batch size after 50th epoch of training. Test accuracy ranges from $22.8125-28.4375\%$. For 198 batch size, test accuracy falls in range of $20-30\%$.
 [[PLACEHOLDER]]
 
 \subsubsection{\textbf{Interpretation and Discussion}}
+For the first approach, we achieved best test accuracy of $50\%$. This might be because training set shares generic
+features on hairstyle,shape of face, sexuality of characters with target set. However, the result also showed effectiveness of 
+using similarity differences to classify unseen images as we have not trained the network to learn about the other 4 expressions.
+Note that in both of the approaches, test accuracy is better than random guessing by $~100\%$  which suggests our model is in fact
+working. In the second approach, test accuracy drops significantly which is probably due to insufficient training set. Moreover,
+there are greater differences between training and target set than in first approach. Given more available dataset and time, it is expected
+that the second approach would perform better. Another reason of the performances could be attributed to use of grayscale images. Since 
+VGG16 trained on RGB images, weights in the network are trained to learn colorful images. Using grayscale images would alter 
+performances of VGG16. Overall, results have shown that our model demonstrated the ability to predict unseen images by transferring 
+representation of related but different images to solve one shot learning tasks, to preliminary extent. 
 
 [[PLACEHOLDER]]
-
-\section{Related Work}
 
 [[PLACEHOLDER]]
 
 \section{Conclusions}
 \label{sec:conclusions}
-
+Siamese part conclusion:Overall, the results demonstrated the capability of our model on classifying unseen classes (one shot learning)
+to a certain extent using learnt representations from related data to distinguish similarity.
+This is particularly important as a lot of data (e.g. minorities language, images of rare disease )are insufficient for training in 
+reality. These experiment motivated the use of transfer learning on solving insufficient training set and provided some preliminary 
+results of transfer learning on image recognition. Moreover, these research questions could support more advanced researches.
 [[PLACEHOLDER]]
 
 [[REFERENCES GO HERE]]
