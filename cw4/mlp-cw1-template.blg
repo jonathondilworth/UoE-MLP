@@ -1,48 +1,48 @@
-This is BibTeX, Version 0.99d (TeX Live 2017/Debian)
+This is BibTeX, Version 0.99d (TeX Live 2017)
 Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: mlp-cw1-template.aux
 The style file: icml2017.bst
-I found no \citation commands---while reading file mlp-cw1-template.aux
-I found no \bibdata command---while reading file mlp-cw1-template.aux
-You've used 0 entries,
+Database file #1: biblo.bib.bib
+Warning--empty journal in interim-report
+You've used 18 entries,
             2773 wiz_defined-function locations,
-            592 strings with 4846 characters,
-and the built_in function-call counts, 33 in all, are:
-= -- 0
-> -- 0
-< -- 0
-+ -- 0
-- -- 0
-* -- 2
-:= -- 10
-add.period$ -- 0
-call.type$ -- 0
-change.case$ -- 0
-chr.to.int$ -- 0
-cite$ -- 0
-duplicate$ -- 0
-empty$ -- 1
-format.name$ -- 0
-if$ -- 1
+            696 strings with 8247 characters,
+and the built_in function-call counts, 8842 in all, are:
+= -- 801
+> -- 471
+< -- 16
++ -- 161
+- -- 143
+* -- 630
+:= -- 1302
+add.period$ -- 61
+call.type$ -- 18
+change.case$ -- 99
+chr.to.int$ -- 18
+cite$ -- 37
+duplicate$ -- 440
+empty$ -- 753
+format.name$ -- 165
+if$ -- 1929
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 0
-newline$ -- 8
-num.names$ -- 0
-pop$ -- 0
+missing$ -- 15
+newline$ -- 100
+num.names$ -- 74
+pop$ -- 241
 preamble$ -- 1
-purify$ -- 0
+purify$ -- 82
 quote$ -- 0
-skip$ -- 1
+skip$ -- 357
 stack$ -- 0
-substring$ -- 0
-swap$ -- 0
-text.length$ -- 0
+substring$ -- 315
+swap$ -- 92
+text.length$ -- 7
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 0
-warning$ -- 0
-while$ -- 0
+type$ -- 193
+warning$ -- 1
+while$ -- 78
 width$ -- 0
-write$ -- 7
-(There were 2 error messages)
+write$ -- 240
+(There was 1 warning)
