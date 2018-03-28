@@ -189,7 +189,35 @@ Transfer learning is a technique that takes advantage of previous work. The obje
 
 \subsubsection{\textbf{Description}}
 
-Based on the prior findings of the existence of a correlation between the available data and the performance of a neural network, the experiments are mainly focused in the behaviour of the proposed approach for different sizes of the datasets. Even though the main focus is over small sizes of datasets, the evaluation of the proposed approach is also done over other sizes in order to get more insights about the performance of the solution. Therefore, each experiment that was conducted used the following dataset sample sizes: 100\%, 10\%, 1\%, 0.1\%.
+Based on the prior findings of the existence of a correlation between the available data and the performance of a neural network, the experiments are mainly focused in the behaviour of the proposed approach for different sizes of the datasets. Even though the main focus is over small sizes of datasets, the evaluation of the proposed approach is also done over other sizes in order to get more insights about the performance of the solution. Therefore, each experiment that was conducted used the following dataset sample sizes: 100\%, 10\%, 1\%, 0.1\%. In order to make proper comparisons with the validation accuracy, the number of samples for that stage as kept constant for every experiment as seen in Tables \ref{tab:ds_1} and Table \ref{tab:ds_2}.
+
+\begin{table*}[!htb]
+  \centering
+  \begin{tabular}{| l | l | l | l | l |}
+    \hline
+    \textbf{Size} & \textbf{Training samples} & \textbf{Training samples per class} & \textbf{Validation samples} & \textbf{Validation samples per class} \\ \hline
+    100\% & 42000 & 6000 & 7000 & 1000 \\ \hline
+    10\% & 4200 & 600 & 7000 & 1000 \\ \hline
+    1\% & 420  & 60 & 7000 & 1000 \\ \hline
+    0.1\% & 42 & 6 & 7000 & 1000 \\ \hline
+  \end{tabular}
+  \caption{Number of samples for each size of the clothes dataset.}
+  \label{tab:ds_1}
+\end{table*}  
+  
+\begin{table*}[!htb]
+  \centering
+  \begin{tabular}{| l | l | l | l | l |}
+    \hline
+    \textbf{Size} & \textbf{Training samples} & \textbf{Training samples per class} & \textbf{Validation samples} & \textbf{Validation samples per class} \\ \hline
+    100\% & 42000 & 6000 & 6300 & 900 \\ \hline
+    10\% & 4200 & 600 & 6300 & 900 \\ \hline
+    1\% & 420  & 60 & 6300 & 900 \\ \hline
+    0.1\% & 42 & 6 & 6300 & 900 \\ \hline
+  \end{tabular}
+  \caption{Number of samples for each size of the expressions dataset.}
+  \label{tab:ds_2}
+\end{table*}  
 
 In order to search for a practical set of system parameters, we decided to also vary the activation functions after every fully connected layers. Each experiment was initially performed using a standard sigmoid function [INSERT REFERENCE HERE]. This function was selected in order to get the benefits of a uniform initialisation strategy. However, we also ran each experiment using exponential linear units (ELU) [INSERT REFERENCE HERE]. This activation function enables another kind of non-linearities. The main advantage of ELU is its gradient which is similar to the natural gradient (smooth).
 
