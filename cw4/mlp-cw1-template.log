@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.11.13)  28 MAR 2018 15:17
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.11.13)  28 MAR 2018 18:24
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -932,30 +932,7 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `\\' on input line 72.
 
-LaTeX Font Info:    Try loading font information for OT1+txr on input line 83.
-(/usr/local/texlive/2017/texmf-dist/tex/latex/txfonts/ot1txr.fd
-File: ot1txr.fd 2000/12/15 v3.1
-)
-LaTeX Font Info:    Try loading font information for U+txsya on input line 83.
 
-(/usr/local/texlive/2017/texmf-dist/tex/latex/txfonts/utxsya.fd
-File: utxsya.fd 2000/12/15 v3.1
-)
-LaTeX Font Info:    Try loading font information for U+txsyb on input line 83.
-
-(/usr/local/texlive/2017/texmf-dist/tex/latex/txfonts/utxsyb.fd
-File: utxsyb.fd 2000/12/15 v3.1
-)
-LaTeX Font Info:    Try loading font information for U+txmia on input line 83.
-
-(/usr/local/texlive/2017/texmf-dist/tex/latex/txfonts/utxmia.fd
-File: utxmia.fd 2000/12/15 v3.1
-)
-LaTeX Font Info:    Try loading font information for U+txsyc on input line 83.
-
-(/usr/local/texlive/2017/texmf-dist/tex/latex/txfonts/utxsyc.fd
-File: utxsyc.fd 2000/12/15 v3.1
-)
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [1{/usr/local/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
@@ -966,51 +943,65 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [2]
+LaTeX Font Info:    Try loading font information for OT1+txr on input line 169.
+
+
+(/usr/local/texlive/2017/texmf-dist/tex/latex/txfonts/ot1txr.fd
+File: ot1txr.fd 2000/12/15 v3.1
+)
+LaTeX Font Info:    Try loading font information for U+txsya on input line 169.
+
+
+(/usr/local/texlive/2017/texmf-dist/tex/latex/txfonts/utxsya.fd
+File: utxsya.fd 2000/12/15 v3.1
+)
+LaTeX Font Info:    Try loading font information for U+txsyb on input line 169.
+
+
+(/usr/local/texlive/2017/texmf-dist/tex/latex/txfonts/utxsyb.fd
+File: utxsyb.fd 2000/12/15 v3.1
+)
+LaTeX Font Info:    Try loading font information for U+txmia on input line 169.
+
+
+(/usr/local/texlive/2017/texmf-dist/tex/latex/txfonts/utxmia.fd
+File: utxmia.fd 2000/12/15 v3.1
+)
+LaTeX Font Info:    Try loading font information for U+txsyc on input line 169.
+
+
+(/usr/local/texlive/2017/texmf-dist/tex/latex/txfonts/utxsyc.fd
+File: utxsyc.fd 2000/12/15 v3.1
+)
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [3]
-<accuracy_reduction_00.png, id=104, 390.45876pt x 279.0425pt>
+<accuracy_reduction_00.png, id=109, 390.45876pt x 279.0425pt>
 File: accuracy_reduction_00.png Graphic file (type png)
 
 <use accuracy_reduction_00.png>
-Package pdftex.def Info: accuracy_reduction_00.png used on input line 209.
-(pdftex.def)             Requested size: 195.2289pt x 139.5209pt.
+Package pdftex.def Info: accuracy_reduction_00.png used on input line 238.
+(pdftex.def)             Requested size: 175.7048pt x 125.56795pt.
 
-<accuracy_reduction_01.png, id=106, 390.45876pt x 279.0425pt>
+<accuracy_reduction_01.png, id=111, 390.45876pt x 279.0425pt>
 File: accuracy_reduction_01.png Graphic file (type png)
 
 <use accuracy_reduction_01.png>
-Package pdftex.def Info: accuracy_reduction_01.png used on input line 219.
-(pdftex.def)             Requested size: 195.2289pt x 139.5209pt.
+Package pdftex.def Info: accuracy_reduction_01.png used on input line 243.
+(pdftex.def)             Requested size: 175.7048pt x 125.56795pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
+<behaviour_rotated.png, id=119, 803.0pt x 351.3125pt>
+File: behaviour_rotated.png Graphic file (type png)
 
-LaTeX Warning: File `behaviour.png' not found on input line 251.
-
-
-! Package pdftex.def Error: File `behaviour.png' not found.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.251 ...includegraphics[scale=0.5]{behaviour.png}
-                                                  
-? 
-LaTeX Font Info:    Try loading font information for T1+txtt on input line 251.
-
-(/usr/local/texlive/2017/texmf-dist/tex/latex/txfonts/t1txtt.fd
-File: t1txtt.fd 2000/12/15 v3.1
-)
-Package microtype Info: Loading generic settings for font family
-(microtype)             `txtt' (encoding: T1).
-(microtype)             For optimal results, create family-specific settings.
-(microtype)             See the microtype manual for details.
+<use behaviour_rotated.png>
+Package pdftex.def Info: behaviour_rotated.png used on input line 324.
+(pdftex.def)             Requested size: 321.1943pt x 140.5225pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -1020,57 +1011,23 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [5 <./accuracy_reduction_00.png> <./accuracy_reduction_01.png>]
-! Missing $ inserted.
-<inserted text> 
-                $
-l.293 ...n and second twin has input shape (batch_
-                                                  size,64,64,3). The batch s...
-
-? 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.294 
-      
-? 
-
-Underfull \hbox (badness 10000) in paragraph at lines 293--294
-\T1/txr/m/n/10 (+20) First twin and sec-ond twin has in-put shape
- []
-
-
-Overfull \hbox (1721.93477pt too wide) in paragraph at lines 293--294
-\T1/txr/m/n/10 (-20) (batch$[]\OML/txmi/m/it/10 ize; \OT1/txr/m/n/10 (-20) 64\O
-ML/txmi/m/it/10 ; \OT1/txr/m/n/10 (-20) 64\OML/txmi/m/it/10 ; \OT1/txr/m/n/10 (
--20) 3)\OML/txmi/m/it/10 :Thebatchsizedeterminesno:ofpairstobetrainedduringeach
-epoch:Assuggestedintheoriginalpaper; wealsoensure\OT1/txr/m/n/10 (-20) 50$\T1/t
-xr/m/n/10 (-20) %$\OML/txmi/m/it/10 ofsameanddifferentclassareusedinpairsandran
-domlysampledamong$\T1/txr/m/n/10 (-20) k$\OML/txmi/m/it/10 availableimagesineac
-hclasses:Forthetrainingdata; weusedfirstthreecatagoriesofanimatedfacialexpressi
-ondataset\OT1/txr/m/n/10 (-20) (42\OML/txmi/m/it/10 kimagesin\OT1/txr/m/n/10 (-
-20) 7\OML/txmi/m/it/10 classes\OT1/txr/m/n/10 (-20) )\OML/txmi/m/it/10 andjapan
-esefemalefacialexpressiondataset\OT1/txr/m/n/10 (-20) (203\OML/txmi/m/it/10 in\
-OT1/txr/m/n/10 (-20) 7\OML/txmi/m/it/10 classes\OT1/txr/m/n/10 (-20) )\OML/txmi
-/m/it/10 intwoseparateruns:Bothofthedatasetalsocontains\OT1/txr/m/n/10 (-20) 7\
-OML/txmi/m/it/10 classesofexpression:$ 
- []
-
-
+ [5]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [6]
-
-Package natbib Warning: Citation `pasupa2016comparison' on page 7 undefined on 
-input line 326.
-
-
+ [6 <./accuracy_reduction_00.png> <./accuracy_reduction_01.png> <./behaviour_ro
+tated.png>]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [7]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [8]
 (./mlp-cw1-template.bbl
 Underfull \hbox (badness 2600) in paragraph at lines 41--44
 []\T1/txr/m/n/10 (+20) Dinsmore, John.  \T1/txr/m/it/10 (+20) The sym-bolic and
@@ -1078,68 +1035,73 @@ Underfull \hbox (badness 2600) in paragraph at lines 41--44
  []
 
 
-Overfull \hbox (96.45895pt too wide) in paragraph at lines 101--106
+Overfull \hbox (96.45895pt too wide) in paragraph at lines 108--113
 \T1/txr/m/n/10 (-20) nanonets-[]how-[]to-[]use-[]deep-[]learning-[]when-[]you-[
 ]have-[]limited-[]data-[]f68c0b512cab$[][],
  []
 
 
-Underfull \hbox (badness 2134) in paragraph at lines 116--123
+Underfull \hbox (badness 2134) in paragraph at lines 123--130
 []\T1/txr/m/n/10 (+20) Yosinski, Ja-son, Clune, Jeff, Ben-gio, Yoshua, and
  []
 
 
-Underfull \hbox (badness 1383) in paragraph at lines 116--123
+Underfull \hbox (badness 1383) in paragraph at lines 123--130
 \T1/txr/m/n/10 (+20) neu-ral net-works?  In Ghahra-mani, Z., Welling,
  []
 
 
-Underfull \hbox (badness 6825) in paragraph at lines 116--123
+Underfull \hbox (badness 6825) in paragraph at lines 123--130
 \T1/txr/m/n/10 (+20) K. Q. (eds.), \T1/txr/m/it/10 (+20) Ad-vances in Neu-ral I
 n-for-ma-tion
  []
 
 
-Overfull \hbox (20.11145pt too wide) in paragraph at lines 116--123
+Overfull \hbox (20.11145pt too wide) in paragraph at lines 123--130
 \T1/txr/m/n/10 (-20) 5347-[]how-[]transferable-[]are-[]features-[]in-[]deep-[]n
 eural-[]networks .
  []
 
 )
-
-Package natbib Warning: There were undefined citations.
-
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 344.
-[8]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 344.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 437.
+ [9]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 437.
  (./mlp-cw1-template.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 344.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 344.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 437.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 437.
 Package rerunfilecheck Info: File `mlp-cw1-template.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 11203 strings out of 492995
- 161088 string characters out of 6132703
- 299240 words of memory out of 5000000
- 14178 multiletter control sequences out of 15000+600000
- 78909 words of font info for 312 fonts, out of 8000000 for 9000
+ 11204 strings out of 492995
+ 160962 string characters out of 6132703
+ 308670 words of memory out of 5000000
+ 14154 multiletter control sequences out of 15000+600000
+ 79593 words of font info for 326 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 32i,12n,45p,1347b,389s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
-exlive/2017/texmf-dist/fonts/type1/public/txfonts/rtxbsc.pfb></usr/local/texliv
-e/2017/texmf-dist/fonts/type1/public/txfonts/rtxi.pfb></usr/local/texlive/2017/
-texmf-dist/fonts/type1/public/txfonts/rtxmi.pfb></usr/local/texlive/2017/texmf-
-dist/fonts/type1/public/txfonts/rtxr.pfb></usr/local/texlive/2017/texmf-dist/fo
-nts/type1/public/txfonts/t1xtt.pfb></usr/local/texlive/2017/texmf-dist/fonts/ty
-pe1/public/txfonts/txsy.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/urw
-/times/utmb8a.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/urw/times/utm
-r8a.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></
-usr/local/texlive/2017/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on mlp-cw1-template.pdf (8 pages, 139925 bytes).
+ 32i,13n,45p,1346b,387s stack positions out of 5000i,500n,10000p,200000b,80000s
+pdfTeX warning (dest): name{Hfootnote.4} has been referenced but does not exi
+st, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.3} has been referenced but does not exist
+, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.2} has been referenced but does not exist
+, replaced by a fixed one
+
+{/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/tex
+live/2017/texmf-dist/fonts/type1/public/txfonts/rtxbsc.pfb></usr/local/texlive/
+2017/texmf-dist/fonts/type1/public/txfonts/rtxi.pfb></usr/local/texlive/2017/te
+xmf-dist/fonts/type1/public/txfonts/rtxmi.pfb></usr/local/texlive/2017/texmf-di
+st/fonts/type1/public/txfonts/rtxr.pfb></usr/local/texlive/2017/texmf-dist/font
+s/type1/public/txfonts/txsy.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1
+/urw/times/utmb8a.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/urw/times
+/utmr8a.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/urw/times/utmr8a.pf
+b></usr/local/texlive/2017/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on mlp-cw1-template.pdf (9 pages, 181807 bytes).
 PDF statistics:
- 245 PDF objects out of 1000 (max. 8388607)
- 218 compressed objects within 3 object streams
- 64 named destinations out of 1000 (max. 500000)
- 46603 words of extra memory for PDF output out of 51595 (max. 10000000)
+ 271 PDF objects out of 1000 (max. 8388607)
+ 242 compressed objects within 3 object streams
+ 74 named destinations out of 1000 (max. 500000)
+ 46096 words of extra memory for PDF output out of 51595 (max. 10000000)
 

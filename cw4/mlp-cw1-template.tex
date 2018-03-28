@@ -80,15 +80,16 @@ Write This Last.
 
 Large-scale neural networks have become increasingly prevalent in artificial intelligence \cite{krizhevsky2012imagenet}. Such architectures effectively solve computer vision problems that were previously considered difficult to address using traditional symbolic manipulation \cite{dinsmore2014symbolic}. One concern with modern neural networks is that their performance scales with the quantity of data used to train them, as demonstrated in our previous piece of research \cite{interim-report}. This concern is a problem for individuals or institutions with small amounts of data that want to implement these architectures as solutions, or for research purposes.
 
-Data driven techniques exist, such as data augmentation \cite{krizhevsky2012imagenet}, which help solve this problem\footnote{see our previous paper for a further explanation.}. However, to draw from our previous research \cite{interim-report} we investigate alternative, machine learning based approaches, specifically transfer learning \cite{oquab2014learning}, \citep{ng2015deep} and deep features extraction \citep{chen2016deep} as methods to improve the performance of neural network architectures that utilise small amounts of data. These techniques allow us to use the knowledge that a given (pre-trained) network already has and adapt the architecture to suit our requirements.
 
-The objective of transfer learning is to use the knowledge acquired by an existing network that was built to solve a similar task and improve the generalization. The main idea is to try to adapt that previous knowledge to the new problem to be solved. One of the advantages of this technique is that the solution for the new problem does not have to start from scratch. Prior work can be re-utilised which is important when the resources are limited. This situation is specially true for convolutional neural networks which, depending on the size of the architecture, can require an important amount of computational power.
+Data-driven techniques exist, such as data augmentation \cite{krizhevsky2012imagenet}, which help solve this problem1. However, to draw from our previous research \cite{interim-report} we investigate alternative, machine learning based approaches. Specifically, transfer learning \cite{oquab2014learning}, \citep{ng2015deep} and deep features extraction \citep{chen2016deep} as methods to improve the performance of neural network architectures that utilise small amounts of data. These techniques allow us to use the knowledge that a given (pre-trained) network already has and adapt the architecture to suit our requirements.
 
-There exist a number of pre-trained neural networks to solve classification tasks in the field of computer vision. One of them is the Visual Geometry Group network (VGG net) \cite{DBLP:journals/corr/SimonyanZ14a}. This network implements a simple yet deep architecture with several convolutional layers. There are several configurations that vary the number of convolutional layers among 11, 13, 16, and 19. In every configuration the architecture includes maximum pooling layers of dimensions 2x2 and stride 1. The convolutions are performed using 3x3 filters with stride and pad of 1. Finally, ReLU activations after each convolution are utilised.
+The objective of transfer learning is to use the knowledge acquired by an existing network that was built to solve a similar task to improve the generalisation of a novel task. A significant advantage of utilising this technique is that the neural network model does not have to learn from scratch. Prior learning (computational work) can be re-utilised which is essential when the resources are limited, which is significant for convolutional neural networks, which, depending on the size of the architecture, can require a considerable amount of computational power.
 
-VGG net was first used in the ImageNet Challenge 2014 \cite{DBLP:journals/corr/SimonyanZ14a}, which means that is was originally trained using the Imagenet dataset \cite{deng2009imagenet}. However, the network has also been trained in other datasets like CIFAR-10 \cite{krizhevsky2014cifar} and CIFAR-100 \cite{CIFAR-100}. It is important to make this distinction since each dataset has been developed for a different purpose, therefore, they have specific characteristics. The knowledge learnt from a network depends on the dataset used to train it. Thus, it is critical to know the characteristics of the dataset utilised to train the network since it will play and important role when implementing transfer learning.
+Numerous pre-trained neural networks to solve classification tasks exist in the field of computer vision. One of them is the Visual Geometry Group network (VGG net) \cite{DBLP:journals/corr/SimonyanZ14a}. This network implements a simple yet deep architecture with several convolutional layers. There are several configurations that vary the number of convolutional layers among 11, 13, 16, and 19. In every configuration the architecture includes maximum pooling layers of dimensions 2x2 and stride 1. The convolutions are performed using 3x3 filters with stride and pad of 1. Finally, ReLU activations after each convolution are utilised.
 
-ImageNet is a large-scale hierarchical image database \cite{ImageNet}. The structure of this dataset contains 12 main groups or sub-trees. Each sub-tree contains a variable number of categories. The total number of categories is 5247, each one containing on average 600 images; thus, the total number of images in the dataset is 3.2 million. As described, ImageNet is a large and diverse dataset. However, the original version of VGG net was trained on a subset of Imagenet that contains only 1000 categories using 1.3 million images for training, 50K images for validation and 100K images for testing.
+VGG net was first used in the ImageNet Challenge 2014 \cite{DBLP:journals/corr/SimonyanZ14a}, which means that is was originally trained using the Imagenet dataset \cite{deng2009imagenet}. However, the network has also been trained in other datasets like CIFAR-10 \cite{krizhevsky2014cifar} and CIFAR-100 \cite{CIFAR-100}. It is important to make this distinction since each dataset has been developed for a different purpose. Therefore, they have specific characteristics. The knowledge learnt from a network depends on the dataset used to train it. Thus, it is critical to know the characteristics of the dataset utilised to train the network since it will play an important role when implementing transfer learning.
+
+ImageNet is a large-scale hierarchical image database \cite{ImageNet}. The structure of this dataset contains 12 main groups or sub-trees. Each sub-tree contains a variable number of categories. The total number of categories is 5247, each one containing on average 600 images, thus, the total number of images in the dataset is 3.2 million. As described, ImageNet is a large and diverse dataset. However, the original version of VGG net was trained on a subset of Imagenet that contains only 1000 categories using 1.3 million images for training, 50K images for validation and 100K images for testing.
 
 \subsection{Interim Report Findings}
 \label{sec:findings}
@@ -97,9 +98,9 @@ The research questions offered within this report have been drawn from our initi
 
 It was possible to demonstrate how the amount of available data impacts the performance of a convolutional neural network. Such impact was observed in the validation stage by analysing the accuracy and error of the network. In the first case, it was evident the reduction of the accuracy as the size of the dataset was reduced. In the second case, the size of the dataset directly affected the error; the smaller the dataset, the bigger the error. In both cases, the ultimate effect of such behaviour was the difficulty of the network to generalize when the amount of data is small.
 
-Futhermore, the usage of two different but comparable databases provided some extra insights about the behaviour of the neural network. In this case the observed accuracies in the validation stage were different for each dataset in every size used to train the network. Under these circumstances, it was clear that the dataset that allowed a higher accuracy (clothes) was less challenging for the network. This means, that the features extracted by the network were more useful and relevant for one of the datasets. In the other hand, the features learned by the network did not provide enough information to reach better results for the second dataset (expressions).
+Furthermore, the usage of two different but comparable databases provided some extra insights about the behaviour of the neural network. In this case, the observed accuracies in the validation stage were different for each dataset in every size used to train the network. Under these circumstances, it was clear that the dataset that allowed a higher accuracy (clothes) was less challenging for the network. This means, that the features extracted by the network were more useful and relevant for one of the datasets. In the other hand, the features learned by the network did not provide enough information to reach better results for the second dataset (expressions).
 
-Finally, we demonstrated that a simple data driven technique like data augmentation effectively improves the performance of a simple convolutional neural network. However, the benefits of this method have a limit above which no further improvement can be done. All of these findings provided the foundations and motivation for our investigation.
+Finally, we demonstrated that a simple data-driven technique like data augmentation effectively improves the performance of a simple convolutional neural network. However, the benefits of this method have a limit above which no further improvement can be done. All of these findings provided the foundations and motivation for our investigation.
 
 \section{Objectives and Research Questions}
 \label{sec:obj_questions}
@@ -124,7 +125,7 @@ Following from the conclusions drawn from our interim report, our research quest
 \subsection{Hypotheses}
 \label{sec:hypotheses}
 \begin{enumerate}[label=\textbf{H.\arabic*}]
-  \item \label{h:1} Transfer learning will provide a performance benefit with respect to the generalisability (measured through validation accuracy) for a given classification with small data.
+  \item \label{h:1} Transfer learning will provide a performance benefit with respect to the generalisability (measured through validation accuracy) for the given classification task in conditions of small data.
   \item \label{h:2} Transfer learning will provide a larger performance boost when the size of the dataset used to initially train the model is small rather than large.
 \end{enumerate}
 
@@ -138,16 +139,15 @@ Within the remainder of this report a section that outlines the methodologies ut
 
 \subsubsection{\textbf{Chosen Model}}
 
-We decided to select the VGG net configuration with 16 convolutional layers (hereinafter referred as VGG16) to transfer its knowledge into the clothes and expressions datasets. As previously mentioned, this network is quite simple and deep, thus, the expectation is that the knowledge contained in this network will be sufficient to increase the generalisability of the classification tasks using both datasets.
+We decided to select the VGG net configuration with 16 convolutional layers (hereinafter referred as VGG16) to transfer its knowledge into the clothes and expressions datasets. As previously mentioned, this network is quite simple and deep; thus, the expectation is that the knowledge contained in this network will be sufficient to increase the generalisability of the classification tasks using both datasets.
 
-Since the available versions of VGG16 have been trained with different datasets, we decided to use the knowledge obtained from ImageNet rather than other options like CIFAR-100. The main reason for this decision is the number of classes from the subset of ImageNet to train the network (1000) which is much bigger than the number of classes from CIFAR-100 (100). The expectation is that the knowledge from ImageNet is wider, therefore, it can provide better results when transferring that knowledge into new datasets.
-
+Since the available versions of VGG16 have been trained with different datasets, we decided to use the knowledge obtained from ImageNet rather than other options like CIFAR- 100. The main reason for this decision is the number of classes from the subset of ImageNet to train the network (1000) which is much bigger than the number of classes from CIFAR-100 (100). The expectation is that the knowledge from ImageNet is more extensive, therefore, it can provide better results when transferring that knowledge into new datasets.
 
 \subsubsection{\textbf{Configuration}}
 
-The configuration to adapt the knowledge from VGG16 into the current task is made of two stages. The first one consists of extracting part of the knowledge from VGG16. One of the main interests is to extract a sufficient number of relevant features to increase the generalization for the classification task. This situation can be accomplished by using the knowledge from the convolutional layers. The second part consists in the adaptation of the extracted knowledge. This goal is accomplished by discarding the original fully connected layers of VGG16. Then, a new set of fully connected layers adapted for the current task are implemented. Thus, the configuration is made of the convolutional layers from VGG16 connected to custom fully connected layers adapted for the current classification task.
+The configuration to adapt the knowledge from VGG16 into the current task is made of two stages. The first one consists of extracting part of the knowledge from VGG16. One of the primary interests is to extract a sufficient number of relevant features to increase the generalisation for the classification task. This situation can be accomplished by using the knowledge from the convolutional layers. The second part consists in the adaptation of the extracted knowledge. This goal is achieved by discarding the original fully connected layers of VGG16. Then, a new set of fully connected layers adapted for the current task are implemented. Thus, the configuration is made of the convolutional layers from VGG16 connected to custom fully connected layers adapted for the current classification task.
 
-The described configuration has a bottleneck between the convolutional layers and the fully connected ones. This bottleneck is caused by the number of convolutions that has to be done in every layer which requires a considerable amount of computational power. To reduce the impact of the described bottleneck, the transfer learning is divide into two phases.
+The described configuration has a bottleneck between the convolutional layers and the fully connected ones. This bottleneck is caused by the number of convolutions that has to be done in every layer which requires a considerable amount of computational power. To reduce the impact of the described bottleneck the transfer learning is divided into two phases.
 
 In the first phase, only the convolutional layers are utilised. The knowledge obtained from these layers is not modified. That means that their parameters from those layers are not updated while using the clothes and expressions datasets. Under these circumstances, the images from the datasets are passed through the convolutional layers, and the output from the last one is stored for the second phase.
 
@@ -155,22 +155,22 @@ This process can be seen as a feature extraction stage. The raw images are conve
 
 The process of converting the images from their original representation to another using convolutional layers is computational expensive. However, one of the benefits it provides is the dimensionality reduction of the representation of the images. Each input image is converted from a representation of 4096 (64x64) pixel intensities to a representation of 2048 new features. This means a reduction in the dimensionality of the images of 50\%.
 
-After the images have been converted to a new representation through the convolutions, they are used to feed the second part of the configuration which corresponds to the fully connected layers. There are no limitations about the options that can be used in this stage. Therefore, three alternatives have been defined. The main difference among them is the number of fully connected layers.
+The process of converting the images from their original representation to another representation using convolutional layers is computationally expensive. However, one of the benefits it provides is the dimensionality reduction of the representation of the images. Each input image is converted from a representation of 4096 (64x64) pixel intensities to a representation of 2048 new features. This means a reduction in the dimensionality of the images of 50\%.
 
-In the first option, only one fully connected layer is defined. This option provides 205,607 trainable parameters. The second alternative adds another fully connected layer on top of the one from the first option. The total number of parameters for this alternative 210,307 parameters. For the final alternative a new fully connected layer is added on top of the previous ones. The final number of parameters for this option is 211,407.
+In the first option, only one fully connected layer is defined. This option provides 205,607 trainable parameters. The second alternative adds another fully connected layer on top of the one from the first option. The total number of parameters for this alternative 210,307 parameters. For the final alternative, a new fully connected layer is added on top of the previous ones. The final number of parameters for this option is 211,407.
 
-In every set of fully connected layers, a L2 regularisation strategy is used. The main objective of this strategy is to reduce the chances of overfitting, which is especially important for small data. Each layer uses a uniform parameter initialisation strategy. This kind of initialisation allows to have the activation done in the plateau region of a sigmoid function. Non linear activation functions are added following the convolutional layers. For the output layer, a softmax activation with a categorical cross entropy error loss is implemented. The implemented learning rule is Adam.
+In every set of fully connected layers, an L2 regularisation strategy is used. The primary objective of this strategy is to reduce the chances of overfitting, which is especially crucial for small data. Each layer uses a uniform parameter initialisation strategy. This kind of initialisation allows having the activation done in the plateau region of a sigmoid function. Non-linear activation functions are added following the convolutional layers. For the output layer, a softmax activation with a categorical cross entropy error loss is implemented. The implemented learning rule is Adam.
 
 \subsection{One Shot Learning and Transfer Learning by Learning Similarity}
 \label{sec:oneshot}
 
 \subsubsection{\textbf{Siamese Neural Network}}
 
-In the previous section, transfer learning is achieved by utilizing and fine tunning weights in pre-trained large scale model which aims at solving machine learning task when insufficient/few data are acquired.Inspired by Koch et.al 2015 idea in using Siamese network to perform one-shot learning tasks and classify unseen images which classes of test images are only seen at test time. We are interested in using alternative transfer learning method to solve the problem of insufficient target data for training, by learning to distinguish similarity between images , from related training dataset but different from the target data. This is in essence differed from the method in previous section as training data are different from (but related to) the target data to be classified. 
+We are interested in using an alternative transfer learning method to solve the problem of insufficient target data for training. We suggest that this may be accomplished using a methodology inspired by \cite{koch}\footnote{We would utilise a Siamese-like network to perform a similar operation to one-shot learning tasks} to learn to distinguish between images (using a similarity metric) from a related training dataset that differs from the target dataset. This methodology differs from the previously proposed method \ref{sec:transferlearninng} since the training data would be different (but related to) the target data, to be classified.
 
-In the original paper, Koch et.al first trained on a subset of Omniglot dataset(character dataset similar to MNIST) and during test time, classify rest of the subset of Omniglot datashot. Siamese network first consists of blocks of convolutional layer, Relu and max pooling layers followed by full connected layers and L1 distance layer which allows the neural network to learn generic features of images and similarity between image pairs respectively. 
+In the original paper, Koch et.al trained using cross-validation on the Omniglot dataset (a character dataset similar to MNIST). Within the paper, the Siamese network consists of numerous convolutional layers that implement the ReLU activation function, followed by max-pooling layers, followed by fully connected layers and an L1 distance layer. This architecture allows for learning of generic features in images and provides a similarity metric between image pairs.
 
-In this project, we proposed an augmented version of Siamese network as suggested in original paper. Since training convolutional layers could allow the neural network to learn generic features of images, replacing the convolutional layers with VGG16, which is pre-trained in ImageNet encapsulates generic and detailed features of large amount of images. This may allow similarity metric to be learnt at a better manner as we already have informations/features of many general images in ImageNet .Moreover, since the weights of VGG16 has been trained, we hypothesized that the no. of training data needed could be reduced. As opposed to original Siamese network which still has to be trained on large amount of related training set(30k,90k and 150k pairs of training image respectively), incorporating large scale pre-trained convolutional layers as supplement would be potent.
+In this project, we propose an augmented version of the Siamese network as is suggested in the original paper. Since training convolutional layers could allow the neural network to learn general features of images, replacing the convolutional layers with part of the VGG16 (transfer) architecture may enable a more accurate similarity metric to be output. We assume a higher accuracy in similarity because VGG16 has already learnt an abundance of knowledge (regarding feature representation). Transfering VGG16 into the Siamese architecture also suggests that there is far less training required, as we would hope it would be easier to tune than train from scratch.
 
 \subsubsection{\textbf{Algorithm}}
 
@@ -187,7 +187,35 @@ Transfer learning is a technique that takes advantage of previous work. The obje
 
 \subsubsection{\textbf{Description}}
 
-Based on the prior findings of the existence of a correlation between the available data and the performance of a neural network, the experiments are mainly focused in the behaviour of the proposed approach for different sizes of the datasets. Even though the main focus is over small sizes of datasets, the evaluation of the proposed approach is also done over other sizes in order to get more insights about the performance of the solution. Therefore, each experiment that was conducted used the following dataset sample sizes: 100\%, 10\%, 1\%, 0.1\%.
+Based on the prior findings of the existence of a correlation between the available data and the performance of a neural network, the experiments are mainly focused in the behaviour of the proposed approach for different sizes of the datasets. Even though the main focus is over small sizes of datasets, the evaluation of the proposed approach is also done over other sizes in order to get more insights about the performance of the solution. Therefore, each experiment that was conducted used the following dataset sample sizes: 100\%, 10\%, 1\%, 0.1\%. In order to make proper comparisons with the validation accuracy, the number of samples for that stage as kept constant for every experiment as seen in Tables \ref{tab:ds_1} and Table \ref{tab:ds_2}.
+
+\begin{table*}[!htb]
+  \centering
+  \begin{tabular}{| l | l | l | l | l |}
+    \hline
+    \textbf{Size} & \textbf{Training samples} & \textbf{Training samples per class} & \textbf{Validation samples} & \textbf{Validation samples per class} \\ \hline
+    100\% & 42000 & 6000 & 7000 & 1000 \\ \hline
+    10\% & 4200 & 600 & 7000 & 1000 \\ \hline
+    1\% & 420  & 60 & 7000 & 1000 \\ \hline
+    0.1\% & 42 & 6 & 7000 & 1000 \\ \hline
+  \end{tabular}
+  \caption{Number of samples for each size of the clothes dataset.}
+  \label{tab:ds_1}
+\end{table*}  
+  
+\begin{table*}[!htb]
+  \centering
+  \begin{tabular}{| l | l | l | l | l |}
+    \hline
+    \textbf{Size} & \textbf{Training samples} & \textbf{Training samples per class} & \textbf{Validation samples} & \textbf{Validation samples per class} \\ \hline
+    100\% & 42000 & 6000 & 6300 & 900 \\ \hline
+    10\% & 4200 & 600 & 6300 & 900 \\ \hline
+    1\% & 420  & 60 & 6300 & 900 \\ \hline
+    0.1\% & 42 & 6 & 6300 & 900 \\ \hline
+  \end{tabular}
+  \caption{Number of samples for each size of the expressions dataset.}
+  \label{tab:ds_2}
+\end{table*}
 
 In order to search for a practical set of system parameters, we decided to also vary the activation functions after every fully connected layers. Each experiment was initially performed using a standard sigmoid function \cite{hecht1992theory}. This function was selected in order to get the benefits of a uniform initialisation strategy. However, we also ran each experiment using exponential linear units (ELU) \cite{clevert2015fast}. This activation function enables other kind of non-linearities. The main advantage of ELU is its gradient which is similar to the natural gradient (smooth).
 
@@ -204,24 +232,41 @@ After running the aforementioned experiments, we analysed the results based on t
 In order to compare the results of the current experiments to the baselines described in the previous report, the analysis of the transfer learning experiments is focused on the validation accuracy. Overall, there is still an evident reduction of the performance of the architecture related to the size of the datasets, as shown in Figure \ref{fig:tf_clot} and Figure \ref{fig:tf_exp}.
 
 \begin{figure*}
-    \vskip 5mm
-        \begin{center}
-            \includegraphics[scale=0.5]{accuracy_reduction_00.png}
-            \caption{Validation accuracy comparison for the clothes dataset. The configuration with two fully connected layers and Sigmoid activations allows the highest accuracy for the smallest size of the dataset.}
-            \label{fig:tf_clot}
-        \end{center}
-    \vskip -5mm
+  \vskip 5mm
+    \begin{center}
+      \minipage{0.45\textwidth}
+        \includegraphics[scale=0.45]{accuracy_reduction_00.png}
+        \caption{Validation accuracy comparison for the clothes dataset. The configuration with two fully connected layers and Sigmoid activations allows the highest accuracy for the smallest size of the dataset.}
+        \label{fig:tf_clot}
+      \endminipage\hfill
+      \minipage{0.45\textwidth}
+        \includegraphics[scale=0.45]{accuracy_reduction_01.png}
+        \caption{Validation accuracy comparison for the expression dataset. The configuration with three fully connected layers and ELU activations allows the highest accuracy for the smallest size of the dataset.}
+        \label{fig:tf_exp}
+      \endminipage\hfill
+    \end{center}
+  \vskip -5mm
 \end{figure*}
 
-\begin{figure*}[tb]
-    \vskip 5mm
-        \begin{center}
-            \includegraphics[scale=0.5]{accuracy_reduction_01.png}
-            \caption{Validation accuracy comparison for the expression dataset. The configuration with three fully connected layers and ELU activations allows the highest accuracy for the smallest size of the dataset.}
-            \label{fig:tf_exp}
-        \end{center}
-    \vskip -5mm
-\end{figure*}
+%\begin{figure*}
+%   \vskip 5mm
+%        \begin{center}
+%            \includegraphics[scale=0.5]{accuracy_reduction_00.png}
+%            \caption{Validation accuracy comparison for the clothes dataset. The configuration with two fully connected layers and Sigmoid activations allows the highest accuracy for the smallest size of the dataset.}
+%            \label{fig:tf_clot}
+%        \end{center}
+%    \vskip -5mm
+%\end{figure*}
+
+%\begin{figure*}[tb]
+%    \vskip 5mm
+%        \begin{center}
+%            \includegraphics[scale=0.5]{accuracy_reduction_01.png}
+%            \caption{Validation accuracy comparison for the expression dataset. The configuration with three fully connected layers and ELU activations allows the highest accuracy for the smallest size of the dataset.}
+%            \label{fig:tf_exp}
+%        \end{center}
+%    \vskip -5mm
+%\end{figure*}
 
 Figure \ref{fig:tf_clot} shows the effect of the learning rate for every size of the clothes dataset. It is clearly evident how differently that hyper-parameter affects the validation accuracy of the system for each size. While the learning rate reduces, the validation accuracy when the sizes are 0.1\% and 1\% increases. In the other hand, the increase of the learning rate reduces the validation accuracy when the sizes are 10\% and 100\%. This behaviour might be an indicator of the relationship between the number of available training samples and the learning rate when the batch size is kept constant.
 
@@ -241,6 +286,34 @@ For each dataset, the configurations that provide the highest accuracy for the s
   \label{tab:tf_1}
 \end{table*}
 
+\begin{table*}[!htb]
+  \centering
+  \begin{tabular}{| l | l | l | l | l | l |}
+    \hline
+    \textbf{Dataset} & \textbf{Size} & \textbf{Baseline} & \textbf{Data Augmentation}& \textbf{Transfer learning} \\ \hline
+    Clothes & 1\% & 0.50 & 0.76 & 0.75 \\ \hline
+    Clothes & 100\% & 0.51 & 0.76 & 0.78 \\ \hline
+    Expressions & 1\% & 0.32  & 0.44 & 0.50 \\ \hline
+    Expressions & 100\% & 0.34  & 0.49 & 0.50 \\ \hline
+  \end{tabular}
+  \caption{Validation accuracy for baseline system, data augmentation, and transfer learning when dataset sizes are 1\% and 100\%}
+  \label{tab:tf_2}
+\end{table*}
+
+\begin{table*}[!htb]
+  \centering
+  \begin{tabular}{| l | l | l | l | l | l |}
+    \hline
+    \textbf{Dataset} & \textbf{Size} & \textbf{RG\footnotemark wrt baseline} & \textbf{RG wrt DA\footnotemark} & \textbf{AG\footnotemark wrt baseline} & \textbf{AG wrt DA}\\ \hline
+    Clothes & 1\% & 1.5 & 0.99 & 0.25 & -0.01 \\ \hline
+    Clothes & 100\% & 1.52 & 1.02 & 0.27 & 0.02 \\ \hline
+    Expressions & 1\% & 1.56  & 1.13 & 0.18 & 0.06 \\ \hline
+    Expressions & 100\% & 1.47 & 1.02 & 0.16 & 0.01 \\ \hline
+  \end{tabular}
+  \caption{Comparison of performance of transfer learning with respect to baseline system and data augmentation when dataset sizes are 1\% and 100\%. Relative gain is the ratio of the validation accuracies. Absolute gain is the difference of the validation accuracies.}
+  \label{tab:tf_3}
+\end{table*}
+
 As seen in \ref{fig:tf_beh}, the behaviour of the system for the smallest sizes is more stable for the clothes than for the expressions. In the case of the clothes dataset, for 1\% and 0.1\% of the original size, the system reaches a point where it starts to overfit. However, it is noticeable how the configuration of the system is robust enough to try to minimise the overfitting. Evidently, the number of available images play an important role in the reduction of the error. The minimum validation error for 0.1\% is reached around the epoch number 30. For 1\%, the minimum validation error is reached around the epoch number 50.
 
 In the case of the expressions dataset, the behaviour of the system is completely distinct not just compared to the clothes, but between the sizes of the dataset. For 1\% of the size, the configuration of the system is not robust enough to minimise the effects of overfitting. Once the overfitting starts, the efforts of the system to reduce it are not enough. However, for the case of 0.1\%, the configuration of the system seems to be robust.  At first, the overfitting effect is dramatic, then it reaches a point where the system starts to recover from it. The recovery is a long process where the system tries to learn from the training set. Eventually, the system reaches a point where the recovery is stopped and the overfitting starts again.
@@ -248,36 +321,37 @@ In the case of the expressions dataset, the behaviour of the system is completel
 \begin{figure*}[tb]
     \vskip 5mm
         \begin{center}
-            \includegraphics[scale=0.5]{behaviour.png}
+            \includegraphics[scale=0.4]{behaviour_rotated.png}
             \caption{Comparison of the evolution of the validation error when the sizes of the datasets are 1\% and 0.1\%. The effects of over-fitting are clearly more dramatic for expressions that for clothes. The system presents a better behaviours when classifying clothes. }
             \label{fig:tf_beh}
         \end{center}
     \vskip -5mm
 \end{figure*}
 
-\begin{table*}[!htb]
-  \centering
-  \begin{tabular}{| l | l | l | l | l |}
-    \hline
-    \textbf{Dataset} & \textbf{Baseline} & \textbf{Data Augmentation}& \textbf{Transfer learning} \\ \hline
-    Clothes & 0.50 & 0.76 & 0.75 \\ \hline
-    Expressions & 0.32  & 0.44 & 0.50 \\ \hline
-  \end{tabular}
-  \caption{Validation accuracy comparison between baseline system and approaches using data augmentation and transfer learning for size of 1\% for clothes and expressions datasets}
-  \label{tab:tf_2}
-\end{table*}
-
 \subsubsection{\textbf{Interpretation and Discussion}}
 
 The proposed system provided some benefits when the number of samples in the datasets is small. Depending on the context of analysis, these benefits can be higher for one dataset or the other. At first, transfer learning seems to be more effective for the clothes dataset than for the expressions dataset as seen in Figure \ref{fig:tf_clot} and Figure \ref{fig:tf_exp}. This information can give some clues about the complexity of the images in every dataset. At a glance, the experimental results allows to say that the features extracted from the clothes are less challenging to learn than those extracted from the expressions.
 
+% work around for getting footnotes in tables, see: https://tex.stackexchange.com/questions/1583/footnotes-in-tables
+
+\addtocounter{footnote}{-2}
+\footnotetext[2]{RG for Relative gain.}
+\addtocounter{footnote}{1}
+\footnotetext[3]{DA for data augmentation.}
+\addtocounter{footnote}{1}
+\footnotetext[4]{AG for absolute gain.}
+
+% end of workaround
+
 A further analysis makes possible to say that the knowledge obtained by VGG16 from the ImageNet dataset was more beneficial for the expressions dataset in terms of relative gain. The validation accuracy ratios between the transfer learning and the baseline experiments are 1.5 and 1.56 for the clothes and expressions dataset respectively. This might indicate that VGG16 extracted features that were more relevant for expressions than for clothes.
 
-In absolute values, the knowledge from VGG16 in terms of validation accuracy was more beneficial for the clothes dataset. The additional validation accuracies obtained from transfer learning compared to the baseline system were 0.25 and 0.18 for the clothes and expressions dataset, respectively. Even though the extracted features from VGG16 could have been more relevant for expressions, they were good enough to increase the performance of the system for clothes.
+In absolute values, the knowledge from VGG16 in terms of validation accuracy was more beneficial for the clothes dataset. The additional validation accuracies obtained from transfer learning compared to the baseline system were 0.25 and 0.18 for the clothes and expressions dataset, respectively, as seen in \ref{tab:tf_3}. Even though the extracted features from VGG16 could have been more relevant for expressions, they were good enough to increase the performance of the system for clothes.
 
 However, the additional validation accuracies compared to the data augmentation experiments are -0.01 and 0.06. Therefore, the benefits of data augmentation are comparable to the benefits of transfer learning for the clothes dataset. One possible explanation is in the kind of information obtained from images. 
 
-Convolutional layers extract information about the local spatial correlation of images. The result of this process is the detection of edges, shapes, patterns and other geometric information. The baseline system was shallow and only contained one convolutional layer. Thus, the geometric information extracted from this single layer along with data augmentation provided enough elements to increase the performance in the classification task in a way that it was comparable to the benefits obtained from transfer learning. The validation accuracy obtained was 0.49, close to the 0.50 obtained in this report, which could confirm the complexity of classifying facial expressions.
+Convolutional layers extract information about the local spatial correlation of images. The result of this process is the detection of edges, shapes, patterns and other geometric information. The baseline system was shallow and only contained one convolutional layer. Thus, the geometric information extracted from this single layer along with data augmentation provided enough elements to increase the performance in the classification task in a way that it was comparable to the benefits obtained from transfer learning. 
+
+When comparing the benefits of transfer learning under the conditions of low and high number of samples, the results are dis-pair. First, the benefits are higher when the number of clothes samples is higher as seen in \ref{tab:tf_3}. The relative and absolute gains are higher when using 100\% of the clothes dataset. In the other hands, the benefits are higher when the number of expressions samples is lower. The relative and absolute gains are higher when using only 1\% of the expressions dataset.
 
 \subsection{Siamese Neural Network}
 
@@ -290,7 +364,7 @@ To avoid overfitting, we utilise L2 regularization with $\lambda=0.0001$. Since 
 
 \subsubsection{\textbf{Experimental setup}}
 
-The goal is to train our VGG16-augmented Siamese Network to classify unseen classes of images by learning to distinguish similarity between images. The input is in terms of N pairs of image each having (64,64,3) matrix encoded as pixels. As in the original paper, each of the two twin images in every pairs of images are passed to the model separately with weight sharing. This is to ensure symmetric invariance in model, that is to ensure that L1 distance layer output the same distance when the order of the two twins image inputted is changed. This is done by defining the L1 distance layer $|x[first_twin] - x[second_twin]|$ where $x$ is the flattened output from VGG16 and input of the entire network takes the form $pairs=[first_twin,second_twin]$. First twin and second twin has input shape (batch_size,64,64,3). The batch size determines no. of pairs to be trained during each epoch. As suggested in the original paper, we also ensure 50$\%$ of same and different class are used in pairs and randomly sampled among $k$ available images in each classes. For the training data, we used first three catagories of animated facial expression dataset(42k images in 7 classes) and japanese female facial expression dataset (203 in 7 classes) in two separate runs. Both of the dataset also contains 7 classes of expression.
+The goal is to train our VGG16-augmented Siamese Network to classify unseen classes of images by learning to distinguish similarity between images. The input is in terms of N pairs of image each having (64,64,3) matrix encoded as pixels. As in the original paper, each of the two twin images in every pairs of images are passed to the model separately with weight sharing. This is to ensure symmetric invariance in model, that is to ensure that L1 distance layer output the same distance when the order of the two twins image inputted is changed. This is done by defining the L1 distance layer $|x[first_twin] - x[second_twin]|$ where $x$ is the flattened output from VGG16 and input of the entire network takes the form $pairs=[first_twin,second_twin]$. First twin and second twin has input shape (batch size,64,64,3). The batch size determines no. of pairs to be trained during each epoch. As suggested in the original paper, we also ensure 50$\%$ of same and different class are used in pairs and randomly sampled among $k$ available images in each classes. For the training data, we used first three catagories of animated facial expression dataset(42k images in 7 classes) and japanese female facial expression dataset (203 in 7 classes) in two separate runs. Both of the dataset also contains 7 classes of expression.
 
 In the first approach, both training and test data are animated facial expression dataset. However, we only included the first three catagories during training and the 4 unseen class during test time. This is to test the effectiveness of the proposed model on predicting unseen images but with a softer restriction. The model is allowed to learn representation on subset of classes of the target dataset but tested on other unseen classes of the same dataset. Note that this approach is still distinct from standard machine learning procedure as training is not directly on same kind of target dataset. Among the three catagories, we randomly sampled 36 pairs of images randomly sampled from 900x3 available images from 3 classes in each epoch training. It is also ensured that 50$\%$ same and different classes are drawn.
 
@@ -332,13 +406,32 @@ Further work can be aimed to investigate the effects of transfer learning in com
 \section{Conclusions}
 \label{sec:conclusions}
 
-Siamese part conclusion:Overall, the results demonstrated the capability of our model on classifying unseen classes (one shot learning) to a certain extent using learnt representations from related data to distinguish similarity.
+\subsection{Transfer Learning}
+
+As per the results of the experiments presented previously, there are two main conclusions in regards to transfer learning and small data. First, it is clearly evident that the use of transfer learning improved the performance of the classification task under conditions of small data for both datasets, which proves the first of the hypotheses.
+
+The increase of the performance in terms of validation accuracy not only depends on the simple use of transfer learning. Hyper-parameters like the learning rate are still critical in the behaviour of the system. Moreover, an improper value for such hyper-parameter can not even make any improvement compared to random choice. 
+
+Another thing to note is the lose of flexibility in the management of the images. The raw images provide information about the pixel intensity. This type information can be processed in several ways. One of the options is to perform affine transformations, a technique that was previously utilised to implement data augmentation.
+
+However, once the images were passed through the convolutional layers of VGG16, the pixel intensity information was transformed to another representation space. This new representation of the information might not be as easy to understand as pixel intensities. It is known that this information represents the local spatial correlation of the images. However, modifying it in a similar way raw images are modified might not provide similar results.
+
+Since, the transfer learning technique was also utilised for bigger sizes of the dataset, it was possible to compare the effects of this technique when more data is available. It was clear, that the benefits of transfer learning were more evident for small data when using the expressions dataset, which partially proves the second hypothesis. However, this does not mean that transfer learning can be discarded when the amount of data is sufficiently big. It is worth to remember that transfer learning is also a way to work when the computational resources are limited.
+
+The benefits of transfer learning in terms of the target dataset depends on the context of analysis. As discussed previously, in relative values, the use of transfer learning was more beneficial for the expressions dataset. However, the absolute increment of the validation accuracy was higher for the clothes dataset. This analysis gives more insight about the relationship between the datasets used to pre-train a network and the datasets used during transfer learning.     
+ 
+Evidently, the benefits of transfer learning depend on the characteristics of the target dataset. It follows that some expertise is needed in order to understand the differences and similarities of the source dataset (used to pretrain the network) and the target dataset (used to apply transfer learning). This way the benefits of transfer learning can be maximized while the risks are minimized.
+
+\subsection{SS-N}
+
+Overall, the results demonstrated the capability of our model on classifying unseen classes (one shot learning) to a certain extent using learnt representations from related data to distinguish similarity.
 
 This is particularly important as a lot of data (e.g. minorities language, images of rare disease )are insufficient for training in reality. These experiment motivated the use of transfer learning on solving insufficient training set and provided some preliminary 
 
 results of transfer learning on image recognition. Moreover, these research questions could support more advanced researches.
 
-%\bibliographystyle{abbrv}
-\bibliography{biblo.bib}
+[[PLACEHOLDER FOR ONE SHOT]]
+
+\bibliography{example-refs}
 
 \end{document}

@@ -1,4 +1,4 @@
-\begin{thebibliography}{18}
+\begin{thebibliography}{19}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -92,10 +92,17 @@ Oquab, Maxime, Bottou, Leon, Laptev, Ivan, and Sivic, Josef.
 \newblock In \emph{Computer Vision and Pattern Recognition (CVPR), 2014 IEEE
   Conference on}, pp.\  1717--1724. IEEE, 2014.
 
+\bibitem[Pasupa \& Sunhem(2016)Pasupa and Sunhem]{pasupa2016comparison}
+Pasupa, Kitsuchart and Sunhem, Wisuwat.
+\newblock A comparison between shallow and deep architecture classifiers on
+  small dataset.
+\newblock In \emph{Information Technology and Electrical Engineering (ICITEE),
+  2016 8th International Conference on}, pp.\  1--6. IEEE, 2016.
+
 \bibitem[s1700260(2018)]{interim-report}
 s1700260, s1457374, s1784849.
 \newblock Mlp coursework 3: Interim report.
-\newblock 2018.
+\newblock \emph{UoE}, 2018.
 
 \bibitem[{Sarthak Jain}({2017})]{nanoNets}
 {Sarthak Jain}.

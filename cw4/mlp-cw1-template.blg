@@ -2,48 +2,45 @@ This is BibTeX, Version 0.99d (TeX Live 2017)
 Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: mlp-cw1-template.aux
 The style file: icml2017.bst
-Database file #1: biblo.bib.bib
-Warning--I didn't find a database entry for "pasupa2016comparison"
-Warning--empty journal in interim-report
-You've used 18 entries,
+Database file #1: example-refs.bib
+You've used 19 entries,
             2773 wiz_defined-function locations,
-            697 strings with 8267 characters,
-and the built_in function-call counts, 8842 in all, are:
-= -- 801
-> -- 471
-< -- 16
-+ -- 161
-- -- 143
-* -- 630
-:= -- 1302
-add.period$ -- 61
-call.type$ -- 18
-change.case$ -- 99
-chr.to.int$ -- 18
-cite$ -- 37
-duplicate$ -- 440
-empty$ -- 753
-format.name$ -- 165
-if$ -- 1929
+            702 strings with 8490 characters,
+and the built_in function-call counts, 9353 in all, are:
+= -- 853
+> -- 492
+< -- 18
++ -- 168
+- -- 149
+* -- 663
+:= -- 1374
+add.period$ -- 65
+call.type$ -- 19
+change.case$ -- 104
+chr.to.int$ -- 19
+cite$ -- 38
+duplicate$ -- 468
+empty$ -- 800
+format.name$ -- 174
+if$ -- 2048
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 15
-newline$ -- 100
-num.names$ -- 74
-pop$ -- 241
+missing$ -- 16
+newline$ -- 105
+num.names$ -- 78
+pop$ -- 251
 preamble$ -- 1
-purify$ -- 82
+purify$ -- 86
 quote$ -- 0
-skip$ -- 357
+skip$ -- 378
 stack$ -- 0
-substring$ -- 315
-swap$ -- 92
-text.length$ -- 7
+substring$ -- 333
+swap$ -- 100
+text.length$ -- 8
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 193
-warning$ -- 1
-while$ -- 78
+type$ -- 204
+warning$ -- 0
+while$ -- 84
 width$ -- 0
-write$ -- 240
-(There were 2 warnings)
+write$ -- 255
