@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.11.13)  29 MAR 2018 10:36
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.11.13)  29 MAR 2018 14:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -932,11 +932,7 @@ LaTeX Info: Redefining \nameref on input line 62.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\\' on input line 73.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\\' on input line 73.
+(hyperref)                removing `\\' on input line 72.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -945,35 +941,32 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
-]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [2]
-LaTeX Font Info:    Try loading font information for OT1+txr on input line 171.
+] [2]
+LaTeX Font Info:    Try loading font information for OT1+txr on input line 162.
 
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/txfonts/ot1txr.fd
 File: ot1txr.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    Try loading font information for U+txsya on input line 171.
+LaTeX Font Info:    Try loading font information for U+txsya on input line 162.
 
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/txfonts/utxsya.fd
 File: utxsya.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    Try loading font information for U+txsyb on input line 171.
+LaTeX Font Info:    Try loading font information for U+txsyb on input line 162.
 
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/txfonts/utxsyb.fd
 File: utxsyb.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    Try loading font information for U+txmia on input line 171.
+LaTeX Font Info:    Try loading font information for U+txmia on input line 162.
 
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/txfonts/utxmia.fd
 File: utxmia.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    Try loading font information for U+txsyc on input line 171.
+LaTeX Font Info:    Try loading font information for U+txsyc on input line 162.
 
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/txfonts/utxsyc.fd
@@ -985,56 +978,55 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [3]
-<accuracy_reduction_00.png, id=108, 390.45876pt x 279.0425pt>
+<accuracy_reduction_00.png, id=103, 390.45876pt x 279.0425pt>
 File: accuracy_reduction_00.png Graphic file (type png)
 
 <use accuracy_reduction_00.png>
-Package pdftex.def Info: accuracy_reduction_00.png used on input line 236.
+Package pdftex.def Info: accuracy_reduction_00.png used on input line 223.
 (pdftex.def)             Requested size: 175.7048pt x 125.56795pt.
 
-<accuracy_reduction_01.png, id=110, 390.45876pt x 279.0425pt>
+<accuracy_reduction_01.png, id=105, 390.45876pt x 279.0425pt>
 File: accuracy_reduction_01.png Graphic file (type png)
 
 <use accuracy_reduction_01.png>
-Package pdftex.def Info: accuracy_reduction_01.png used on input line 241.
+Package pdftex.def Info: accuracy_reduction_01.png used on input line 228.
 (pdftex.def)             Requested size: 175.7048pt x 125.56795pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-
-<behaviour_rotated.png, id=118, 803.0pt x 351.3125pt>
-File: behaviour_rotated.png Graphic file (type png)
-
-<use behaviour_rotated.png>
-Package pdftex.def Info: behaviour_rotated.png used on input line 322.
-(pdftex.def)             Requested size: 321.1943pt x 140.5225pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [4]
+<behaviour_rotated.png, id=126, 803.0pt x 351.3125pt>
+File: behaviour_rotated.png Graphic file (type png)
+
+<use behaviour_rotated.png>
+Package pdftex.def Info: behaviour_rotated.png used on input line 309.
+(pdftex.def)             Requested size: 321.1943pt x 140.5225pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [5 <./accuracy_reduction_00.png> <./accuracy_reduction_01.png>]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [5]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [6 <./accuracy_reduction_00.png> <./accuracy_reduction_01.png> <./behaviour_ro
-tated.png>]
+ [6 <./behaviour_rotated.png>]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [7]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
+(./mlp-cw1-template.bbl
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [8]
-(./mlp-cw1-template.bbl
 Underfull \hbox (badness 2600) in paragraph at lines 41--44
 []\T1/txr/m/n/10 (+20) Dinsmore, John.  \T1/txr/m/it/10 (+20) The sym-bolic and
  con-nec-tion-ist
@@ -1068,14 +1060,14 @@ Overfull \hbox (20.11145pt too wide) in paragraph at lines 123--130
 eural-[]networks .
  []
 
-) [9] <animatedface.png, id=222, 633.567pt x 77.69025pt>
+) [9] <animatedface.png, id=215, 633.567pt x 77.69025pt>
 File: animatedface.png Graphic file (type png)
 
 <use animatedface.png>
-Package pdftex.def Info: animatedface.png used on input line 441.
+Package pdftex.def Info: animatedface.png used on input line 424.
 (pdftex.def)             Requested size: 483.6911pt x 71.13327pt.
 
-Overfull \hbox (251.08983pt too wide) in paragraph at lines 441--442
+Overfull \hbox (251.08983pt too wide) in paragraph at lines 424--425
  [] 
  []
 
@@ -1083,21 +1075,21 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) ha
 s been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.442 ...tion{Animated facial expression dataset.}
+l.425 ...tion{Animated facial expression dataset.}
                                                   pdfTeX warning (ext4): destin
 ation with the same identifier (name{figure.1}) has been already used, duplicat
 e ignored
 <to be read again> 
                    \relax 
-l.442 ...tion{Animated facial expression dataset.}
+l.425 ...tion{Animated facial expression dataset.}
                                                   
-<jpwomen.jpg, id=223, 840.13875pt x 184.69pt>
+<jpwomen.jpg, id=216, 840.13875pt x 184.69pt>
 File: jpwomen.jpg Graphic file (type jpg)
  <use jpwomen.jpg>
-Package pdftex.def Info: jpwomen.jpg used on input line 449.
+Package pdftex.def Info: jpwomen.jpg used on input line 432.
 (pdftex.def)             Requested size: 483.69136pt x 71.13263pt.
 
-Overfull \hbox (251.09009pt too wide) in paragraph at lines 449--450
+Overfull \hbox (251.09009pt too wide) in paragraph at lines 432--433
  [] 
  []
 
@@ -1105,33 +1097,33 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.2}) ha
 s been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.450 ...panese female facial expression dataset.}
+l.433 ...panese female facial expression dataset.}
                                                   pdfTeX warning (ext4): destin
 ation with the same identifier (name{figure.2}) has been already used, duplicat
 e ignored
 <to be read again> 
                    \relax 
-l.450 ...panese female facial expression dataset.}
+l.433 ...panese female facial expression dataset.}
                                                   
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 457.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 440.
  [10
 
  <./animatedface.png> <./jpwomen.jpg>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 457.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 440.
  (./mlp-cw1-template.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 457.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 457.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 440.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 440.
 Package rerunfilecheck Info: File `mlp-cw1-template.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
  11305 strings out of 492995
  162497 string characters out of 6132703
- 310189 words of memory out of 5000000
+ 307189 words of memory out of 5000000
  14254 multiletter control sequences out of 15000+600000
  78052 words of font info for 321 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 32i,13n,45p,1451b,389s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 32i,13n,45p,1451b,492s stack positions out of 5000i,500n,10000p,200000b,80000s
 pdfTeX warning (dest): name{Hfootnote.4} has been referenced but does not exi
 st, replaced by a fixed one
 
@@ -1150,10 +1142,10 @@ s/type1/public/txfonts/txsy.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1
 /urw/times/utmb8a.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/urw/times
 /utmr8a.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/urw/times/utmr8a.pf
 b></usr/local/texlive/2017/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on mlp-cw1-template.pdf (10 pages, 359716 bytes).
+Output written on mlp-cw1-template.pdf (10 pages, 359736 bytes).
 PDF statistics:
- 280 PDF objects out of 1000 (max. 8388607)
- 247 compressed objects within 3 object streams
+ 273 PDF objects out of 1000 (max. 8388607)
+ 240 compressed objects within 3 object streams
  75 named destinations out of 1000 (max. 500000)
  46106 words of extra memory for PDF output out of 51595 (max. 10000000)
 
