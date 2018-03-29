@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.11.13)  28 MAR 2018 18:24
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.11.13)  29 MAR 2018 10:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -653,6 +653,12 @@ LaTeX Info: Redefining \addtolength on input line 81.
 \c@ALC@rem=\count121
 \ALC@tlm=\skip59
 )
+(/usr/local/texlive/2017/texmf-dist/tex/latex/appendix/appendix.sty
+Package: appendix 2009/09/02 v1.2b extra appendix facilities
+\c@@pps=\count122
+\c@@ppsavesec=\count123
+\c@@ppsaveapp=\count124
+)
 (/usr/local/texlive/2017/texmf-dist/tex/latex/hyperref/hyperref.sty
 Package: hyperref 2017/03/14 v6.85a Hypertext links for LaTeX
 
@@ -709,15 +715,15 @@ Package: auxhook 2016/05/16 v1.4 Hooks for auxiliary files (HO)
 Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
 )
 \@linkdim=\dimen120
-\Hy@linkcounter=\count122
-\Hy@pagecounter=\count123
+\Hy@linkcounter=\count125
+\Hy@pagecounter=\count126
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/hyperref/pd1enc.def
 File: pd1enc.def 2017/03/14 v6.85a Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
 ... no UTF-8 mapping file for font encoding PD1
 )
-\Hy@SavedSpaceFactor=\count124
+\Hy@SavedSpaceFactor=\count127
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/latexconfig/hyperref.cfg
 File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
@@ -729,7 +735,7 @@ Package hyperref Info: Plain pages OFF on input line 4513.
 Package hyperref Info: Backreferencing OFF on input line 4518.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4751.
-\c@Hy@tempcnt=\count125
+\c@Hy@tempcnt=\count128
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip11
@@ -737,7 +743,7 @@ Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
 LaTeX Info: Redefining \url on input line 5104.
 \XeTeXLinkMargin=\dimen121
-\Fld@menulength=\count126
+\Fld@menulength=\count129
 \Field@Width=\dimen122
 \Fld@charsize=\dimen123
 Package hyperref Info: Hyper figures OFF on input line 6358.
@@ -749,17 +755,17 @@ Package hyperref Info: Link coloring with OCG OFF on input line 6383.
 Package hyperref Info: PDF/A mode OFF on input line 6388.
 LaTeX Info: Redefining \ref on input line 6428.
 LaTeX Info: Redefining \pageref on input line 6432.
-\Hy@abspage=\count127
-\c@Item=\count128
-\c@Hfootnote=\count129
+\Hy@abspage=\count130
+\c@Item=\count131
+\c@Hfootnote=\count132
 )
 
 Package hyperref Message: Driver (autodetected): hpdftex.
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/hyperref/hpdftex.def
 File: hpdftex.def 2017/03/14 v6.85a Hyperref driver for pdfTeX
-\Fld@listcount=\count130
-\c@bookmark@seq@number=\count131
+\Fld@listcount=\count133
+\c@bookmark@seq@number=\count134
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty
 Package: rerunfilecheck 2016/05/16 v1.8 Rerun checks for auxiliary files (HO)
@@ -797,20 +803,20 @@ Package: forloop 2006/09/18 v3.0 For Loops for LaTeX
 )
 Package hyperref Info: Option `colorlinks' set `true' on input line 101.
 \titrun=\box31
-\c@@affiliationcounter=\count132
-\c@@affilnum=\count133
+\c@@affiliationcounter=\count135
+\c@@affilnum=\count136
 \newcaptionbox=\box32
 \newcaptionboxwid=\dimen124
 \icmlrulerbox=\box33
-\icmlrulercount=\count134
+\icmlrulercount=\count137
 \icmlruleroffset=\dimen125
 \cv@lineheight=\dimen126
 \cv@boxheight=\dimen127
 \cv@tmpbox=\box34
-\cv@refno=\count135
-\cv@tot=\count136
-\cv@tmpc@=\count137
-\cv@tmpc=\count138
+\cv@refno=\count138
+\cv@tot=\count139
+\cv@tmpc@=\count140
+\cv@tmpc=\count141
 )
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... none found.
@@ -818,49 +824,49 @@ Package csquotes Info: ... none found.
 (./mlp-cw1-template.aux)
 \openout1 = `mlp-cw1-template.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/txmi/m/it on input line 61.
-LaTeX Font Info:    Try loading font information for OML+txmi on input line 61.
+LaTeX Font Info:    Checking defaults for OML/txmi/m/it on input line 62.
+LaTeX Font Info:    Try loading font information for OML+txmi on input line 62.
 
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/txfonts/omltxmi.fd
 File: omltxmi.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for OMS/txsy/m/n on input line 61.
-LaTeX Font Info:    Try loading font information for OMS+txsy on input line 61.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for OMS/txsy/m/n on input line 62.
+LaTeX Font Info:    Try loading font information for OMS+txsy on input line 62.
 
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/txfonts/omstxsy.fd
 File: omstxsy.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for OMX/txex/m/n on input line 61.
-LaTeX Font Info:    Try loading font information for OMX+txex on input line 61.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for OMX/txex/m/n on input line 62.
+LaTeX Font Info:    Try loading font information for OMX+txex on input line 62.
 
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/txfonts/omxtxex.fd
 File: omxtxex.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for U/txexa/m/n on input line 61.
-LaTeX Font Info:    Try loading font information for U+txexa on input line 61.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for U/txexa/m/n on input line 62.
+LaTeX Font Info:    Try loading font information for U+txexa on input line 62.
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/txfonts/utxexa.fd
 File: utxexa.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Try loading font information for T1+txr on input line 61.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Try loading font information for T1+txr on input line 62.
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/txfonts/t1txr.fd
 File: t1txr.fd 2000/12/15 v3.1
 )
-LaTeX Info: Redefining \microtypecontext on input line 61.
+LaTeX Info: Redefining \microtypecontext on input line 62.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
@@ -876,16 +882,16 @@ File: mt-ptm.cfg 2006/04/20 v1.7 microtype config. file: Times (RS)
 )
 (/usr/local/texlive/2017/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count139
+\scratchcounter=\count142
 \scratchdimen=\dimen128
 \scratchbox=\box35
-\nofMPsegments=\count140
-\nofMParguments=\count141
+\nofMPsegments=\count143
+\nofMParguments=\count144
 \everyMPshowfont=\toks29
-\MPscratchCnt=\count142
+\MPscratchCnt=\count145
 \MPscratchDim=\dimen129
-\MPnumerator=\count143
-\makeMPintoPDFobject=\count144
+\MPnumerator=\count146
+\makeMPintoPDFobject=\count147
 \everyMPtoPDFconversion=\toks30
 ) (/usr/local/texlive/2017/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
@@ -905,7 +911,7 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 \AtBeginShipoutBox=\box36
-Package hyperref Info: Link coloring ON on input line 61.
+Package hyperref Info: Link coloring ON on input line 62.
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
@@ -913,11 +919,11 @@ Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 (/usr/local/texlive/2017/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count145
+\c@section@level=\count148
 )
-LaTeX Info: Redefining \ref on input line 61.
-LaTeX Info: Redefining \pageref on input line 61.
-LaTeX Info: Redefining \nameref on input line 61.
+LaTeX Info: Redefining \ref on input line 62.
+LaTeX Info: Redefining \pageref on input line 62.
+LaTeX Info: Redefining \nameref on input line 62.
 
 (./mlp-cw1-template.out) (./mlp-cw1-template.out)
 \@outlinefile=\write3
@@ -926,11 +932,11 @@ LaTeX Info: Redefining \nameref on input line 61.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\\' on input line 72.
+(hyperref)                removing `\\' on input line 73.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\\' on input line 72.
+(hyperref)                removing `\\' on input line 73.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -943,31 +949,31 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [2]
-LaTeX Font Info:    Try loading font information for OT1+txr on input line 169.
+LaTeX Font Info:    Try loading font information for OT1+txr on input line 171.
 
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/txfonts/ot1txr.fd
 File: ot1txr.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    Try loading font information for U+txsya on input line 169.
+LaTeX Font Info:    Try loading font information for U+txsya on input line 171.
 
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/txfonts/utxsya.fd
 File: utxsya.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    Try loading font information for U+txsyb on input line 169.
+LaTeX Font Info:    Try loading font information for U+txsyb on input line 171.
 
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/txfonts/utxsyb.fd
 File: utxsyb.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    Try loading font information for U+txmia on input line 169.
+LaTeX Font Info:    Try loading font information for U+txmia on input line 171.
 
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/txfonts/utxmia.fd
 File: utxmia.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    Try loading font information for U+txsyc on input line 169.
+LaTeX Font Info:    Try loading font information for U+txsyc on input line 171.
 
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/txfonts/utxsyc.fd
@@ -979,28 +985,28 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [3]
-<accuracy_reduction_00.png, id=109, 390.45876pt x 279.0425pt>
+<accuracy_reduction_00.png, id=108, 390.45876pt x 279.0425pt>
 File: accuracy_reduction_00.png Graphic file (type png)
 
 <use accuracy_reduction_00.png>
-Package pdftex.def Info: accuracy_reduction_00.png used on input line 238.
+Package pdftex.def Info: accuracy_reduction_00.png used on input line 236.
 (pdftex.def)             Requested size: 175.7048pt x 125.56795pt.
 
-<accuracy_reduction_01.png, id=111, 390.45876pt x 279.0425pt>
+<accuracy_reduction_01.png, id=110, 390.45876pt x 279.0425pt>
 File: accuracy_reduction_01.png Graphic file (type png)
 
 <use accuracy_reduction_01.png>
-Package pdftex.def Info: accuracy_reduction_01.png used on input line 243.
+Package pdftex.def Info: accuracy_reduction_01.png used on input line 241.
 (pdftex.def)             Requested size: 175.7048pt x 125.56795pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
-<behaviour_rotated.png, id=119, 803.0pt x 351.3125pt>
+<behaviour_rotated.png, id=118, 803.0pt x 351.3125pt>
 File: behaviour_rotated.png Graphic file (type png)
 
 <use behaviour_rotated.png>
-Package pdftex.def Info: behaviour_rotated.png used on input line 324.
+Package pdftex.def Info: behaviour_rotated.png used on input line 322.
 (pdftex.def)             Requested size: 321.1943pt x 140.5225pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1062,24 +1068,70 @@ Overfull \hbox (20.11145pt too wide) in paragraph at lines 123--130
 eural-[]networks .
  []
 
-)
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 437.
- [9]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 437.
+) [9] <animatedface.png, id=222, 633.567pt x 77.69025pt>
+File: animatedface.png Graphic file (type png)
+
+<use animatedface.png>
+Package pdftex.def Info: animatedface.png used on input line 441.
+(pdftex.def)             Requested size: 483.6911pt x 71.13327pt.
+
+Overfull \hbox (251.08983pt too wide) in paragraph at lines 441--442
+ [] 
+ []
+
+pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) ha
+s been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.442 ...tion{Animated facial expression dataset.}
+                                                  pdfTeX warning (ext4): destin
+ation with the same identifier (name{figure.1}) has been already used, duplicat
+e ignored
+<to be read again> 
+                   \relax 
+l.442 ...tion{Animated facial expression dataset.}
+                                                  
+<jpwomen.jpg, id=223, 840.13875pt x 184.69pt>
+File: jpwomen.jpg Graphic file (type jpg)
+ <use jpwomen.jpg>
+Package pdftex.def Info: jpwomen.jpg used on input line 449.
+(pdftex.def)             Requested size: 483.69136pt x 71.13263pt.
+
+Overfull \hbox (251.09009pt too wide) in paragraph at lines 449--450
+ [] 
+ []
+
+pdfTeX warning (ext4): destination with the same identifier (name{figure.2}) ha
+s been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.450 ...panese female facial expression dataset.}
+                                                  pdfTeX warning (ext4): destin
+ation with the same identifier (name{figure.2}) has been already used, duplicat
+e ignored
+<to be read again> 
+                   \relax 
+l.450 ...panese female facial expression dataset.}
+                                                  
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 457.
+ [10
+
+ <./animatedface.png> <./jpwomen.jpg>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 457.
  (./mlp-cw1-template.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 437.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 437.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 457.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 457.
 Package rerunfilecheck Info: File `mlp-cw1-template.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 11204 strings out of 492995
- 160962 string characters out of 6132703
- 308670 words of memory out of 5000000
- 14154 multiletter control sequences out of 15000+600000
- 79593 words of font info for 326 fonts, out of 8000000 for 9000
+ 11305 strings out of 492995
+ 162497 string characters out of 6132703
+ 310189 words of memory out of 5000000
+ 14254 multiletter control sequences out of 15000+600000
+ 78052 words of font info for 321 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 32i,13n,45p,1346b,387s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 32i,13n,45p,1451b,389s stack positions out of 5000i,500n,10000p,200000b,80000s
 pdfTeX warning (dest): name{Hfootnote.4} has been referenced but does not exi
 st, replaced by a fixed one
 
@@ -1098,10 +1150,10 @@ s/type1/public/txfonts/txsy.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1
 /urw/times/utmb8a.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/urw/times
 /utmr8a.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/urw/times/utmr8a.pf
 b></usr/local/texlive/2017/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on mlp-cw1-template.pdf (9 pages, 181807 bytes).
+Output written on mlp-cw1-template.pdf (10 pages, 359716 bytes).
 PDF statistics:
- 271 PDF objects out of 1000 (max. 8388607)
- 242 compressed objects within 3 object streams
- 74 named destinations out of 1000 (max. 500000)
- 46096 words of extra memory for PDF output out of 51595 (max. 10000000)
+ 280 PDF objects out of 1000 (max. 8388607)
+ 247 compressed objects within 3 object streams
+ 75 named destinations out of 1000 (max. 500000)
+ 46106 words of extra memory for PDF output out of 51595 (max. 10000000)
 
