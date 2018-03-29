@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.11.13)  29 MAR 2018 16:34
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.11.13)  29 MAR 2018 22:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -978,14 +978,14 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [3]
-<accuracy_reduction_00.png, id=103, 390.45876pt x 279.0425pt>
+<accuracy_reduction_00.png, id=104, 390.45876pt x 279.0425pt>
 File: accuracy_reduction_00.png Graphic file (type png)
 
 <use accuracy_reduction_00.png>
 Package pdftex.def Info: accuracy_reduction_00.png used on input line 223.
 (pdftex.def)             Requested size: 175.7048pt x 125.56795pt.
 
-<accuracy_reduction_01.png, id=105, 390.45876pt x 279.0425pt>
+<accuracy_reduction_01.png, id=106, 390.45876pt x 279.0425pt>
 File: accuracy_reduction_01.png Graphic file (type png)
 
 <use accuracy_reduction_01.png>
@@ -998,15 +998,12 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [4]
-<behaviour_rotated.png, id=126, 803.0pt x 351.3125pt>
+<behaviour_rotated.png, id=124, 803.0pt x 351.3125pt>
 File: behaviour_rotated.png Graphic file (type png)
 
 <use behaviour_rotated.png>
-Package pdftex.def Info: behaviour_rotated.png used on input line 310.
+Package pdftex.def Info: behaviour_rotated.png used on input line 311.
 (pdftex.def)             Requested size: 301.12427pt x 131.74185pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -1023,10 +1020,10 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
-(./mlp-cw1-template.bbl
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [8]
+(./mlp-cw1-template.bbl
 Underfull \hbox (badness 2600) in paragraph at lines 41--44
 []\T1/txr/m/n/10 (+20) Dinsmore, John.  \T1/txr/m/it/10 (+20) The sym-bolic and
  con-nec-tion-ist
@@ -1064,10 +1061,10 @@ eural-[]networks .
 File: animatedface.png Graphic file (type png)
 
 <use animatedface.png>
-Package pdftex.def Info: animatedface.png used on input line 425.
+Package pdftex.def Info: animatedface.png used on input line 444.
 (pdftex.def)             Requested size: 483.6911pt x 71.13327pt.
 
-Overfull \hbox (251.08983pt too wide) in paragraph at lines 425--426
+Overfull \hbox (251.08983pt too wide) in paragraph at lines 444--445
  [] 
  []
 
@@ -1075,21 +1072,21 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) ha
 s been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.426 ...tion{Animated facial expression dataset.}
+l.445 ...tion{Animated facial expression dataset.}
                                                   pdfTeX warning (ext4): destin
 ation with the same identifier (name{figure.1}) has been already used, duplicat
 e ignored
 <to be read again> 
                    \relax 
-l.426 ...tion{Animated facial expression dataset.}
+l.445 ...tion{Animated facial expression dataset.}
                                                   
 <jpwomen.jpg, id=216, 840.13875pt x 184.69pt>
 File: jpwomen.jpg Graphic file (type jpg)
  <use jpwomen.jpg>
-Package pdftex.def Info: jpwomen.jpg used on input line 433.
+Package pdftex.def Info: jpwomen.jpg used on input line 452.
 (pdftex.def)             Requested size: 483.69136pt x 71.13263pt.
 
-Overfull \hbox (251.09009pt too wide) in paragraph at lines 433--434
+Overfull \hbox (251.09009pt too wide) in paragraph at lines 452--453
  [] 
  []
 
@@ -1097,55 +1094,46 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.2}) ha
 s been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.434 ...panese female facial expression dataset.}
+l.453 ...panese female facial expression dataset.}
                                                   pdfTeX warning (ext4): destin
 ation with the same identifier (name{figure.2}) has been already used, duplicat
 e ignored
 <to be read again> 
                    \relax 
-l.434 ...panese female facial expression dataset.}
+l.453 ...panese female facial expression dataset.}
                                                   
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 441.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 460.
  [10
 
  <./animatedface.png> <./jpwomen.jpg>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 441.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 460.
  (./mlp-cw1-template.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 441.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 441.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 460.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 460.
 Package rerunfilecheck Info: File `mlp-cw1-template.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 11305 strings out of 492995
- 162497 string characters out of 6132703
- 307189 words of memory out of 5000000
- 14254 multiletter control sequences out of 15000+600000
- 78052 words of font info for 321 fonts, out of 8000000 for 9000
+ 11302 strings out of 492995
+ 162476 string characters out of 6132703
+ 306048 words of memory out of 5000000
+ 14256 multiletter control sequences out of 15000+600000
+ 79125 words of font info for 319 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 32i,13n,45p,1451b,492s stack positions out of 5000i,500n,10000p,200000b,80000s
-pdfTeX warning (dest): name{Hfootnote.4} has been referenced but does not exi
-st, replaced by a fixed one
-
-pdfTeX warning (dest): name{Hfootnote.3} has been referenced but does not exist
-, replaced by a fixed one
-
-pdfTeX warning (dest): name{Hfootnote.2} has been referenced but does not exist
-, replaced by a fixed one
-
-{/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/tex
-live/2017/texmf-dist/fonts/type1/public/txfonts/rtxbsc.pfb></usr/local/texlive/
-2017/texmf-dist/fonts/type1/public/txfonts/rtxi.pfb></usr/local/texlive/2017/te
-xmf-dist/fonts/type1/public/txfonts/rtxmi.pfb></usr/local/texlive/2017/texmf-di
-st/fonts/type1/public/txfonts/rtxr.pfb></usr/local/texlive/2017/texmf-dist/font
-s/type1/public/txfonts/txsy.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1
-/urw/times/utmb8a.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/urw/times
-/utmr8a.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/urw/times/utmr8a.pf
-b></usr/local/texlive/2017/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on mlp-cw1-template.pdf (10 pages, 359454 bytes).
+ 32i,12n,45p,1451b,387s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
+exlive/2017/texmf-dist/fonts/type1/public/txfonts/rtxbsc.pfb></usr/local/texliv
+e/2017/texmf-dist/fonts/type1/public/txfonts/rtxi.pfb></usr/local/texlive/2017/
+texmf-dist/fonts/type1/public/txfonts/rtxmi.pfb></usr/local/texlive/2017/texmf-
+dist/fonts/type1/public/txfonts/rtxr.pfb></usr/local/texlive/2017/texmf-dist/fo
+nts/type1/public/txfonts/txsy.pfb></usr/local/texlive/2017/texmf-dist/fonts/typ
+e1/urw/times/utmb8a.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/urw/tim
+es/utmr8a.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/urw/times/utmr8a.
+pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on mlp-cw1-template.pdf (10 pages, 359959 bytes).
 PDF statistics:
  273 PDF objects out of 1000 (max. 8388607)
  240 compressed objects within 3 object streams
- 75 named destinations out of 1000 (max. 500000)
+ 74 named destinations out of 1000 (max. 500000)
  46106 words of extra memory for PDF output out of 51595 (max. 10000000)
 
