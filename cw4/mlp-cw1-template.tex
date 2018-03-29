@@ -288,15 +288,16 @@ For each dataset, the configurations that provides the highest accuracy for the 
 
 \begin{table*}[!htb]
   \centering
-  \begin{tabular}{| l | l | l | l | l | l |}
+  \begin{tabular}{| l | l | l | l |}
     \hline
-    \textbf{Dataset} & \textbf{Size} & \textbf{RG\footnotemark wrt baseline} & \textbf{RG wrt DA\footnotemark} & \textbf{AG\footnotemark wrt baseline} & \textbf{AG wrt DA}\\ \hline
-    Clothes & 1\% & 1.5 & 0.99 & 0.25 & -0.01 \\ \hline
-    Clothes & 100\% & 1.52 & 1.02 & 0.27 & 0.02 \\ \hline
-    Expressions & 1\% & 1.56  & 1.13 & 0.18 & 0.06 \\ \hline
-    Expressions & 100\% & 1.47 & 1.02 & 0.16 & 0.01 \\ \hline
+    \textbf{Dataset} & \textbf{Size} & \textbf{RG} &\textbf{AG} \\ \hline
+    Clothes & 1\% & 1.5 & 0.25 \\ \hline
+    Clothes & 100\% & 1.52 & 0.27 \\ \hline
+    Expressions & 1\% & 1.56 & 0.18 \\ \hline
+    Expressions & 100\% & 1.47 & 0.16 \\ \hline
   \end{tabular}
-  \caption{Comparison of performance of transfer learning with respect to baseline system and data augmentation when dataset sizes are 1\% and 100\%. Relative gain is the ratio of the validation accuracies. Absolute gain is the difference of the validation accuracies.}
+  \caption{Relative and absolute gain when dataset sizes are
+1\% and 100\%.}
   \label{tab:tf_3}
 \end{table*}
 
@@ -318,22 +319,37 @@ In the case of the expressions dataset, the behaviour of the system is completel
 
 The proposed system provides some benefits when the number of samples in the datasets is small. Depending on the context of analysis, these benefits can be higher for one dataset or the other. At first, transfer learning seems to be more effective for the clothes dataset than for the expressions dataset as seen in Figure \ref{fig:tf_clot} and Figure \ref{fig:tf_exp}. This information provide an indication regarding the complexity of the images in every dataset. At a glance, the experimental results allows us to suggest that the features extracted from the clothes are less challenging to learn than those extracted from the expressions.
 
+\begin{equation}
+	RG = \frac{Val\ Acc_{tranfer\ learning}}{Val\ Acc_{baseline}}
+	\label{eq:eq1}
+\end{equation}
+
+	
+
+
+\begin{equation}
+	AG = Val\ Acc_{tranfer\ learning} - Val\ Acc_{baseline}
+	\label{eq:eq2}
+\end{equation}
+
 % work around for getting footnotes in tables, see: https://tex.stackexchange.com/questions/1583/footnotes-in-tables
 
-\addtocounter{footnote}{-2}
-\footnotetext[2]{RG for Relative gain.}
-\addtocounter{footnote}{1}
-\footnotetext[3]{DA for data augmentation.}
-\addtocounter{footnote}{1}
-\footnotetext[4]{AG for absolute gain.}
+%\addtocounter{footnote}{-2}
+%\footnotetext[2]{RG for Relative gain.}
+%\addtocounter{footnote}{1}
+%\footnotetext[3]{DA for data augmentation.}
+%\addtocounter{footnote}{1}
+%\footnotetext[4]{AG for absolute gain.}
 
 % end of workaround
 
-A further analysis allows us to state that the knowledge obtained by VGG16 from the ImageNet dataset was more beneficial for the expressions dataset in terms of relative gain. The validation accuracy ratios between the transfer learning and the baseline experiments are 1.5 and 1.56 for the clothes and expressions dataset respectively. This might indicate that VGG16 extracted features that were more relevant for expressions rather than for clothes.
+A further analysis requires to compare the validation accuracy between transfer learning and the baseline system. Two relations help to better understand the benefits of transfer learning. The first is relative gain, defined as the ratio between the validation accuracy from transfer learning and the validation accuracy from the baseline system as seen in expression \ref{eq:eq1}. The second relation is absolute gain, defined as the difference between the validation accuracy from transfer learning and the validation accuracy from the baseline system as seen in expression \ref{eq:eq2}.
 
-In absolute values, the knowledge from VGG16 in terms of validation accuracy was more beneficial for the clothes dataset. The additional validation accuracies obtained from transfer learning compared to the baseline system were 0.25 and 0.18 for the clothes and expressions dataset, respectively, as seen in \ref{tab:tf_3}. Even though the extracted features from VGG16 could have been more relevant for expressions, they were good enough to increase the performance of the system for clothes.
+The use of the previous relations allows us to state that the knowledge obtained by VGG16 from the ImageNet dataset was more beneficial for the expressions dataset in terms of relative gain. The relative gain values are 1.5 and 1.56 for the clothes and expressions dataset respectively. This might indicate that VGG16 extracted features that were more relevant for expressions rather than for clothes.
 
-However, the additional validation accuracies compared to the data augmentation experiments are -0.01 and 0.06. Therefore, the benefits of data augmentation are comparable to the benefits of transfer learning for the clothes dataset. One possible explanation is in the kind of information obtained from images. 
+In terms of absolute gain, the knowledge from VGG16 was more beneficial for the clothes dataset. The additional validation accuracies obtained from transfer learning compared to the baseline system were 0.25 and 0.18 for the clothes and expressions dataset, respectively, as seen in \ref{tab:tf_3}. Even though the extracted features from VGG16 could have been more relevant for expressions, they were good enough to increase the performance of the system for clothes.
+
+However, comparing the results of transfer learning with the ones obtained from data augmentation, we see that the values are dispair as seen in \ref{tab:tf_2}. The validation accuracy is almost the same for the clothes dataset when the size is 1\% . For expressions, the difference is higher, 0.44 for data augmentation and 0.50 for transfer learning.Therefore, the benefits of data augmentation are comparable to the benefits of transfer learning for the clothes dataset. One possible explanation is in the kind of information obtained from images.
 
 Convolutional layers extract information about the local spatial correlation of images. The result of this process is the detection of edges, shapes, patterns and other geometric information. The baseline system was shallow and only contained one convolutional layer. Thus, the geometric information extracted from this single layer along with data augmentation provided enough elements to increase the performance in the classification task in a way that it was comparable to the benefits obtained from transfer learning. 
 
