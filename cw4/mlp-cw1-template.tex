@@ -274,31 +274,16 @@ For each dataset, the configurations that provides the highest accuracy for the 
 
 \begin{table*}[!htb]
   \centering
-  \begin{tabular}{| l | l | l | l | l | l |}
+  \begin{tabular}{| l | l | l | l | l | l | l | l |}
     \hline
-    \textbf{Dataset} & \textbf{Size} & \textbf{Baseline} & \textbf{Data Augmentation}& \textbf{Transfer learning} \\ \hline
-    Clothes & 1\% & 0.50 & 0.76 & 0.75 \\ \hline
-    Clothes & 100\% & 0.51 & 0.76 & 0.78 \\ \hline
-    Expressions & 1\% & 0.32  & 0.44 & 0.50 \\ \hline
-    Expressions & 100\% & 0.34  & 0.49 & 0.50 \\ \hline
+    \textbf{Dataset} & \textbf{Size} & \textbf{Baseline} & \textbf{Data Augmentation}& \textbf{Transfer learning} & \textbf{RG} &\textbf{AG}\\ \hline
+    Clothes & 1\% & 0.50 & 0.76 & 0.75 & 1.5 & 0.25\\ \hline
+    Clothes & 100\% & 0.51 & 0.76 & 0.78 & 1.52 & 0.27\\ \hline
+    Expressions & 1\% & 0.32  & 0.44 & 0.50 & 1.56 & 0.18\\ \hline
+    Expressions & 100\% & 0.34  & 0.49 & 0.50 & 1.47 & 0.16\\ \hline
   \end{tabular}
-  \caption{Validation accuracy for baseline system, data augmentation, and transfer learning when dataset sizes are 1\% and 100\%}
+  \caption{Validation accuracy for baseline system, data augmentation, and transfer learning. Relative gain (RG) and absolute gain (AG).}
   \label{tab:tf_2}
-\end{table*}
-
-\begin{table*}[!htb]
-  \centering
-  \begin{tabular}{| l | l | l | l |}
-    \hline
-    \textbf{Dataset} & \textbf{Size} & \textbf{RG} &\textbf{AG} \\ \hline
-    Clothes & 1\% & 1.5 & 0.25 \\ \hline
-    Clothes & 100\% & 1.52 & 0.27 \\ \hline
-    Expressions & 1\% & 1.56 & 0.18 \\ \hline
-    Expressions & 100\% & 1.47 & 0.16 \\ \hline
-  \end{tabular}
-  \caption{Relative and absolute gain when dataset sizes are
-1\% and 100\%.}
-  \label{tab:tf_3}
 \end{table*}
 
 As seen in Figure \ref{fig:tf_beh}, the behaviour of the system for the smallest sizes is stabler for the clothes than for the expressions. In the case of the clothes dataset, for 1\% and 0.1\% of the original size, the system reaches a point where it starts to overfit. However, it is noticeable how the configuration of the system is robust enough to try to minimise overfitting. Evidently, the number of available images play an important role in the reduction of the error. The minimum validation error of 0.1\% is reached around the 30\textsuperscript{th} epoch. For 1\%, the minimum validation error is reached around epoch number 50.
@@ -319,7 +304,6 @@ In the case of the expressions dataset, the behaviour of the system is completel
 \subsubsection{\textbf{Interpretation and Discussion}}
 
 The proposed system provides some benefits when the number of samples in the datasets is small. Depending on the context of analysis, these benefits can be higher for one dataset or the other. At first, transfer learning seems to be more effective for the clothes dataset than for the expressions dataset as seen in Figure \ref{fig:tf_clot} and Figure \ref{fig:tf_exp}. This information provide an indication regarding the complexity of the images in every dataset. At a glance, the experimental results allows us to suggest that the features extracted from the clothes are less challenging to learn than those extracted from the expressions.
-
 
 \begin{equation}
 	RG = \frac{Val\ Acc_{tranfer\ learning}}{Val\ Acc_{baseline}}
@@ -350,13 +334,13 @@ A further analysis requires to compare the validation accuracy between transfer 
 
 The use of the previous relations allows us to state that the knowledge obtained by VGG16 from the ImageNet dataset was more beneficial for the expressions dataset in terms of relative gain. The relative gain values are 1.5 and 1.56 for the clothes and expressions dataset respectively. This might indicate that VGG16 extracted features that were more relevant for expressions rather than for clothes.
 
-In terms of absolute gain, the knowledge from VGG16 was more beneficial for the clothes dataset. The additional validation accuracies obtained from transfer learning compared to the baseline system were 0.25 and 0.18 for the clothes and expressions dataset, respectively, as seen in Table \ref{tab:tf_3}. Even though the extracted features from VGG16 could have been more relevant for expressions, they were good enough to increase the performance of the system for clothes.
+In terms of absolute gain, the knowledge from VGG16 was more beneficial for the clothes dataset. The additional validation accuracies obtained from transfer learning compared to the baseline system were 0.25 and 0.18 for the clothes and expressions dataset, respectively, as seen in Table \ref{tab:tf_2}. Even though the extracted features from VGG16 could have been more relevant for expressions, they were good enough to increase the performance of the system for clothes.
 
 However, comparing the results of transfer learning with the ones obtained from data augmentation, we see that the values are dissimilar as seen in Table \ref{tab:tf_2}. The validation accuracy is almost the same for the clothes dataset when the size is 1\% . For expressions, the difference is higher, 0.44 for data augmentation and 0.50 for transfer learning for the same size of dataset. Therefore, the benefits of data augmentation are comparable to the benefits of transfer learning for the clothes dataset. One possible explanation is in the kind of information obtained from images.
 
 Convolutional layers extract information about the local spatial correlation of images. The result of this process is the detection of edges, shapes, patterns and other geometric information. The baseline system was shallow and only contained one convolutional layer. Thus, the geometric information extracted from this single layer along with data augmentation provided enough elements to increase the performance in the classification task in a way that it was comparable to the benefits obtained from the knowledge of a deep architecture. 
 
-When comparing the benefits of transfer learning under the conditions of low and high number of samples, the results are dissimilar. First, the benefits are higher when the number of clothes samples is higher as seen in Table \ref{tab:tf_3}. The relative and absolute gains are higher when using 100\% of the clothes dataset. In the other hand, the benefits are higher when the number of expressions samples is lower. The relative and absolute gains are higher when using only 1\% of the expressions dataset.
+When comparing the benefits of transfer learning under the conditions of low and high number of samples, the results are dissimilar. First, the benefits are higher when the number of clothes samples is higher as seen in Table \ref{tab:tf_2}. The relative and absolute gains are higher when using 100\% of the clothes dataset. In the other hand, the benefits are higher when the number of expressions samples is lower. The relative and absolute gains are higher when using only 1\% of the expressions dataset.
 
 \subsection{Siamese Neural Network}
 
