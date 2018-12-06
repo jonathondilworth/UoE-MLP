@@ -1,10 +1,13 @@
 ### Draft Interim Report
 
+(not totally sure which branch was the most recent, as this was a project from last year, created a pull request for what seemed like the most recent branch)
+
 **Abstract**
 
 *WRITE THIS LAST*
 
 **1. Introduction and Motivation**
+
 
 During the last six years there has been an increase in popularity of connectionist based approaches (specifically, variations on deep neural network architectures) to solving vision based pattern recognition problems [INSERT REFERENCE HERE]. This surge in popularity has been the result of numerous advancements, including an increase in the amount of available training data and compute power [INSERT REFERENCE HERE], as is demonstrated in [INSERT AlexNet, VGGNet, LeNet references here]. Although deep neural networks work well with large amounts of training data [INSERT REFERENCE HERE], the performance of these models typically drops off in situations where only small amounts of training data is available [INSERT REFERENCE TO LEARNING CURVE HERE]. This poses a problem to smaller businesses and organisations who may not have the appropriate amount of data to utilise these emergent technologies. Such a problem motivates the investigation presented within this (and the forthcoming) report that examines the application of fruitful techniques (specifically, transfer learning) to boost the performance of deep neural network architectures using small datasets.
 
@@ -37,8 +40,6 @@ Research question 2 has already been well researched within the literature [INSE
 
 **2.2. Future Research Questions**
 
-*TODO: write a chaining paragraph to connect 2.1. to 2.2. and introduce the following research questions:*
-
 1. How does applying transfer learning on to deep convolutional neural networks improve the performance of classification tasks?
 2. How does transfer learning perform on convolutional neural networks when the size of the dataset used to tune the network is greatly reduced in size?
 3. How can deep feature extraction be used in order to improve the performance of small datasets on deep neural network architectures?
@@ -50,13 +51,10 @@ To investigate whether subtle and obvious differences between classes given same
 
 To try and find a good method of improving performance on the same task using a smaller version of the same dataset in combination with techniques.
 
-*Notes*
-
-*TODO: expand on this, note: it's important to contextualise your research questions in terms of aims and objectives.*
-
-*TODO: Document how the aforementioned research questions differ from those already addressed by the established research?*
-
-*TODO: We could break this section up into the following based on the cw3.pdf document that is up on the MLP website: Core Objectives, Optional Objectives.*
+1. How does applying transfer learning on  deep convolutional neural networks improve the performance of classification tasks?
+2. How does transfer learning perform when the size of the dataset used to tune the network is greatly reduced in size?
+3. (not included?)How can deep feature extraction be used in order to improve the performance of small datasets on deep neural network architectures?
+4. How does one shot learning methods such as Siamese Network perform on small datasets within classification tasks? (if time allows us to research this) *todo: clean up wording of research question*
 
 **2.4. Hypotheses**
 
@@ -81,11 +79,10 @@ To try and find a good method of improving performance on the same task using a 
 
 **4. Methodology**
 
-*Notes*
-Draft by Steven:
 In the first phrase of our project, the two research questions are first examined to create a baseline system for further work in transfer learning.
 Both of two image databases are subjected to pre-processing before using as inputs in neural network. In the facial expression dataset,
-original png files with 256x256 pixels are downscaled to 28x28 pixels so as to be comparable with the default pixels in clothes dataset.
+
+Original png files with 256x256 pixels are downscaled to 28x28 pixels so as to be comparable with the default pixels in clothes dataset.
 To understand the effect of the subtle and obvious feature differences between classes on performances (prediction accuracy, error) for  distinctive tasks, 30k images from both clothes dataset and facial dataset are evaluated on convolutional netural network respectively by performing multi-class classification task. Firstly, the architecture consists of three convolutional layers with one max-pooling Relu layer in between.The final layer is then flattened to produce one numerical output with catagorical cross-entropy as loss function (maybe add one more softmax layer before flattening to increase stability as suggested by MLP lecture?). For the optimizer, Adam or RMSprop would be used. Weight and bias is also initialized using (gloro-bengio ini. ?, random ?). After inspecting the results from first experiment. Same task is performed on much smaller dataset to investigate the discrepency of size of dataset on classification performance. (1000 dataset maybe?). By implemening the two experiments, baseline systems could be set up to investigate possible strategies to perform prediction/classification task given very small dataset which is the main goal of our project.
 
 In the second phrase of the project, two different transfer learning methods will be studied to examine potential methods to improve performances given very small dataset which is frequent in real-world scenario. Firstly, we transfer a very large pretrained network VGG16 on our aforementioned baseline system with pretrained weights on small dataset. Since VGG16 trains on 200 types of general objects. The generality of the model might be beneficial to train on common objects (clothes dataset). Apart from transferring model to domain-specific dataset (clothes dataset). We also transfer the model to dataset with unrelated and subtle differences between classes in the dataset (facial dataset), to test the effectiveness of pretrained model on task that shares little similarity with the pretrained model. 
