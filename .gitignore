@@ -10,3 +10,4 @@ data/clothes_train.npz
 data/IMFDB_final/
 data/fashion_mnist/
 baseline/prev
+*.hdf
